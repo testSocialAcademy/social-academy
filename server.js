@@ -1,8 +1,8 @@
-var server=require('node-http-server');
+var server = require('node-http-server');
 
 server.deploy(
     {
-        port:8000,
-        root:'app/'
+        port: 8000,
+        root: 'app/'
     }
 );
