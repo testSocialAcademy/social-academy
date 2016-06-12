@@ -2,9 +2,10 @@
 
 Site for the best students in PHP Academy
 
-###Project requirements
+### Project requirements
 
 1. site with 2 columns:
+
         a) left column - avatar and avatar
         b) right column - short information about the person
           - name, surname
@@ -13,16 +14,17 @@ Site for the best students in PHP Academy
           
 2. right column should have slider with pictures
 
-###Specification
+### Specification
 
 (tasks with * is not binding)
 
-1. Use HTM5 and CSS3
-    *create adaptive design
-    *use less
-    *use bootstrap
+1. Use HTM5 and CSS3 
+
+        *create adaptive design
+        *use less
+        *use bootstrap
     
-###Instruction
+### Instruction
 
 1. install node.js version 5.9.1 or less
 2. n console write `npm install`
