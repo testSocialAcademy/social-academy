@@ -18,9 +18,9 @@ title.addEventListener("click", function (){
         list.style.display="block";
     }
 });
-/*
+
 var title1 = document.getElementById('title1');
-var list1 = document.getElementById ('list1');
+var list1 = document.getElementById ('hobbiesList');
 title1.addEventListener("click", function (){
     if(!list1.style.display || list1.style.display=="block"){
         list1.style.display="none";
@@ -28,4 +28,4 @@ title1.addEventListener("click", function (){
         list1.style.display="block";
     }
 });
-*/
+
