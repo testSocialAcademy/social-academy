@@ -1,16 +1,10 @@
-'use strict'
-function Hobbies() {
-    var hobbies = ["Компьютеры", "Программирование", "Web-дизайн", "IT технологии", "Спорт", "Автомобили", "Мотоциклы"];
-    for (var i = 0; i <hobbies.length; i++) {
-        var li = document.createElement('li');
-        li.innerHTML = hobbies[i];
-        hobbiesList.appendChild(li);
-    }
-}
-Hobbies();
 
-var title = document.getElementById('title');
-var list = document.getElementById ('list');
+//noinspection JSAnnotator
+'use strict'
+(function() {
+    var title;
+    title = document.getElementById('title');
+    var list = document.getElementById ('list');
 title.addEventListener("click", function (){
     if(!list.style.display || list.style.display=="block"){
         list.style.display="none";
@@ -28,4 +22,13 @@ title1.addEventListener("click", function (){
         list1.style.display="block";
     }
 });
-
+function Hobbies() {
+    var hobbies = ["Компьютеры", "Программирование", "Web-дизайн", "IT", "Спорт", "Автомобили", "Мотоциклы"];
+    for (var i = 0; i <hobbies.length; i++) {
+        var li = document.createElement('li');
+        li.innerHTML = hobbies[i];
+        hobbiesList.appendChild(li);
+    }
+}
+Hobbies();
+})();
