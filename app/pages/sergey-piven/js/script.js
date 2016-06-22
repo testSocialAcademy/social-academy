@@ -7,5 +7,4 @@ for (var i = 0; i <hobbies.length; i++) {
     li.innerHTML = hobbies[i];
     hobbiesInterests.appendChild(li);
 }
-
 })();

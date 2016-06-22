@@ -16,11 +16,35 @@ ul {
 }
 
 .main {
-    margin: 0 20px 0 450px;
+    margin: 20px 20px 0 450px;
     border: 3px #CCCCCC solid;
     border-radius: 15px;
     background-color: #ECECEC;
     padding: 0 50px 20px 50px;
+}
+
+.news {
+    margin: 20px 20px 0 450px;
+    border: 3px #CCCCCC solid;
+    border-radius: 15px;
+    background-color: #ECECEC;
+    padding: 20px 50px 20px 50px;
+}
+
+.news ul {
+    margin: 15px 0;
+}
+
+.news ul li:first-child {
+    text-decoration: underline;
+}
+
+.news ul li a {
+    color: #c9302c;
+}
+
+.news ul li a:hover {
+    text-decoration: underline;
 }
 
 .avatar {
