@@ -30,7 +30,6 @@ header {
      margin-left: 10px;
      background-color: white;
      border-radius: 10px;
-
  }
  footer {
      height: 42px;
@@ -42,7 +41,7 @@ header {
  }
 .logo {
     margin: 4px;
-    font-family: "Indie Flower"; color: #edeef0;
+    font-family: "Indie Flower",sans-serif; color: #edeef0;
     font-size: 30px;
     float: left;
     text-align: center;

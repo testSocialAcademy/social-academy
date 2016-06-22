@@ -1,6 +1,6 @@
 
 //noinspection JSAnnotator
-'use strict'
+'use strict';
 (function() {
     var title;
     title = document.getElementById('title');
