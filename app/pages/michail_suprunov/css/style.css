@@ -1,0 +1,54 @@
+[class*="col-"] {
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-size: 2rem;
+   }
+body {
+	background: url(../../../img/michail_suprunov/background.png);
+}
+   .header-wrapper {
+	background-color: #3CAFE2;
+}
+.main-header {
+	padding: 3px 0;
+}
+.main-nav ul {
+	list-style-type: none;
+	padding: 0;
+	text-align: left
+}
+.main-info {
+	height:100%;
+	padding-top:0;
+	overflow: hidden;
+}
+.personal-data {
+		text-align: left;
+}
+
+@media (max-width: 767px) {
+	.main-nav {
+		margin: 0;
+		padding: 0;
+		color:white;
+	}
+	.main-nav ul {
+		display: flex;
+		justify-content: center;
+		margin: 0;
+	}
+	.main-nav li:last-child {
+		border-right:none;
+	}
+	.main-nav li {
+		flex: 1;
+		text-align: center;
+		border-right: 1px solid black;
+		padding: 5px 2px;
+	}
+	.nav-wrapper {
+		clear: both;
+		background-color: #E9EF06;
+	}
+}
