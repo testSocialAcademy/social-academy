@@ -1,16 +1,14 @@
 'use strict'
-function displayHobbies() {
-
+function Hobbies() {
     var hobbies = ["Компьютеры", "Программирование", "Web-дизайн", "IT технологии", "Спорт", "Автомобили", "Мотоциклы"];
-
     for (var i = 0; i <hobbies.length; i++) {
         var li = document.createElement('li');
         li.innerHTML = hobbies[i];
         hobbiesList.appendChild(li);
     }
-
 }
-displayHobbies();
+Hobbies();
+
 var title = document.getElementById('title');
 var list = document.getElementById ('list');
 title.addEventListener("click", function (){
