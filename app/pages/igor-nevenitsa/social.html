@@ -60,27 +60,10 @@
             <li class="list-group-item">Residence:	Medina, Washington, U.S.</li>
             <li class="list-group-item">Board member of	Microsoft
                 Berkshire Hathaway</li>
-            <li id="hobby" class="list-group-item ">
+            <li id="hobby" class="list-group-item "> Hobby: </li>
 <script>
 
-    /*
-    var ul = document.createElement('ul');
-    document.body.appendChild(ul);
-
-    while(true) {
-        prompt("enter txt", "");
-        if (!data) {
-            break;
-        }
-        var li = document.createElement("li");
-        li.appendChild(document.createTextNode(data));
-        ul.appendChild(li);
-    }
-    function divText();
-     */
-
-
-  /*      function divText()
+        function divText()
 
         {
 
@@ -91,30 +74,22 @@
             for(i=0;i<b.length;i++)
 
             {
-                b[i].innerHTML = a[i];
+                b.innerHTML = a[i];
+
+
+            }
+            for(i=0;i<a.length;i++)
+            {
+                var li = document.createElement("li");
+                li.appendChild(document.createTextNode(a[i]));
+                b.appendChild(li);
             }
         }
         divText()
 
         var elem = document.getElementById('hobby');
-        elem.style.background = 'red';
+        elem.style.background = 'lightblue';
 
-   */
-
-/*
-         var arr = ['Coding', 'Investing', 'Golf'];
-        function createListBox() {
-            var div = document.createElement("select");
-            div.setAttribute("id", "mylist");
-            div.setAttribute("size", arr.length);
-            document.body.appendChild(div);
-            for(i = 0; i < arr.length; i++) {
-                var obj = document.createElement("option");
-                obj.value = i;
-                obj.text = arr[i];
-                document.getElementById("mylist").add(obj);
-            }
- */
 
 </script>
 
