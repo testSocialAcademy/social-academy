@@ -1,0 +1,9 @@
+{
+  "name": "social-academy",
+  "version": "0.0.1",
+  "description": "Our own facebook",
+  "author": "PHP-ACADEMY",
+  "dependencies": {
+    "bootstrap": "^3.3.6"
+  }
+}
