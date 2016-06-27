@@ -4,6 +4,6 @@
   "description": "Our own facebook",
   "author": "PHP-ACADEMY",
   "dependencies": {
-    "bootstrap": "^3.3.6"
+    "node-http-server": "^5.1.0"
   }
 }
