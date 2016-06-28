@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="css/style.css">
     <script src="js/script.js" defer></script>
     <script src="js/newsDisplay.js" defer></script>
+    <script src="js/toDoList.js" defer></script>
 </head>
 <body>
 <div class="left_side">
@@ -15,13 +16,29 @@
         <li class = "menu_list"><a href="#">Friends</a>
             <ul class="menu_drop">
                 <li><a href="../maksym-kolisnyk/index.html" target="_blank">Maksym Kolisnyk</a></li>
+                <li><a href="../aleksandr-feschenko/index.html" target="_blank">Aleksandr Feschenko</a></li>
+                <li><a href="../andrey-ivanov/index.html" target="_blank">Andrey Ivanov</a></li>
+                <li><a href="../igor-nevenitsa/social.html" target="_blank">Igor Nevenitsa</a></li>
+                <li><a href="../michail_suprunov/index.html" target="_blank">Michail Suprunov</a></li>
             </ul>
         </li>
         <li><a href="#">3 item</a></li>
         <li><a href="#">4 item</a></li>
         <li><a href="#">5 item</a></li>
     </ul>
+
+    <div class="toDoList">
+        <textarea cols="35" rows="5" placeholder="Type text here" id="toDoListInput"></textarea>
+        <button id="saveButton">SAVE</button>
+
+        <ul id="toDoListOutput">
+        </ul>
+    </div>
+
+
 </div>
+
+
 
 <div class = "main">
     <p>Full name: <strong><i>Sergey Piven</i></strong></p>
@@ -32,5 +49,6 @@
 
 <div class="news" id = "news">
 </div>
+
 </body>
 </html>

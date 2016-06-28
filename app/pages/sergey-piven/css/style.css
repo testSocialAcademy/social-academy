@@ -1,7 +1,8 @@
 body {
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
     font: 1em/1.4em sans-serif;
+    width: 960px;
     background: url(../../../img/sergey-piven/background.png) repeat;
 }
 
@@ -59,6 +60,24 @@ ul {
 #hobbiesInterests li {
     margin-left: 20px;
 }
+
+.toDoList {
+    margin-top: 5px;
+    width: 300px;
+    border: 3px #CCCCCC solid;
+    border-radius: 15px;
+    background-color: #ECECEC;
+    padding: 20px 50px 20px 50px;
+}
+
+#toDoListOutput {
+    list-style: decimal;
+}
+
+#saveButton {
+    margin-left: 125px;
+}
+
 
 /*Внешний вид меню */
 
