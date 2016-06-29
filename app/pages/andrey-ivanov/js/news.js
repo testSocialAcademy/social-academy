@@ -23,21 +23,21 @@
 
     for (i=0; i < blokNews.length; i++){
         if (blokNews[i].title){
-            newLi = document.createElement('li');
+            newLi = document.createElement('h4');
             newLi.innerHTML = blokNews[i].title;
             list.children[i].appendChild(newLi);
         }
     }
     for (i=0; i < blokNews.length; i++){
         if (blokNews[i].contentSnippet){
-            newLi = document.createElement('li');
+            newLi = document.createElement('p');
             newLi.innerHTML = blokNews[i].contentSnippet;
             list.children[i].appendChild(newLi);
         }
     }
     for (i=0; i < blokNews.length; i++){
         if (blokNews[i].link){
-            newLi = document.createElement('li');
+            newLi = document.createElement('a');
             newLi.innerHTML = blokNews[i].link;
             list.children[i].appendChild(newLi);
         }
