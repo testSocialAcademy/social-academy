@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GEEK.CLUB</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="styles.css" rel="stylesheet">
-   <script src="script.js" type="text/javascript"></script>
+   <script src="js/script.js" type="text/javascript"></script>
 
 
 
@@ -25,7 +25,8 @@
     <div class=".container">
      <div class="row">
     <header >
-       <div class="col-md-2 .col-md-offset-6"> <img src="images/logo.png" alt="Logo" >
+       <div class="col-md-2 .col-md-offset-6">
+           <img src="../../img/Igor-nevenitsa/logo.png" alt="Logo" >
        </div>
 
 
@@ -50,7 +51,7 @@
     </div>
 
     <div class="col-md-5 col-xs-5 " >
-        <img src="images/bill-gates-1.jpg" class="img-responsive" alt="Whitesquare logo" >
+        <img src="../../img/Igor-nevenitsa/bill-gates-1.jpg" class="img-responsive" alt="Whitesquare logo" >
     </div>
     <div class="col-md-7 col-xs-7 pull-right">
         <ul class="list-group submenu ">
@@ -63,33 +64,7 @@
             <li id="hobby" class="list-group-item "> Hobby: </li>
 <script>
 
-        function divText()
-
-        {
-
-            var a = ['Coding', 'Investing', 'Golf'];
-
-            var b = document.getElementById('hobby');
-
-            for(i=0;i<b.length;i++)
-
-            {
-                b.innerHTML = a[i];
-
-
-            }
-            for(i=0;i<a.length;i++)
-            {
-                var li = document.createElement("li");
-                li.appendChild(document.createTextNode(a[i]));
-                b.appendChild(li);
-            }
-        }
-        divText()
-
-        var elem = document.getElementById('hobby');
-        elem.style.background = 'lightblue';
-
+        divText();
 
 </script>
 
@@ -99,7 +74,9 @@
 
 </div>
 
-<footer> </footer>
+<footer>
+    
+</footer>
 
 
 </body>
