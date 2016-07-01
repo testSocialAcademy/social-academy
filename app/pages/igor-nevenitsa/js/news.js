@@ -41,14 +41,14 @@ function addNews() {
         }
         ;
         for (var i = 0; i < resp.lenght; i++) {
-            if (resp[i].url) {
-                var url = document.createElement("a");
-                url.setAttribute("href", resp[i].url);
-                url.innerHTML = resp[i].url;
+            if (resp[i].link) {
+                var link = document.createElement("a");
+                link.setAttribute("href", resp[i].link);
+                link.innerHTML = resp[i].link;
                 newLi = document.createElement("li");
                 newLi.innerHTML = "";
                 myList.children[i].appendChild(newLi);
-                myList.children[i].lastChild.appendChild(url);
+                myList.children[i].lastChild.appendChild(link);
             }
         }
         ;
