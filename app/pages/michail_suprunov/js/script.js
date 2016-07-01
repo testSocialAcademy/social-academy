@@ -1,5 +1,6 @@
 ;'use strict';
-;(function(){
+(function(){
+//Display hobbies	
 function displayHobbies(){
 	var hobbies = ["literature","bodybuilding","art","walking"];
 	var div = document.getElementById("personal-data");
@@ -12,7 +13,7 @@ function displayHobbies(){
 	p.innerHTML = pText;
 	div.appendChild(p);	
 }
-
+//Functions for news
 function newsRequest() {
 	var xhr = new XMLHttpRequest();
 	xhr.open("GET", "news.json", false);
@@ -42,7 +43,7 @@ function newsDisplay(responseText){
 			if (key == "link") {
 			a = document.createElement("a");
 			a.href = obj[key];
-			a.innerHTML = obj[key];
+			a.innerHTML = "Read more";
 			div.appendChild(a);	
 			}
 			else if (key != "url") {
@@ -56,6 +57,43 @@ function newsDisplay(responseText){
 		column.appendChild(div);
 	}
 }
+//Work with Local Storage
+function addElementLS () {
+	var li = document.createElement("li");
+	var keyLS = document.getElementById("keyLS");
+	var value = keyLS.value;
+	var listLS = document.getElementById("listLS");	
+	var result = localStorage.getItem(value);
+	if ((localStorage.length == 0 || result == null) && (value != "")){
+		localStorage.setItem(value,value)
+		li.textContent = value;
+		li.onclick = removeLi;
+		listLS.appendChild(li);
+		keyLS.value = "";
+	}
+}
+
+function removeLi(){	
+	var listLS = document.getElementById("listLS");
+	localStorage.removeItem(this.textContent);
+	listLS.removeChild(this);
+}
+
+function displayLS () {
+	var li = document.createElement("li");
+	var value = document.getElementById("keyLS").value;
+	var listLS = document.getElementById("listLS");
+	for (var i = 0; i < localStorage.length; i++) {
+		li.textContent = localStorage.key(i);
+		li.onclick = removeLi;
+		listLS.appendChild(li);
+		li = document.createElement("li");
+	}		
+}
+var submitInputLS = document.getElementById("submitInputLS");
+
+submitInputLS.addEventListener("click",addElementLS);
+displayLS();
 displayHobbies();
 newsRequest();	
 })();
