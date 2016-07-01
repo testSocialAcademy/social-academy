@@ -1,0 +1,90 @@
+[class*="col-"] {
+    text-align: center;
+    padding-top: 15px;
+    font-size: 2rem;
+   }
+html, body { 
+	height:100%; 
+}   
+body {
+	background: url(../../../img/michail_suprunov/background.png);
+}
+.page-wrapper{
+	display: flex;
+	flex-direction: column;
+	min-height: 100%;
+}
+.header-wrapper {
+	background-color: #3CAFE2;
+}
+.main-wrapper {
+	flex: 1 0 auto;
+}
+.main-header {
+	padding: 3px 0;
+}
+.main-nav ul {
+	list-style-type: none;
+	padding: 0;
+	text-align: left
+}
+.info {
+	height:100%;
+	padding-top:0;
+	padding-bottom:0;
+	overflow: hidden;
+}
+.personal-data {
+	text-align: left;
+}
+.footer-wrapper {
+	flex: 0 0 auto;
+}
+.main-footer {
+	background: #366472;
+	padding: 5px 0;
+	text-align: center;
+	color: rgba(255,255,255,0.8);
+	padding: 10px;
+}
+
+#newsColumn {
+	margin: 50px 0;
+	text-align: left;
+	font-size:.8em;
+	border: 5px solid #19CEF0;
+	border-radius: 20px;
+}
+
+#newsColumn div {
+	margin-bottom: 15px;
+	border-bottom: 1px solid #19CEF0;
+}
+#newsColumn div:last-child {
+	border-bottom: none;
+}
+@media (max-width: 767px) {
+	
+	.main-nav {
+		margin: 0;
+		padding: 0;
+		background-color: #E9EF06;
+	}
+	.main-nav ul {
+		display: flex;
+		justify-content: center;
+		margin: 0;
+	}
+	.main-nav li:last-child {
+		border-right:none;
+	}
+	.main-nav li {
+		flex: 1;
+		text-align: center;
+		border-right: 1px solid black;
+		padding: 5px 2px;
+	}
+	.container {
+		margin: 0, auto;
+	}
+}
