@@ -25,39 +25,35 @@ function displayNews() {
 
 			var content = responce.responseData.entries;
 			
-			var tagUl = "", tagLi = "", tagA = "";
+			var tagLi = "", tagP = "", tagA = "";
 						
 			for (var i = 0; i < content.length; i++) {
-				tagUl = document.createElement('ul');
-				tagUl.className = "news_list-block";
+				tagLi = document.createElement('li');
+				tagLi.className = "news_list-block";
 				newsList == document.getElementById("newsList");
-				newsList.appendChild(tagUl);			//newsList == document.getElementById("newsList");
+				newsList.appendChild(tagLi);			//newsList == document.getElementById("newsList");
 				
 				if (content[i].title) {
-					tagLi = document.createElement('li');
-					tagLi.className = "news_list-block-li";
-					tagLi.innerHTML = content[i].title;
-					newsList.children[i].appendChild(tagLi);
+					tagH3 = document.createElement('h3');
+					tagH3.className = "news_list-block-title";
+					tagH3.innerHTML = content[i].title;
+					newsList.children[i].appendChild(tagH3);
 				}
 				
 				
 				if (content[i].contentSnippet) {
-					tagLi = document.createElement('li');
-					tagLi.className = "news_list-block-li";
-					tagLi.innerHTML = content[i].contentSnippet;
-					newsList.children[i].appendChild(tagLi);
+					tagP = document.createElement('p');
+					tagP.className = "news_list-block-content";
+					tagP.innerHTML = content[i].contentSnippet;
+					newsList.children[i].appendChild(tagP);
 				}
 				
 				if (content[i].link) {
-					tagLi = document.createElement('li');
-					tagLi.className = "news_list-block-li";
-					tagLi.innerHTML = "";
-					newsList.children[i].appendChild(tagLi);
-					
 					tagA = document.createElement('a');
 					tagA.setAttribute('href', content[i].link);
+					tagA.className = "news_list-block-anchor";
 					tagA.innerHTML = content[i].link;
-					newsList.children[i].lastChild.appendChild(tagA);
+					newsList.children[i].appendChild(tagA);
 				}
 			}
 			
@@ -96,7 +92,7 @@ function addNewItem() {
 		alertMessage ("Please insert Description!");	
 	}
 	else if (itemValue === localStorage.getItem(itemValue)) {
-		alertMessage ("This item is already present! Please insert other Description");
+		alertMessage ("This item is already present! Please insert another Description");
 	}
 	else {
 		var tagLi = document.createElement('li');

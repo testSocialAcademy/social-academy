@@ -100,12 +100,17 @@ body {
 	padding: 7px;
 }
 
-.news_list-block-li{
+.news_list-block-title {
+	color: green;
 	padding: 2px 0;
 }
 
-.news_list-block-li:first-child {
-	color: green;
+.news_list-block-content{
+	padding: 2px 0;
+}
+
+.news_list-block-anchor{
+	padding: 2px 0;
 }
 
 .todo {
