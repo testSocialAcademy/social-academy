@@ -1,5 +1,4 @@
-@import "../../node_modules/bootstrap/less/bootstrap.less";
-@import "../less/variables.less";
+
 
 
 p {
@@ -30,17 +29,6 @@ body {
     border-top: 5px solid #7e7e7e;
 
     background-color: #1b6d85;
-}
-
-body {
-
-    .wrapper {
-        padding: 0 0 50px 0;
-            }
-
-    header {
-    padding: 20px 0;
-            }
 }
 
 .navi {

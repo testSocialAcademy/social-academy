@@ -6,13 +6,7 @@ function divText()
 
     var b = document.getElementById('hobby');
 
-    for(i=0;i<b.length;i++)
-
-    {
-        b.innerHTML = a[i];
-
-
-    }
+ 
     for(i=0;i<a.length;i++)
     {
         var li = document.createElement("li");
