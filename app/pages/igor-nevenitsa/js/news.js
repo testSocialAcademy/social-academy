@@ -30,7 +30,7 @@ function addNews() {
                 myList.children[i].appendChild(newLi);
             }
         }
-        ;
+
         for (var i = 0; i < resp.lenght; i++) {
             if (resp[i].contentSnippet) {
                 newLi = document.createElement("li");
@@ -39,7 +39,7 @@ function addNews() {
                 myList.children[i].appendChild(newLi);
             }
         }
-        ;
+
         for (var i = 0; i < resp.lenght; i++) {
             if (resp[i].link) {
                 var link = document.createElement("a");
@@ -51,7 +51,7 @@ function addNews() {
                 myList.children[i].lastChild.appendChild(link);
             }
         }
-        ;
+
     }
 
 };
