@@ -1,0 +1,194 @@
+/* 
+	font-family: 'PT Sans', sans-serif;
+*/
+
+body {
+	font-family: 'PT Sans', sans-serif;
+	font-size: 13px;	
+}
+
+.wrapper {
+	margin: 0 auto;
+	width: 720px;
+}
+
+.header {
+	background-color: rgba(0,0,0,.25);
+	padding: 10px;
+	border-radius: 10px; 	
+}
+
+.header-title {
+	letter-spacing: 1px;
+	font-weight: bold;
+}
+
+.content {
+	overflow: hidden;
+}
+
+.left_column {
+	float: left;
+	width: 30%;	
+	margin: 10px;
+}
+
+.navigation_menu-list {
+	list-style-type: none;
+}
+
+.navigation_menu-link{
+	text-decoration: none;
+	background-color: rgba(0,0,0,0);
+	display: block;
+	border-radius: 10px; 
+	margin: 1px 0;
+	padding: 5px 7px;
+	color: blue;
+}
+
+.navigation_menu-link:hover{
+	background-color: rgba(0,0,0,.25);
+}
+
+.navigation_menu-link:active{
+	opacity: .50;
+	color: blue;
+}
+
+.avatar {
+	max-height: 600px;
+	max-width: 100%;
+	border: 1px solid rgba(0,0,0,.25);
+	border-radius: 10px;
+}
+
+.right_column {
+	float: left;
+	margin: 10px;
+	width: 64%;
+}
+
+.user_information {
+	border: 1px solid rgba(0,0,0,.25);
+	border-radius: 10px;
+	padding: 8px;
+	
+}
+
+.user_information-cells{
+	vertical-align: top;
+	text-align: left;
+	font-weight: 400;
+	padding: 7px;
+}
+
+.hobbies_list-li{
+	list-style-type: none;
+	padding: 2px 0;
+}
+
+.news_list {
+	margin-top: 10px;
+	border: 1px solid rgba(0,0,0,.25);
+	border-radius: 10px;
+	padding: 8px;
+}
+
+.news_list-block {
+	list-style-type: none;
+	padding: 7px;
+}
+
+.news_list-block-li{
+	padding: 2px 0;
+}
+
+.news_list-block-li:first-child {
+	color: green;
+}
+
+.todo {
+	margin-top: 10px;
+	border: 1px solid rgba(0,0,0,.25);
+	border-radius: 10px;
+	padding: 8px;
+	overflow: hidden;
+}
+
+.todo-title {
+	color: green;
+	font-weight: bold;
+	padding: 5px;
+}
+
+.todo-list {
+	list-style-type: decimal;
+	list-style-position: inside;
+	padding-left: 15px;	
+}
+
+.todo-list-li {	
+	margin: 2px 0;
+}
+
+.todo-list-li:hover{	
+	cursor: pointer;	
+	font-size: larger;
+	color: red;
+}
+
+.form {
+	margin: 6px;
+	overflow: hidden;
+}
+
+.text_form {
+	float: left;
+	height: 30px;
+	width: 63%;
+	padding: 0;
+	border: 1px solid rgba(0,0,0,.25);
+	border-radius: 10px 0 0 10px;
+	border-right: none;
+	text-indent: 8px;	
+}
+
+.button {
+	float: left;
+	height: 32px;
+	width: 36%;
+	padding: 0;
+	border: 1px solid rgba(0,0,0,.25);
+	border-radius: 0 10px 10px 0;
+	border-left: none;	
+	color: blue;	
+}
+
+.button:hover {
+	background-color: rgba(0,0,0,.25);
+	cursor: pointer;
+}
+
+.button:active {
+	opacity: .50;
+}
+
+.alert {
+	background-color: rgba(255,0,0,.25);
+	border: 1px solid rgba(255,0,0,1);
+	border-radius: 10px;
+	color: red;
+	display: block;
+	letter-spacing: 1px;
+	padding: 7px;
+	margin: 6px;
+}
+
+.footer {
+	padding: 10px;
+	background-color: rgba(0,0,0,.25);
+	text-align: center;
+	padding: 10px;
+	border-radius: 10px;
+}
