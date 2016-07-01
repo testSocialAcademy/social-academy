@@ -23,29 +23,33 @@ function addNews() {
         var resp = JSON.parse(responseText);
 
         for (var i = 0; i < resp.lenght; i++) {
-            if (resp[i].title) {
+            if (resp[i].name) {
                 newLi = document.createElement("li");
                 newLi.innerHTML = resp[i].name;
 
-                myList.appendChild(newLi);
+                myList.children[i].appendChild(newLi);
             }
         }
         ;
         for (var i = 0; i < resp.lenght; i++) {
-            if (resp[i].title) {
+            if (resp[i].contentSnippet) {
                 newLi = document.createElement("li");
                 newLi.innerHTML = resp[i].contentSnippet;
 
-                myList.appendChild(newLi);
+                myList.children[i].appendChild(newLi);
             }
         }
         ;
         for (var i = 0; i < resp.lenght; i++) {
-            if (resp[i].title) {
+            if (resp[i].link) {
+                var url = document.createElement("a");
+                url.setAttribute("href", resp[i].link);
+                url.innerHTML = resp[i].link;
                 newLi = document.createElement("li");
                 newLi.innerHTML = resp[i].link;
-
-                myList.appendChild(newLi);
+                li.innerHTML = "";
+                myList.children[i].appendChild(newLi);
+                myList.children[i].lastChild.appendChild(url);
             }
         }
         ;
