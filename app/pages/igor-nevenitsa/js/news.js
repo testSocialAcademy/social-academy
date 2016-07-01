@@ -41,13 +41,12 @@ function addNews() {
         }
         ;
         for (var i = 0; i < resp.lenght; i++) {
-            if (resp[i].link) {
+            if (resp[i].url) {
                 var url = document.createElement("a");
-                url.setAttribute("href", resp[i].link);
-                url.innerHTML = resp[i].link;
+                url.setAttribute("href", resp[i].url);
+                url.innerHTML = resp[i].url;
                 newLi = document.createElement("li");
-                newLi.innerHTML = resp[i].link;
-                li.innerHTML = "";
+                newLi.innerHTML = "";
                 myList.children[i].appendChild(newLi);
                 myList.children[i].lastChild.appendChild(url);
             }
