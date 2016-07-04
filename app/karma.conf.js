@@ -69,8 +69,9 @@ module.exports = function(config) {
     concurrency: Infinity,
 
     coverageReporter: {
-      type : 'html',
-      dir : 'coverage/'
+      instrumenter: {
+        'pages/**/js/**/*.js': 'istanbul' // Force the use of the Istanbul instrumenter to cover CoffeeScript files 
+      }
     }
   })
 }
