@@ -35,10 +35,21 @@
                 </table>
             </div>
         </section>
-        <section class="col-xs-9 col-md-9">
+        <section class="col-xs-7 col-md-7">
             <article id="news">
                 <h2 class="text-center">Hot news</h2>
             </article>
+        </section>
+        <section class="col-xs-2 col-md-2">
+            <h2 class="text-center text-uppercase">you must</h2>
+            <div class="input-group">
+                <input type="text" class="form-control" id="enteredText">
+                <div class="input-group-btn">
+                    <button type="button" class="btn btn-default" onclick="addLi();">TO DO</button>
+                </div>
+            </div>
+            <ul class="list-group" id="toDoItem">
+            </ul>
         </section>
 
     </main>
@@ -51,5 +62,6 @@
 <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="js/script.js"></script>
 <script src="js/news.js"></script>
+<script src="js/todo.js"></script>
 </body>
 </html>

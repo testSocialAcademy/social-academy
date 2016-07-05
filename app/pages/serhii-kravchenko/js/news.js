@@ -9,7 +9,6 @@ if(xhr.status != 200){
     alert(xhr.status + " " + xhr.statusText);
 }else {
     var result = JSON.parse(xhr.responseText);
-    console.log(result);
 }
 var data = result.responseData.entries;
 
