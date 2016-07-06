@@ -1,9 +1,0 @@
-{
-  "name": "social-academy",
-  "version": "0.0.1",
-  "description": "Our own facebook",
-  "author": "PHP-ACADEMY",
-  "dependencies": {
-    "node-http-server": "^5.1.0"
-  }
-}
