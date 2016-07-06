@@ -1,3 +1,9 @@
 .idea
 node_modules
 .idea
+config.json
+news.json
+package.json
+readme.md
+server.js
+
