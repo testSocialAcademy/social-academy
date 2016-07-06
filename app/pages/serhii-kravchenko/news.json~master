@@ -1,0 +1,69 @@
+{
+  "responseData": {
+    "query": "Official Google Blogs",
+    "entries": [
+      {
+        "url": "https://googleblog.blogspot.com/feeds/posts/default",
+        "title": "\u003cb\u003eOfficial Google Blog\u003c/b\u003e",
+        "contentSnippet": "\u003cb\u003eOfficial\u003c/b\u003e weblog, with news of new products, events and glimpses of life inside \u003cbr\u003e\n\u003cb\u003eGoogle\u003c/b\u003e.",
+        "link": "https://googleblog.blogspot.com/"
+      },
+      {
+        "url": "https://googleblog.blogspot.com/feeds/posts/default",
+        "title": "\u003cb\u003eOfficial Google Blog\u003c/b\u003e: Introducing Spaces, a tool for small group sharing",
+        "contentSnippet": "May 16, 2016 \u003cb\u003e...\u003c/b\u003e With Spaces, it\u0026#39;s simple to find and share articles, videos and images without \u003cbr\u003e\nleaving the app, since \u003cb\u003eGoogle\u003c/b\u003e Search, YouTube, and Chrome\u0026nbsp;...",
+        "link": "https://googleblog.blogspot.com/2016/05/introducing-spaces-tool-for-small-group.html"
+      },
+      {
+        "url": "https://googleblog.blogspot.com/feeds/posts/default",
+        "title": "\u003cb\u003eOfficial Google Blog\u003c/b\u003e: Saying to Allo and Duo: new apps for smart \u003cb\u003e...\u003c/b\u003e",
+        "contentSnippet": "May 18, 2016 \u003cb\u003e...\u003c/b\u003e Whether it\u0026#39;s welcoming a new baby, celebrating the winning shot in overtime, or \u003cbr\u003e\ndiscovering the best taco stand ever—we all want to share\u0026nbsp;...",
+        "link": "https://googleblog.blogspot.com/2016/05/allo-duo-apps-messaging-video.html"
+      },
+      {
+        "url": "https://webmasters.googleblog.com/feeds/posts/default",
+        "title": "\u003cb\u003eOfficial Google\u003c/b\u003e Webmaster Central \u003cb\u003eBlog\u003c/b\u003e",
+        "contentSnippet": "Search engine (and SEO) \u003cb\u003eblog\u003c/b\u003e with tips and announcements to connect your \u003cbr\u003e\nwebsite or app with \u003cb\u003eGoogle\u003c/b\u003e Searchers and Search Console (Webmaster Tools).",
+        "link": "https://webmasters.googleblog.com/"
+      },
+      {
+        "url": "https://android.googleblog.com/feeds/posts/default",
+        "title": "\u003cb\u003eOfficial\u003c/b\u003e Android \u003cb\u003eBlog\u003c/b\u003e",
+        "contentSnippet": "Select \u003cb\u003eGoogle\u003c/b\u003e devices, including \u003cb\u003eGoogle\u003c/b\u003e Cast and Android Wear watches, will ... \u003cbr\u003e\nyour own beacons that work with Nearby, check out our developer \u003cb\u003eblog\u003c/b\u003e post.",
+        "link": "https://android.googleblog.com/"
+      },
+      {
+        "url": "https://gmail.googleblog.com/feeds/posts/default",
+        "title": "\u003cb\u003eOfficial\u003c/b\u003e Gmail \u003cb\u003eBlog\u003c/b\u003e",
+        "contentSnippet": "Apr 27, 2016 \u003cb\u003e...\u003c/b\u003e Starting today, if you use \u003cb\u003eGoogle\u003c/b\u003e Apps for Work or Edu, you can schedule \u003cbr\u003e\nmeetings from anywhere with \u0026quot;Find a time\u0026quot; in \u003cb\u003eGoogle\u003c/b\u003e Calendar for\u0026nbsp;...",
+        "link": "https://gmail.googleblog.com/"
+      },
+      {
+        "url": "https://search.googleblog.com/feeds/posts/default",
+        "title": "Inside Search \u003cb\u003eBlog\u003c/b\u003e",
+        "contentSnippet": "The \u003cb\u003eofficial Google\u003c/b\u003e Search \u003cb\u003eblog\u003c/b\u003e ... We recognize that your trust is what keeps you \u003cbr\u003e\nusing \u003cb\u003eGoogle\u003c/b\u003e, so we take our responsibility seriously. From the beginning, our\u0026nbsp;...",
+        "link": "https://search.googleblog.com/"
+      },
+      {
+        "url": "http://blog.google.org/feeds/posts/default",
+        "title": "\u003cb\u003eOfficial google\u003c/b\u003e.org \u003cb\u003eBlog\u003c/b\u003e",
+        "contentSnippet": "Jan 29, 2015 \u003cb\u003e...\u003c/b\u003e This will be our last post on the \u003cb\u003eGoogle\u003c/b\u003e.org \u003cb\u003eblog\u003c/b\u003e. In order to make it easier for \u003cbr\u003e\npeople to get the latest news from \u003cb\u003eGoogle\u003c/b\u003e in one place, we\u0026#39;re\u0026nbsp;...",
+        "link": "http://blog.google.org/"
+      },
+      {
+        "url": "http://googleforwork.blogspot.com/feeds/posts/default",
+        "title": "\u003cb\u003eOfficial Google\u003c/b\u003e for Work \u003cb\u003eBlog\u003c/b\u003e",
+        "contentSnippet": "\u003cb\u003eOfficial\u003c/b\u003e Weblog about \u003cb\u003eGoogle\u0026#39;s\u003c/b\u003e enterprise search appliances and other tools for \u003cbr\u003e\nbusiness users.",
+        "link": "http://googleforwork.blogspot.com/"
+      },
+      {
+        "url": "http://feeds.feedburner.com/gtricksrss",
+        "title": "List of \u003cb\u003eOfficial Google Blogs\u003c/b\u003e - Gtricks",
+        "contentSnippet": "Aug 1, 2015 \u003cb\u003e...\u003c/b\u003e Update: \u003cb\u003eGoogle\u003c/b\u003e has released \u003cb\u003eofficial\u003c/b\u003e list here. Here is the list for most useful \u003cbr\u003e\n\u003cb\u003eofficial Google blogs\u003c/b\u003e in English with their descriptions:The \u003cb\u003eOfficial\u003c/b\u003e\u0026nbsp;...",
+        "link": "http://www.gtricks.com/google-tricks/list-of-official-google-blogs/"
+      }
+    ]
+  },
+  "responseDetails": null,
+  "responseStatus": 200
+}
