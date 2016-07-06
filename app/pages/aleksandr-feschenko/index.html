@@ -3,70 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <title>Александр Фещенко</title>
-	<link href='https://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-	<div class="wrapper">
+	<div class="content">
 		<div class="header">
-			<h1 class="header-title">Aleksandr Feschenko</h1>
+			<h1>Aleksandr Feschenko</h1>
 		</div>
-		
-		<div class="content">
-			<div class="left_column">
-				<div class="navigation_menu">
-					<ul class="navigation_menu-list">
-						<li><img class="avatar" src="../../img/aleksandr-feschenko/avatar.jpg" alt="This is avatar" ></li>
-						<li><a class="navigation_menu-link" href="#">Home</a>
-						<li><a class="navigation_menu-link" href="../../index.html">Friends</a>
-						<li><a class="navigation_menu-link" href="#">Messages</a>
-						<li><a class="navigation_menu-link" href="#">Settings</a>
-						<li><a class="navigation_menu-link" href="#itemsList">Current tasks</a>						
-					</ul>
-				</div>
-			</div>
-		
-			<div class = "right_column">
-				<div class = "user_information">
-					<table>
-						<tr>
-							<th class="user_information-cells">Date Of Birth:</th>
-							<th class="user_information-cells">02.04.1992</th>
-						</tr>
-						<tr>
-							<th class="user_information-cells">Hobbies:</th>
-							<th class="user_information-cells">
-								<ul id = "hobbiesList">
-								</ul>
-							</th>
-						</tr>
-					</table>
-				</div>
-		
-				<div class="news_list" >
-					<ul id="newsList">
-					</ul>
-
-				</div>
-				
-				<div class = "todo" id = "toDoList">
-					<h2 class = "todo-title">Current tasks: </h2>
-					<ul class = "todo-list" id = "itemsList">
-					</ul>
-					<div class="form" id = "form">
-						<input class = "text_form" id = "textForm"type = "text" placeholder = "Description...">
-						<input class = "button" type="submit" value="Add item" onclick = "addNewItem();">
-					</div>
-				</div>
-			</div>
+		<div class="navigation_menu">
+			<ul>
+				<li><img class="avatar" src="../../img/aleksandr-feschenko/avatar.jpg" alt="This is avatar" ></li>
+				<li><a href="#">Home</a>
+				<li><a href="#">Friends</a>
+				<li><a href="#">Messages</a>
+				<li><a href="#">Settings</a>
+			</ul>
 		</div>
+	
+		<div class="user_information">
+		<!--<h2>User Information:</h2> -->
+			<table>
+				<tr>
+					<th>Date Of Birth:</th>
+					<th>02.04.1992</th>
+				</tr>
+				<tr>
+					<th>Hobbies:</th>
+					<th>
+						<ul id ="hobbiesList">
+						</ul>
+					</th>
+				</tr>
+			</table>
+			
+		</div>
+	
 		<div class="footer"> 
 			Personal page © 2016
 		</div>
 	</div>
-	
-	
 	<script src="js/scripts.js" async></script>
 </body>
 </html>
