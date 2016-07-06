@@ -1,8 +1,6 @@
-;
-function addNews() {
     var xhr = new XMLHttpRequest();
 
-    xhr.open("GET", "../news.json", true);
+    xhr.open("GET", "news.json", false);
 
     xhr.send();
 
@@ -14,18 +12,17 @@ function addNews() {
 
     if (xhr.status != 200) {
         alert(xhr.status + ": " + xhr.statusText);
-    } else {
-        setText(xhr.responseText);
     }
 
-    function setText(responseText) {
         var newLi;
-        var resp = JSON.parse(responseText);
+        var resp1 = JSON.parse(xhr.responseText);
+        var resp = resp1.responseData.entries;
+
 
         for (var i = 0; i < resp.lenght; i++) {
-            if (resp[i].name) {
+            if (resp[i].title) {
                 newLi = document.createElement("li");
-                newLi.innerHTML = resp[i].name;
+                newLi.innerHTML = resp[i].title;
 
                 myList.children[i].appendChild(newLi);
             }
@@ -52,6 +49,5 @@ function addNews() {
             }
         }
 
-    }
 
-};
+
