@@ -1,4 +1,5 @@
- body {
+
+body {
      background: #edeef0;
 
  }
@@ -71,4 +72,5 @@ header {
  }
  .form-control , .btn  {
      margin-top:10px;
+     margin-right: 10px;
  }

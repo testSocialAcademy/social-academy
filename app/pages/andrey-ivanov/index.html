@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>Моя страница</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mocha/2.1.0/mocha.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/2.1.0/mocha.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chai/2.0.0/chai.js"></script>
     <!-- Bootstrap -->
     <link href="../../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type='text/css'>
     <link href="css/style.css" rel="stylesheet" type='text/css'>
@@ -32,7 +35,7 @@
     <div class="container">
         <div><h2>Иванов Андрей</h2></div>
         <div class="info">
-            <span id="title" class="btn btn-default dropdown-toggle">Основная информация</span>
+            <span id="title" class="btn btn-default dropdown-toggle" onclick="hiddenBasInfo()">Основная информация</span>
             <ul id="list">
                 <li>Год рождения: 1999</li>
                 <li>Город: Киев</li>
@@ -40,17 +43,18 @@
             </ul>
         </div>
         <div class="info">
-            <span id="title1" class="btn btn-default dropdown-toggle">Хобби</span>
-            <ul id="hobbiesList">
+            <span id="titleHobby" class="btn btn-default dropdown-toggle" onclick="hiddenHobby()">Хобби</span>
+            <ul id="hobbyList">
             </ul>
         </div>
     </div>
     <div class="container">
         <input type="text" id="todo" class="form-control" placeholder="To Do List">
-        <button id="save"  class="btn btn-default dropdown-toggle" >Save</button>
+        <button id="save"  class="btn btn-default dropdown-toggle" onclick="addLiTodoLS()">Save</button>
         <ul id="listToDo"></ul>
     </div>
-    <div id = "news"></div>
+
+        <div id = "news"></div>
 </aside>
 </div>
 <footer class="container-fluid"></footer>
@@ -58,7 +62,12 @@
 <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>-->
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <!--<script src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>-->
-<script type="text/javascript" src="js/script.js"></script>
-<script type="text/javascript" src="js/news.js"></script>
+<script>
+    mocha.setup('bdd');
+    var assert = chai.assert;
+    var expect = chai.expect;
+</script>
+<script type="text/javascript" src="js/scripts/script.js"></script>
+<script type="text/javascript" src="js/scripts/news.js"></script>
 </body>
 </html>
