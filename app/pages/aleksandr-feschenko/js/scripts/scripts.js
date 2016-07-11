@@ -11,7 +11,9 @@ function displayHobbies(arrHobbies) {
 		var tagLi = document.createElement('li');
 		tagLi.className = "hobbies_list-li";
 		tagLi.innerHTML = arrHobbies[i];
-		hobbiesList.appendChild(tagLi);
+		if(hobbiesList) {
+			hobbiesList.appendChild(tagLi);
+		}
 	}
 }
 
