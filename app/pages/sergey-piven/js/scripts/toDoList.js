@@ -1,3 +1,5 @@
+;(function () {
+
 var textArea = document.getElementById("toDoListInput");
 var button = document.getElementById("saveButton");
 var ul = document.getElementById("toDoListOutput");
@@ -33,9 +35,7 @@ for (i = 0; i < localStorage.length; i++) {
     ul.children[i].addEventListener("click", remove);
 }
 
-
-
-
+})();
 
 
 
