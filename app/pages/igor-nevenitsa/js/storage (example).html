@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<input type="text" id="info">
+<input type="submit" onclick="addItem();">
+<div> <h1>My tasks</h1>
+        <ul id="myItems"></ul>
+</div>
+
+<script>
+    function addItem() {
+        var myTexts = document.getElementById("myItems");
+        var info = document.getElementById("info").value;
+        var newLi = document.createElement("li");
+        newLi.innerHTML = info;
+
+
+        localStorage.setItem(info, info);
+
+        myTexts.appendChild(newLi);
+
+    }
+</script>
+</body>
+</html>
