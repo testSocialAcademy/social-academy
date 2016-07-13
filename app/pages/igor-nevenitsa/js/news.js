@@ -27,7 +27,7 @@
                 newLi = document.createElement("li");
                 newLi.innerHTML = resp[i].title;
 
-                myList.children[i].appendChild(newLi);
+                myList.children[0].appendChild(newLi);
             }
         }
 
