@@ -38,9 +38,7 @@ function NewUsers() {
     this.sortPeopleByGender = function ( ) {
         for (var i = 0; i < _this._people.results.length; i++) {
             if (_this._people.results[i].gender == "female") {
-
                 _this.female[i] = _this._people.results[i];
-
             } else if (_this._people.results[i].gender == "male") {
                 _this.male[i] = _this._people.results[i];
             }
