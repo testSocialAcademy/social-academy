@@ -95,7 +95,7 @@ dudes.getAjax("http://api.randomuser.me/?results=10");
 
 function callback() {                                       //Тут я делал тестовое создание объекта дополнительным конструктором, проверку методов
     dudes.sortPeopleByGender();                             //включая тот который делает вывод на страницу
-    /*dudes.getSet(boy);*/
+    /*dudes.getSet(objForTest);*/
     dudes.getSetDisplayOnPageByGender();
     console.log(dudes);
 }
