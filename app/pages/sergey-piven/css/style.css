@@ -70,6 +70,24 @@ ul {
     padding: 20px 50px 20px 50px;
 }
 
+.malesByGender {
+    margin-top: 5px;
+    width: 300px;
+    border: 3px #CCCCCC solid;
+    border-radius: 15px;
+    background-color: #ECECEC;
+    padding: 20px 50px 20px 50px;
+}
+
+.femalesByGender {
+    margin-top: 5px;
+    width: 300px;
+    border: 3px #CCCCCC solid;
+    border-radius: 15px;
+    background-color: #ECECEC;
+    padding: 20px 50px 20px 50px;
+}
+
 #toDoListOutput {
     list-style: decimal;
 }
@@ -77,7 +95,6 @@ ul {
 #saveButton {
     margin-left: 125px;
 }
-
 
 /*Внешний вид меню */
 
