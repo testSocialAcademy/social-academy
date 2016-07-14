@@ -1,5 +1,7 @@
 /*HEADER*/
-
+.header {
+    font-family: 'Poiret One', cursive;
+}
 
 /*BODY*/
 .leftCol {
@@ -10,5 +12,26 @@
 .rightCol {
     background: #5bc0de;
     height: 200px;
+}
+
+/* Block with news */
+.newsBlock {
+    background: #a4d3ee;
+    padding: 5px 10px 10px;
+    margin: 5px 0;
+    border: solid #00b3ee 1px;
+    border-radius: 3px;
+}
+
+.newsBlock h4 {
+    font-family: 'Poiret One', cursive;
+    font-size: 21px;
+}
+.newsBlock p {
+    font-family: "Trebuchet MS", cursive;
+}
+.newsBlock a {
+    text-decoration: none;
+    color: cadetblue;
 }
 
