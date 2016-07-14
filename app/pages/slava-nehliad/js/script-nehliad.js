@@ -25,9 +25,9 @@
         xhr.open("GET", "news.json", false);
         xhr.send();
 
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState != 4) return;
-        };
+        // xhr.onreadystatechange = function () {
+        //     if (xhr.readyState != 4) return;
+        // };
 
         if (xhr.status != 200) {
             alert(xhr.status + ": " + xhr.statusText);
