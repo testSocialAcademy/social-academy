@@ -6,12 +6,12 @@ function addItem() {
     newLi.setAttribute("class", "list-group-item");
 
     localStorage.setItem(form, form);
-    var a = localStorage.key(1);
+
 
 
 
     text.appendChild(newLi);
-    a.appendChild(newLi);
+   
 
 
 }
