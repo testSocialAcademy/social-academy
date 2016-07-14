@@ -13,11 +13,47 @@
 </div>
 
 <script>
+    function reload() {
+        var myTexts = document.getElementById("myItems");
+        var a = localStorage.getItem(info);
+
+        for (var i = 0; i < a.length; i++)
+        {
+            var newLi = document.createElement("li");
+            newLi.innerHTML = a[i];
+            myTexts.appendChild(newLi);
+        }
+    }
+    reload();
+
+
+
+    /*function divText()
+
+    {
+
+        var a = ['Coding', 'Investing', 'Golf'];
+
+        var b = document.getElementById('hobby');
+
+
+        for (var i = 0; i < a.length; i++)
+        {
+            var li = document.createElement("li");
+            li.innerHTML = a[i];
+            b.appendChild(li);
+        }
+
+        b.style.background = 'lightblue';
+    }
+    divText();*/
+
     function addItem() {
         var myTexts = document.getElementById("myItems");
         var info = document.getElementById("info").value;
         var newLi = document.createElement("li");
-        newLi.innerHTML = info;
+        var locStorage = localStorage.getItem(info);
+        newLi.innerHTML = locStorage;
 
 
         localStorage.setItem(info, info);
@@ -25,6 +61,7 @@
         myTexts.appendChild(newLi);
 
     }
+    addItem();
 </script>
 </body>
 </html>
