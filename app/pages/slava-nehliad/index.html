@@ -2,17 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Slava Nehliad</title>
     <link rel="stylesheet" href="css/style-nehliad.css">
     <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
 
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1 class="header">Beta Social Network</h1>
-        </header>
-    </div>
+    <nav class="navbar navbar-default navbar-static-top">
+        <h1 class="header">Beta Social Network</h1>
+        <div class="container">
+
+        </div>
+    </nav>
 
     <div class="container">
         <div class="row">
@@ -22,12 +24,14 @@
             <div class="col-md-10" id="personalInfo">
                 <h3>Slava Nehliad</h3>
                 <p>17 / 12</p>
-                <p><b>Hobby</b></p>
+                <p class="text-muted"><b>Hobby</b></p>
                 <div id="hobby-list">
-
                 </div>
-
+                <!--<button id="buttonNews" onclick="loadNews()">GO!</button>-->
+                <article id="newsList">
+                </article>
             </div>
+
         </div>
     </div>
 
