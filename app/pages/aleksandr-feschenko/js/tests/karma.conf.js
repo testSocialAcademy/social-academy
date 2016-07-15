@@ -5,18 +5,18 @@ module.exports = function(config) {
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
-    basePath: '../../../../node_modules/.bin)',
+    basePath: '../../',
 
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['mocha','chai'],
+    frameworks: ['mocha','chai-sinon'],
 
 
     // list of files / patterns to load in the browser
     files: [
-        "../../pages/aleksandr-feschenko/js/scripts/*.js",
-      "../../pages/aleksandr-feschenko/js/tests/*.js"
+        "js/scripts/*.js",
+      "js/tests/*.js"
     ],
 
 
@@ -28,7 +28,12 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      "js/**/*.js": ['coverage']
+      'js/**/*.js': ['coverage']
+    },
+
+    coverageReporter: {
+      type : 'html',
+      dir : 'js/tests/coverage/'
     },
 
 
@@ -57,7 +62,7 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['Firefox'],
+    browsers: ['PhantomJS'],
 
 
     // Continuous Integration mode
