@@ -14,6 +14,7 @@
     "karma-chai-sinon": "^0.1.5",
     "karma-coverage": "^1.0.0",
     "karma-mocha": "^1.1.1",
+    "karma-phantomjs-launcher": "^1.0.1",
     "mocha": "^2.5.3",
     "sinon": "^1.17.4",
     "sinon-chai": "^2.8.0"

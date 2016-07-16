@@ -1,22 +1,22 @@
 // Karma configuration
-// Generated on Sat Jul 02 2016 19:38:13 GMT+0300 (FLE Daylight Time)
+// Generated on Thu Jul 07 2016 15:21:43 GMT+0300 (Финляндия (лето))
 
 module.exports = function(config) {
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
-    basePath: '',
+    basePath: '../../',
 
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['mocha', 'chai-sinon'],
+    frameworks: ['mocha','chai-sinon'],
 
 
     // list of files / patterns to load in the browser
     files: [
-      'pages/*/js/scripts/*.js',
-      'pages/*/js/tests/*.js'
+        "js/scripts/*.js",
+      "js/tests/*.js"
     ],
 
 
@@ -28,14 +28,19 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'pages/*/js/*/*.js': ['coverage']
+      'js/**/*.js': ['coverage']
+    },
+
+    coverageReporter: {
+      type : 'html',
+      dir : 'js/tests/coverage/'
     },
 
 
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress', 'coverage'],
+    reporters: ['progress','coverage'],
 
 
     // web server port
@@ -62,16 +67,10 @@ module.exports = function(config) {
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
-    singleRun: true,
+    singleRun: false,
 
     // Concurrency level
     // how many browser should be started simultaneous
-    concurrency: Infinity,
-
-    coverageReporter: {
-      instrumenter: {
-        'pages/*/js/*/*.js': 'istanbul' // Force the use of the Istanbul instrumenter to cover CoffeeScript files 
-      }
-    }
+    concurrency: Infinity
   })
 }

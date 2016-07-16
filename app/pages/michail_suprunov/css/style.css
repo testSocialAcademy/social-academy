@@ -75,6 +75,19 @@ body {
 	margin-top: 50px;
 	padding-bottom: 15px;
 }
+.maleUsers, .femaleUsers, .friendsUsers{
+	border: 5px solid #19CEF0;
+	border-radius: 20px;
+	margin-top: 50px;
+	font-size: .8em;
+}
+
+
+
+.userImage {
+	margin: 20px auto 0;
+    	
+}
 @media (max-width: 767px) {
 	
 	.main-nav {
@@ -106,5 +119,14 @@ body {
 	}
 	#keyLS {
 		width: 138px;
+	}
+	.maleUsers, .femaleUsers, .friendsUsers {
+		font-size: .7em;
+	}
+	.maleUsers h3, .femaleUsers h3, .friendsUsers h3 {
+		font-size: 1.3em;
+	}
+	.wrapMale, .wrapFemale, .wrapFriends {
+		padding: 10px;
 	}
 }
