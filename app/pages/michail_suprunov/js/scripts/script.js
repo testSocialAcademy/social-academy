@@ -110,16 +110,17 @@ function addElementLSList () {
 
 
 function removeLi(){	
+	var _this = this;
 	removeLiLS();
 	removeLiPage();
 	
 	function removeLiLS () {
-		localStorage.removeItem(this.textContent);
+		localStorage.removeItem(_this.textContent);
 	}
 	
 	function removeLiPage() {
 		var listLS = document.getElementById("listLS");
-		listLS.removeChild(this);
+		listLS.removeChild(_this);
 	}
 }
 
