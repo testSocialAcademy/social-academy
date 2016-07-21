@@ -1,3 +1,18 @@
+String.prototype.createPhone = function () {
+    var arr = this.split('');
+    for (var i = 0; i < arr.length; i++) {
+        if (isNaN(arr[i])) {
+            alert("Error: Неправильный формат");
+            break;
+        } else if (i%4 == 0) {
+            arr.splice(i, 0, "-");
+        }
+    }
+    arr.shift();
+    var resultString = arr.join('');
+    return resultString;
+};
+
 var malesList = document.getElementById("malesByGender");
 var femalesList = document.getElementById("femalesByGender");
 var li;
