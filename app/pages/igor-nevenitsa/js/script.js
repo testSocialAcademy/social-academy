@@ -15,7 +15,8 @@ function divText()
     }
 
     b.style.background = 'lightblue';
+    
+    return true;
 }
+
 divText();
-
-
