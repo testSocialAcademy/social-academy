@@ -130,6 +130,92 @@ function displayItems() {
 	}
 }
 
-displayHobbies(setHobbies());
-getNews("news/news.json");
-displayItems();
+
+
+/*==============================Users Block===========================================================================*/
+function Users() {
+	this._allUsers = null;
+	var self = this;
+
+	this.getUsers = function (url) {
+		var	req	= new XMLHttpRequest();
+		req.open("GET",	url, false);
+
+		req.onload = function() {
+			var responce = JSON.parse(req.responseText);
+			self._allUsers = responce.results;
+		};
+		req.onerror = function() {
+			alert( 'Ошибка ' + this.status );
+		};
+
+		req.send(null);
+	}
+}
+
+function SortedUsers(usersSource) {
+	Users.apply(this,arguments);
+	this._female = [];
+	this._male = [];
+	var self = this;
+
+	function sortUsers (arrAllUsers) {
+		for (var i = 0; i < arrAllUsers.length; i++) {
+			if (arrAllUsers[i].gender === 'female') {
+				self._female.push(arrAllUsers[i]);
+			}
+			else if (arrAllUsers[i].gender === 'male') {
+				self._male.push(arrAllUsers[i]);
+			} else { console.log("Unknown gender detected!"); }
+		}
+	}
+	if(!self._allUsers) {
+		this.getUsers(usersSource);
+		sortUsers(self._allUsers);
+		//throw new Error ("Users for sorting is not specified. Please use method '.getUsers(url)' before!");
+	}
+	else {
+		sortUsers(self._allUsers);
+	}
+
+	this.getSetUser = function (newUser) {
+		if (arguments.length > 0) {
+			addUser(newUser);
+		} else if (arguments.length === 0 && self._allUsers === null) {
+			throw new Error ("Empty users list. Please add their before using 'getSetUser(newUser)' ");
+		} else {
+			return {"female": self._female, "male": self._male};
+		}
+	};
+
+	function addUser(objUser) {
+		if(objUser.gender === 'female') {
+			self._female.push(objUser);
+		}
+		else if(objUser.gender === 'male') {
+			self._male.push(objUser);
+		} else { console.log("Unknown gender detected!"); }
+	}
+}
+
+function DisplayedUsers() {
+	SortedUsers.apply(this, arguments);
+}
+
+
+
+
+/*==============================Users Block END=======================================================================*/
+
+function Settings() {
+	displayHobbies(setHobbies());
+	getNews("news/news.json");
+	displayItems();
+
+
+	var sortedUsers = new SortedUsers("http://api.randomuser.me/?results=10");
+	console.log("Найдено девушек: " + sortedUsers.male);
+}
+
+
+Settings();
