@@ -1,10 +1,12 @@
 ;
 'use strict';
 
-
-function clearBlock(parentElem) {
-	var block = document.getElementById(parentElem);
-	block.innerHTML = '';
+function clearSiblings() {
+	var cooperativeBlock = document.getElementById("cooperativeBlock");
+	for (var i = 0; i < cooperativeBlock.children.length; i++) {
+		cooperativeBlock.children[i].innerHTML = '';
+		cooperativeBlock.children[i].style.display = "none";
+	}
 }
 
 /*==============================Hobbies Block========================================================================*/
@@ -53,12 +55,9 @@ function getNews(jsonFile) {
 function displayNews(arrNews) {
 	var tagLi = {}, tagH3 = {}, tagP = {}, tagA = {};
 	var newsList = document.getElementById("newsList");
-	var hid = document.getElementById("males");
-	var hid2 = document.getElementById("females");
-	hid.style.display = "none";
-	hid2.style.display = "none";
+
+	clearSiblings();
 	newsList.style.display = "block";
-	clearBlock("newsList");
 
 	if(arrNews !== undefined && arrNews.length !== 0 && arrNews instanceof Array) {
 		for (var i = 0; i < arrNews.length; i++) {
@@ -161,16 +160,21 @@ function Users(usersSource) {
 
 	this.generateUsers = function (url) {
 		var	req	= new XMLHttpRequest();
-		req.open("GET",	url, false);
+		req.open("GET",	url, true);
 
-		req.onload = function() {
-			var responce = JSON.parse(req.responseText);
-			self._allUsers = responce.results;
-		};
-		req.onerror = function() {
-			alert(req.status + ": " + req.statusText);
-		};
+		req.onreadystatechange = function() {
+			if (req.readyState == 4) {
+				if (req.status == 200) {
+					var responce = JSON.parse(req.responseText);
+					self._allUsers = responce.results;
+					callback();
+				}
 
+				else {
+					alert(req.status + ": " + req.statusText);
+				}
+			}
+		};
 		req.send(null);
 	}
 }
@@ -227,10 +231,7 @@ function DisplayedUsers(usersSource) {
 		var tagLi = {}, tagH3 = {}, tagImg = {};
 		var malesList = document.getElementById("males");
 		var femalesList = document.getElementById("females");
-		clearBlock("males");
-		clearBlock("females");
-		var hid = document.getElementById("newsList");
-		hid.style.display = "none";
+		clearSiblings();
 		malesList.style.display = "block";
 		femalesList.style.display = "block";
 
@@ -277,12 +278,17 @@ function DisplayedUsers(usersSource) {
 
 }
 
-function diplayUsersOnPage() { 									//This function is handler of "Some Peoples" button
+function displayUsersOnPage() { 									//This function is handler of "Some Peoples" button
 	var newUsers = new DisplayedUsers();
-	newUsers.generateUsers("http://api.randomuser.me/?results=10");
-	newUsers.sortUsersByGender();
-	newUsers.display();
+	newUsers.generateUsers("http://api.randomuser.me/?results=10");	//AJAX Respond will call function callback
+
+	window.callback = function () {
+		newUsers.sortUsersByGender();
+		newUsers.display();
+	}
 }
+
+
 
 /*==============================Users Block END=======================================================================*/
 
@@ -297,3 +303,4 @@ function initialStart() {
 initialStart();
 
 /*==============================Initialization Page End=============================================================*/
+
