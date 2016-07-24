@@ -1,11 +1,26 @@
 ;
 'use strict';
 
+String.prototype.createPhone = function () {
+	var tempArr = this.split('');
+	for (var i = 0; i < tempArr.length; i++) {
+		if (!isNaN(Number(tempArr[i]))) {
+			throw new Error("This string contain not only numbers")
+		} else if (i%4 == 0) {
+			tempArr.splice(i, 0, "-");
+		}
+	}
+	tempArr.shift();
+	return tempArr.join('');
+};
+
 function clearSiblings() {
 	var cooperativeBlock = document.getElementById("cooperativeBlock");
-	for (var i = 0; i < cooperativeBlock.children.length; i++) {
-		cooperativeBlock.children[i].innerHTML = '';
-		cooperativeBlock.children[i].style.display = "none";
+	if(cooperativeBlock) {
+		for (var i = 0; i < cooperativeBlock.children.length; i++) {
+			cooperativeBlock.children[i].innerHTML = '';
+			cooperativeBlock.children[i].style.display = "none";
+		}
 	}
 }
 
@@ -55,10 +70,10 @@ function getNews(jsonFile) {
 function displayNews(arrNews) {
 	var tagLi = {}, tagH3 = {}, tagP = {}, tagA = {};
 	var newsList = document.getElementById("newsList");
-
-	clearSiblings();
-	newsList.style.display = "block";
-
+	if(newsList) {
+		clearSiblings();
+		newsList.style.display = "block";
+	}
 	if(arrNews !== undefined && arrNews.length !== 0 && arrNews instanceof Array) {
 		for (var i = 0; i < arrNews.length; i++) {
 			tagLi = document.createElement('li');
@@ -295,8 +310,6 @@ function displayUsersOnPage() { 									//This function is handler of "Some Peo
 	}
 }
 
-
-
 /*==============================Users Block END=======================================================================*/
 
 /*==============================Initialization Page===================================================================*/
@@ -305,7 +318,6 @@ function initialStart() {
 	getNews("news/news.json");
 	displayItems();
 }
-
 
 initialStart();
 
