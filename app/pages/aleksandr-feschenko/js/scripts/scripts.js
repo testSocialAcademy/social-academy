@@ -156,61 +156,66 @@ function displayItems() {
 
 function Users(usersSource) {
 	this._allUsers = null;
-	var self = this;
-
-	this.generateUsers = function (url) {
-		var	req	= new XMLHttpRequest();
-		req.open("GET",	url, true);
-
-		req.onreadystatechange = function() {
-			if (req.readyState == 4) {
-				if (req.status == 200) {
-					var responce = JSON.parse(req.responseText);
-					self._allUsers = responce.results;
-					callback();
-				}
-
-				else {
-					alert(req.status + ": " + req.statusText);
-				}
-			}
-		};
-		req.send(null);
-	}
 }
+Users.prototype = Object.create(Object.prototype);
+Users.prototype.constructor = Users;
+
+Users.prototype.generateUsers = function (url) {
+	var self = this;
+	var	req	= new XMLHttpRequest();
+	req.open("GET",	url, true);
+
+	req.onreadystatechange = function() {
+		if (req.readyState == 4) {
+			if (req.status == 200) {
+				var responce = JSON.parse(req.responseText);
+				self._allUsers = responce.results;
+				callback();
+			}
+
+			else {
+				alert(req.status + ": " + req.statusText);
+			}
+		}
+	};
+	req.send(null);
+};
 
 function SortedUsers(usersSource) {
 	Users.apply(this,arguments);
 	this._female = [];
 	this._male = [];
-	var self = this;
+}
 
-	this.sortUsersByGender = function () {
-		var arrAllUsers = self._allUsers;
-		if (arrAllUsers) {
-			for (var i = 0; i < arrAllUsers.length; i++) {
-				if (arrAllUsers[i].gender === 'female') {
-					self._female.push(arrAllUsers[i]);
-				}
-				else if (arrAllUsers[i].gender === 'male') {
-					self._male.push(arrAllUsers[i]);
-				} else { console.log("Unknown gender detected!"); }
+SortedUsers.prototype = Object.create(Users.prototype);
+SortedUsers.prototype.constructor = SortedUsers;
+
+SortedUsers.prototype.sortUsersByGender = function () {
+	var arrAllUsers = this._allUsers;
+	if (arrAllUsers) {
+		for (var i = 0; i < arrAllUsers.length; i++) {
+			if (arrAllUsers[i].gender === 'female') {
+				this._female.push(arrAllUsers[i]);
 			}
+			else if (arrAllUsers[i].gender === 'male') {
+				this._male.push(arrAllUsers[i]);
+			} else { console.log("Unknown gender detected!"); }
 		}
-		else {
-			throw new Error ("Empty users list. Please add their before using 'getSetUser(newUser)' or 'generateUsers(url)'");
-		}
-	};
+	}
+	else {
+		throw new Error ("Empty users list. Please add their before using 'getSetUser(newUser)' or 'generateUsers(url)'");
+	}
+};
 
-	this.getSetUser = function (newUser) {
-		if (arguments.length > 0) {
-			addUser(newUser);
-		} else if (arguments.length === 0 && self._allUsers === null) {
-			throw new Error ("Empty users list. Please add their before using 'getSetUser(newUser)' ");
-		} else {
-			return {"female": self._female, "male": self._male};
-		}
-	};
+SortedUsers.prototype.getSetUser = function (newUser) {
+	var self = this;
+	if (arguments.length > 0) {
+		addUser(newUser);
+	} else if (arguments.length === 0 && this._allUsers === null) {
+		throw new Error ("Empty users list. Please add their before using 'getSetUser(newUser)' ");
+	} else {
+		return {"female": this._female, "male": this._male};
+	}
 
 	function addUser(objUser) {
 		if(objUser.gender === 'female') {
@@ -220,14 +225,17 @@ function SortedUsers(usersSource) {
 			self._male.push(objUser);
 		} else { console.log("Unknown gender detected!"); }
 	}
-}
+};
 
 function DisplayedUsers(usersSource) {
 	SortedUsers.apply(this, arguments);
-	var self = this;
+}
 
-	this.display = function () {
-		var usersForDisplay = self.getSetUser();
+DisplayedUsers.prototype = Object.create(SortedUsers.prototype);
+DisplayedUsers.prototype.constructor = DisplayedUsers;
+
+DisplayedUsers.prototype.display = function () {
+		var usersForDisplay = this.getSetUser();
 		var tagLi = {}, tagH3 = {}, tagImg = {};
 		var malesList = document.getElementById("males");
 		var femalesList = document.getElementById("females");
@@ -274,13 +282,12 @@ function DisplayedUsers(usersSource) {
 				malesList.children[j].appendChild(tagH3);
 			}
 		}
-	}
-
-}
+};
 
 function displayUsersOnPage() { 									//This function is handler of "Some Peoples" button
 	var newUsers = new DisplayedUsers();
 	newUsers.generateUsers("http://api.randomuser.me/?results=10");	//AJAX Respond will call function callback
+	console.dir(newUsers);
 
 	window.callback = function () {
 		newUsers.sortUsersByGender();
