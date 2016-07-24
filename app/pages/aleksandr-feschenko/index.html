@@ -20,9 +20,9 @@
 						<li><img class="avatar" src="../../img/aleksandr-feschenko/avatar.jpg" alt="This is avatar" ></li>
 						<li><a class="navigation_menu-link" href="#">Home</a>
 						<li><a class="navigation_menu-link" href="../../index.html">Friends</a>
-						<li><a class="navigation_menu-link" href="#">Messages</a>
-						<li><a class="navigation_menu-link" href="#">Settings</a>
-						<li><a class="navigation_menu-link" href="#itemsList">Current tasks</a>						
+						<li><a class="navigation_menu-link" href="#" onclick="diplayUsersOnPage();">Some Peoples</a>
+						<li><a class="navigation_menu-link" href="#" onclick="getNews('news/news.json');">News</a>
+						<li><a class="navigation_menu-link" href="#itemsList">Current tasks</a>
 					</ul>
 				</div>
 			</div>
@@ -43,13 +43,17 @@
 						</tr>
 					</table>
 				</div>
-		
-				<div class="news_list" >
-					<ul id="newsList">
+				<div class="display_section">
+					<ul class="news_list" id="newsList">
 					</ul>
 
+					<ul class="some_peoples" id="males">
+					</ul>
+
+					<ul class="some_peoples" id="females">
+					</ul>
 				</div>
-				
+
 				<div class = "todo" id = "toDoList">
 					<h2 class = "todo-title">Current tasks: </h2>
 					<ul class = "todo-list" id = "itemsList">
