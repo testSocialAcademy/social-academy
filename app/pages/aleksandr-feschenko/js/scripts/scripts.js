@@ -3,15 +3,25 @@
 
 String.prototype.createPhone = function () {
 	var tempArr = this.split('');
+	var resultArr = [];
 	for (var i = 0; i < tempArr.length; i++) {
 		if (isNaN(Number(tempArr[i]))) {
 			throw new Error("This string contain not only numbers");
-		} else if (i%4 == 0) {
-			tempArr.splice(i, 0, "-");
+		}
+		else if (tempArr[i] === " ") {
+			//To next iteration
+		}
+		else {
+			resultArr.push(tempArr[i]);
 		}
 	}
-	tempArr.shift();
-	return tempArr.join('');
+	for (var j = 0; j < resultArr.length; j++) {
+		if (j % 4 === 0) {
+			resultArr.splice(j, 0, "-");
+		}
+	}
+	resultArr.shift();
+	return resultArr.join('');
 };
 
 function clearSiblings() {
