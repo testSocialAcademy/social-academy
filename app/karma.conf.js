@@ -15,6 +15,7 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
+      'node_modules/babel-polyfill/dist/polyfill.js',
       'pages/**/js/scripts/*.js',
       'pages/**/js/tests/*.js'
     ],
@@ -28,7 +29,7 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'pages/**/js/**/*.js': ['coverage']
+      'pages/**/js/**/*.js': ['coverage','babel']
     },
 
 
@@ -72,6 +73,19 @@ module.exports = function(config) {
       instrumenter: {
         'pages/**/js/**/*.js': 'istanbul' // Force the use of the Istanbul instrumenter to cover CoffeeScript files 
       }
-    }
+    },
+
+    babelPreprocessor: {
+      options: {
+        presets: ['es2015'],
+        sourceMap: 'inline'
+      },
+      filename: function (file) {
+        return file.originalPath.replace(/\.js$/, '.es5.js');
+      },
+      sourceFileName: function (file) {
+        return file.originalPath;
+      }
+    },
   })
 }
