@@ -4,8 +4,8 @@
 String.prototype.createPhone = function () {
 	var tempArr = this.split('');
 	for (var i = 0; i < tempArr.length; i++) {
-		if (!isNaN(Number(tempArr[i]))) {
-			throw new Error("This string contain not only numbers")
+		if (isNaN(Number(tempArr[i]))) {
+			throw new Error("This string contain not only numbers");
 		} else if (i%4 == 0) {
 			tempArr.splice(i, 0, "-");
 		}
@@ -170,7 +170,7 @@ function displayItems() {
 /*==============================Users Block===========================================================================*/
 
 function Users(usersSource) {
-	this._allUsers = null;
+	this._allUsers = [];
 }
 Users.prototype = Object.create(Object.prototype);
 Users.prototype.constructor = Users;
