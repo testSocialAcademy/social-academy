@@ -4,22 +4,25 @@ function loadNews() {
     var xhr = new XMLHttpRequest();
     xhr.open('GET', 'news.json', true);
     xhr.send();
-
+    var respText;
     xhr.onreadystatechange = function () {
         if (xhr.readyState != 4) return;
 
         if (xhr.status != 200) {
             alert(xhr.status + ': ' + xhr.statusText);
         } else {
-            newsDisplay(xhr.responseText);
+            respText = xhr.responseText;
+           newsDisplay(respText);
+            return respText;
         }
-    }
+    };
+    return respText;
 }
 loadNews();
 
-function newsDisplay(responseText){
+function newsDisplay(respText){
     var newLi;
-    var resp = JSON.parse (responseText);
+    var resp = JSON.parse(respText);
     var blokNews = resp.responseData.entries;
     var list = document.getElementById ('news');
     var i;

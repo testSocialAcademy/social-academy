@@ -18,9 +18,9 @@ function getHobby() {
 }
 getHobby();
 
-function addHobby( ) {
+function addHobby() {
     var ul =document.getElementById("hobbyList");
-    var readyHobby = new getHobby;
+    var readyHobby = new getHobby();
     for(var i = 0; i < readyHobby.length;i++){
         var li = document.createElement("li");
         li.innerHTML = readyHobby[i];
@@ -30,19 +30,7 @@ function addHobby( ) {
     }
 }
 addHobby();
-/*function addHobby() {
-    var ul =document.getElementById("hobbyList");
-    var hobby= ["Компьютеры", "Программирование", "Web-дизайн", "IT", "Спорт", "Автомобили", "Мотоциклы"];
-    for(var i = 0; i < hobby.length;i++){
-        var li = document.createElement("li");
-        li.innerHTML= hobby[i];
-        if(ul) {
-            ul.appendChild(li);
-        }
-    }
-}
-  addHobby();
-*/
+
 //Hobby hidden onclick
 function hiddenHobby() {
     var ul =document.getElementById("hobbyList");
