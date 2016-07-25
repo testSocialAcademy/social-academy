@@ -70,6 +70,60 @@
     }
     loadNews();
     
+    
+//    Function add items to "ToDoList" and Local Storage
+
+    function loadItems() {
+        var todoButton = document.getElementById("toDoButton");
+        var myText = document.getElementById("myItems");
+        var info;
+        var newLi;
+        var tasks = document.getElementsByClassName("tasks");
+
+        todoButton.addEventListener("click", addItems);
+        
+
+        for (var i = 0; i < localStorage.length; i++) {
+            var key = localStorage.key(i);
+            newLi = document.createElement("li");
+
+            newLi.innerHTML = key;
+            myText.appendChild(newLi);
+
+        }
+
+        function addItems() {
+            info = document.getElementById("info").value;
+            localStorage.setItem(info, info);
+            newLi = document.createElement("li");
+            newLi.addEventListener("click", delItem);
+            newLi.innerHTML = info;
+            myText.appendChild(newLi);
+            info.innerHTML = "";
+        };
+        
+        function delItem() {
+            console.log(this.textContent);
+            if (this.parentNode) {
+                this.parentNode.removeChild(this);
+                localStorage.removeItem(this.textContent);
+            }
+        }
+        
+
+    };
+    loadItems();
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 })();
 
 
