@@ -9,11 +9,14 @@
   },
   "devDependencies": {
     "chai": "^3.5.0",
+    "jasmine-core": "^2.4.1",
     "karma": "^1.1.0",
     "karma-chai": "^0.1.0",
     "karma-chai-sinon": "^0.1.5",
-    "karma-coverage": "^1.0.0",
+    "karma-coverage": "^1.1.1",
+    "karma-jasmine": "^1.0.2",
     "karma-mocha": "^1.1.1",
+    "karma-phantomjs-launcher": "^1.0.1",
     "mocha": "^2.5.3",
     "sinon": "^1.17.4",
     "sinon-chai": "^2.8.0"

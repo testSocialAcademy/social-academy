@@ -15,8 +15,12 @@ function locStorDel(param) {
 
     localStorage.removeItem(localStorage.key(param));
     param.parentNode.removeChild(param);
+    return true
 }
 
+function addItem1() {
+    return true;
+}
 
 function addItem() {
 
@@ -32,6 +36,5 @@ function addItem() {
     text.appendChild(newLi);
 
     return true;
-
 }
 

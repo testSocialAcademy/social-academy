@@ -1,21 +1,24 @@
 
-
-
-
 describe("scripts for index page", function () {
-    describe( " ", function () {
+    describe( " ??? ", function () {
         it("should return true  ", function (){
-            expect(divText()).to.be.true;
+            expect(locStorDel()).to.be.true;
+            });
+
+        });
+        describe( " ??? ", function () {
+        it("should return true  ", function (){
+            expect(addItem()).to.be.true;
+            });
+
         });
 
+        describe( " ??? ", function () {
         it("should return true  ", function (){
-            expect(addItem(1)).to.be.true;
+            expect(divText()).to.be.an('Array');
+            });
+
         });
-
-    });
-
-
-
 
     });
 
