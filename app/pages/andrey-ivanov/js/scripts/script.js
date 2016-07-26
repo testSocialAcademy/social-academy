@@ -93,28 +93,48 @@ function Users() {
         var xhr = new XMLHttpRequest();
         xhr.open('GET', link, true);
 
-        xhr.onload = function() {
+        xhr.onload = function () {
             var responce = JSON.parse(xhr.responseText);
-           _this._users = responce.results;
-            NewUsers.responseRequest(responce.results);
+            _this._users = responce.results;
+           NewUsers.responseRequest(responce.results);
         };
 
-        xhr.onerror = function() {
+        xhr.onerror = function () {
             alert(xhr.status + ": " + xhr.statusText);
         };
 
         xhr.send();
     };
+
+    this.getSetUsers = function (addNewUser) {
+        if (arguments.length > 0) {
+            addUser(addNewUser);
+        } else if (arguments.length === 0 && _this._users === null) {
+            throw new Error("Please add new user ");
+        } else {
+            return {"female": _this.female, "male": _this.male};
+        }
+    };
+
+    function addUser(addNewUser) {
+        if (addNewUser.gender === 'female') {
+            _this.female.push(addNewUser);
+        }
+        else if (addNewUser.gender === 'male') {
+            _this.male.push(addNewUser);
+        } else {
+            console.log("Unknown gender!");
+        }
+
+    }
 }
+
 
 var NewUsers = new Users();
 NewUsers.userRequest('http://api.randomuser.me/?results=10');
 
-NewUsers.responseRequest = function(responce) {
+NewUsers.responseRequest = function() {
     var self = this;
-    NewUsers._users = responce;
-    NewUsers.male = {};
-    NewUsers.female = {};
 
     function sortUsers() {
         for (var i = 0; i < NewUsers._users.length; i++) {
@@ -127,26 +147,6 @@ NewUsers.responseRequest = function(responce) {
     }
     sortUsers();
 
-    this.getSetUsers = function (addNewUser) {
-        if (arguments.length > 0) {
-            addUser(addNewUser);
-        } else if (arguments.length === 0 && self._allUsers === null) {
-            throw new Error("Please add new user ");
-        } else {
-            return {"female": NewUsers.female, "male": NewUsers.male};
-        }
-    };
-
-    function addUser(addNewUser) {
-        if (addNewUser.gender === 'female') {
-            NewUsers.female.push(addNewUser);
-        }
-        else if (addNewUser.gender === 'male') {
-            NewUsers.male.push(addNewUser);
-        } else {
-            console.log("Unknown gender!");
-        }
-    }
 
     function usersOnDisplay() {
         var people = self._users;
