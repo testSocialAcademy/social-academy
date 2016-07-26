@@ -10,13 +10,15 @@ gulp.task('js combine', () => {
         }))
         .pipe(rename("scripts.js"))
         .pipe(gulp.dest('js/'));
-})
+});
 
 gulp.task('css combine', () => {
     return gulp.src('pages/**/css/*.css')
         .pipe(concatCss("style.css"))
         .pipe(gulp.dest('css/'));
 });
+
+gulp.task('build',['css combine', 'js combine']);
 
 gulp.task('watch', () => {
     gulp.watch('./pages/**/js/scripts/*.js', ['js combine']);
