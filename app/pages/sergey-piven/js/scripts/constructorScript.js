@@ -50,7 +50,7 @@ function NewUsers() {
     var _this = this;
     this.creator = "Serega";
     this.dateOfCreation = new Date();
-    this.sortPeopleByGender = function ( ) {
+    this.sortPeopleByGender = function () {
         for (var i = 0; i < _this._people.results.length; i++) {
             if (_this._people.results[i].gender == "female") {
                 _this.female[i] = _this._people.results[i];

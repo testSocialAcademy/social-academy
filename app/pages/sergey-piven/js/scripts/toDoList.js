@@ -14,26 +14,32 @@ function remove() {
 }
 
 function save() {
-    text = textArea.value;
-    textArea.value = "";
-    li = document.createElement("li");
-    li.innerHTML = text;
-    ul.appendChild(li);
-    for (var i = 0; i < ul.children.length; i++) {
-        localStorage.setItem("item" + i, ul.children[i].innerHTML);
-        ul.children[i].addEventListener("click", remove);
+    if (ul) {
+        text = textArea.value;
+        textArea.value = "";
+        li = document.createElement("li");
+        li.innerHTML = text;
+        ul.appendChild(li);
+        for (var i = 0; i < ul.children.length; i++) {
+            localStorage.setItem("item" + i, ul.children[i].innerHTML);
+            ul.children[i].addEventListener("click", remove);
+        }
     }
 }
 
-button.addEventListener("click", save);
-
-for (i = 0; i < localStorage.length; i++) {
-    var storage = localStorage.getItem(localStorage.key(i));
-    li = document.createElement("li");
-    li.innerHTML = storage;
-    ul.appendChild(li);
-    ul.children[i].addEventListener("click", remove);
+if (button) {
+    button.addEventListener("click", save);
 }
+
+    if (ul) {
+        for (i = 0; i < localStorage.length; i++) {
+            var storage = localStorage.getItem(localStorage.key(i));
+            li = document.createElement("li");
+            li.innerHTML = storage;
+            ul.appendChild(li);
+            ul.children[i].addEventListener("click", remove);
+        }
+    }
 
 })();
 
