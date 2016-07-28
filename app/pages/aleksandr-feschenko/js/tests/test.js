@@ -22,7 +22,7 @@ describe("Результаты тестирования", function () {
         }
     });
 
-    describe("displayNews(arrNews)", function() {
+    /*describe("displayNews(arrNews)", function() {
         it("Если не передан массив новостей, возвращает false", function (){
             expect(displayNews()).to.be.false;
         });
@@ -35,7 +35,7 @@ describe("Результаты тестирования", function () {
         it("Если вместо массива - передана цифра, возвращает false", function (){
             expect(displayNews(1232312)).to.be.false;
         });
-    });
+    });*/
     
 });
 

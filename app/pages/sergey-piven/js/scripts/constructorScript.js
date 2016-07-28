@@ -124,5 +124,3 @@ function callback() {
     dudes.getSetDisplayOnPageByGender();
     console.log(dudes);
 }
-
-

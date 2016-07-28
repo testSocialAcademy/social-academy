@@ -55,4 +55,4 @@ function displayNews(json) {
 
 displayNews('news.json');
 /*
-})();*/
+ })();*/
