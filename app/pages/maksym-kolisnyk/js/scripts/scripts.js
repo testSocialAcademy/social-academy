@@ -5,3 +5,5 @@ function pow(a, b) {
     return ab + ac;
 }
 
+let awdawd = 23;
+
