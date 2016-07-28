@@ -1,5 +1,3 @@
-mocha.setup("bdd");
-
 var expect = chai.expect;
 
 describe("Results", function () {
@@ -21,5 +19,3 @@ describe("displayNews(json)", function() {
         expect(displayNews(123)).to.be.false;
     });
 });
-
-mocha.run();
