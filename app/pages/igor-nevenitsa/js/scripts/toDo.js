@@ -25,15 +25,18 @@ for ( var i = 0; i < localStorage.length; i++) {
 function locStorDel(param) {
 
     if(localStorage) {
-    localStorage.removeItem(localStorage.key(this)); //удаляет из local storage принятое значение this с
-                                                   // newLi.setAttribute("onclick",  "locStorDel(this)" );
+
+        a =  localStorage.getItem(param.innerHTML);
+
+        localStorage.removeItem(a);
 
 
 
     param.parentNode.removeChild(param);    //удаляет ребенка ul => li со значением this из
     }                                       // newLi.setAttribute("onclick",  "locStorDel(this)" );
 
-    return true
+
+
 }
 
 
@@ -52,13 +55,14 @@ function addItem() {
         newLi.setAttribute("class", "list-group-item");
         newLi.setAttribute("onclick",  "locStorDel(this)" );
 
+
         localStorage.setItem(form, form);
 
 
 
         text.appendChild(newLi);
 
-
+        return form;
 
 }
 
