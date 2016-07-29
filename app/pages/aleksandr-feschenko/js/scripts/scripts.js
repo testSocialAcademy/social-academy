@@ -273,10 +273,10 @@ DisplayedUsers.prototype.display = function () {
 			tagLi.className = "some_peoples-block";
 			femalesList.appendChild(tagLi);
 
-			if(usersForDisplay.female[i].picture.thumbnail) {
+			if(usersForDisplay.female[i].picture.medium) {
 				tagImg = document.createElement('img');
 				tagImg.className = "some_peoples-block-photo";
-				tagImg.setAttribute("src", usersForDisplay.female[i].picture.thumbnail);
+				tagImg.setAttribute("src", usersForDisplay.female[i].picture.medium);
 				femalesList.children[i].appendChild(tagImg);
 			}
 
@@ -293,10 +293,10 @@ DisplayedUsers.prototype.display = function () {
 			tagLi.className = "some_peoples-block";
 			malesList.appendChild(tagLi);
 
-			if(usersForDisplay.male[j].picture.thumbnail) {
+			if(usersForDisplay.male[j].picture.medium) {
 				tagImg = document.createElement('img');
 				tagImg.className = "some_peoples-block-photo";
-				tagImg.setAttribute("src", usersForDisplay.male[j].picture.thumbnail);
+				tagImg.setAttribute("src", usersForDisplay.male[j].picture.medium);
 				malesList.children[j].appendChild(tagImg);
 			}
 
