@@ -49,7 +49,7 @@ function displayHobbies_af(arrHobbies) {
 	var hobbiesList = document.getElementById('hobbiesList_af');
 	for (var i = 0; i < arrHobbies.length; i++) {
 		var tagLi = document.createElement('li');
-		tagLi.className = "hobbies_list-li";
+		tagLi.className = "hobbies_list-li_af";
 		tagLi.innerHTML = arrHobbies[i];
 		if(hobbiesList) {
 			hobbiesList.appendChild(tagLi);
