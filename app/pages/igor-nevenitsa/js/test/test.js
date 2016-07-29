@@ -1,3 +1,7 @@
+mocha.setup('bdd');
+var assert = chai.assert;
+var expect = chai.expect;
+
 
 describe("Проверка Index", function () {
     describe( " Функция удаления ключей из Local Storage ", function () {
