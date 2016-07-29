@@ -1,7 +1,11 @@
 ;
 'use strict';
 
-String.prototype.createPhone = function () {
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////Aleksandr Feschenko ES5 Script////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+String.prototype.createPhone_af = function () {
 	var tempArr = this.split('');
 	var resultArr = [];
 	for (var i = 0; i < tempArr.length; i++) {
@@ -24,8 +28,8 @@ String.prototype.createPhone = function () {
 	return resultArr.join('');
 };
 
-function clearSiblings() {
-	var cooperativeBlock = document.getElementById("cooperativeBlock");
+function clearSiblings_af() {
+	var cooperativeBlock = document.getElementById("cooperativeBlock_af");
 	if(cooperativeBlock) {
 		for (var i = 0; i < cooperativeBlock.children.length; i++) {
 			cooperativeBlock.children[i].innerHTML = '';
@@ -36,13 +40,13 @@ function clearSiblings() {
 
 /*==============================Hobbies Block========================================================================*/
 
-function setHobbies() {
+function setHobbies_af() {
 	var hobbies = ["Programming", "System Administration", "Electronics", "Modern Technologies", "Science", "Psychology", "Sport"];
 	return hobbies;
 }
 
-function displayHobbies(arrHobbies) {
-	var hobbiesList = document.getElementById('hobbiesList');
+function displayHobbies_af(arrHobbies) {
+	var hobbiesList = document.getElementById('hobbiesList_af');
 	for (var i = 0; i < arrHobbies.length; i++) {
 		var tagLi = document.createElement('li');
 		tagLi.className = "hobbies_list-li";
@@ -57,7 +61,7 @@ function displayHobbies(arrHobbies) {
 
 /*==============================News Block===========================================================================*/
 
-function getNews(jsonFile) {
+function getNews_af(jsonFile) {
 	var	req	= new XMLHttpRequest();
 	req.open("GET",	jsonFile, true);
 
@@ -66,7 +70,7 @@ function getNews(jsonFile) {
 			if (req.status == 200) {
 				var responce = JSON.parse(req.responseText);
 				var content = responce.responseData.entries;
-				return displayNews(content);
+				return displayNews_af(content);
 			}
 
 			else {
@@ -77,29 +81,29 @@ function getNews(jsonFile) {
 	req.send(null);
 }
 
-function displayNews(arrNews) {
+function displayNews_af(arrNews) {
 	var tagLi = {}, tagH3 = {}, tagP = {}, tagA = {};
-	var newsList = document.getElementById("newsList");
+	var newsList = document.getElementById("newsList_af");
 	if(newsList) {
-		clearSiblings();
+		clearSiblings_af();
 		newsList.style.display = "block";
 	}
 	if(arrNews !== undefined && arrNews.length !== 0 && arrNews instanceof Array) {
 		for (var i = 0; i < arrNews.length; i++) {
 			tagLi = document.createElement('li');
-			tagLi.className = "news_list-block";
+			tagLi.className = "news_list-block_af";
 			newsList.appendChild(tagLi);
 
 			if (arrNews[i].title) {
 				tagH3 = document.createElement('h3');
-				tagH3.className = "news_list-block-title";
+				tagH3.className = "news_list-block-title_af";
 				tagH3.innerHTML = arrNews[i].title;
 				newsList.children[i].appendChild(tagH3);
 			}
 
 			if (arrNews[i].contentSnippet) {
 				tagP = document.createElement('p');
-				tagP.className = "news_list-block-content";
+				tagP.className = "news_list-block-content_af";
 				tagP.innerHTML = arrNews[i].contentSnippet;
 				newsList.children[i].appendChild(tagP);
 			}
@@ -107,7 +111,7 @@ function displayNews(arrNews) {
 			if (arrNews[i].link) {
 				tagA = document.createElement('a');
 				tagA.setAttribute('href', arrNews[i].link);
-				tagA.className = "news_list-block-anchor";
+				tagA.className = "news_list-block-anchor_af";
 				tagA.innerHTML = arrNews[i].link;
 				newsList.children[i].appendChild(tagA);
 			}
@@ -120,36 +124,37 @@ function displayNews(arrNews) {
 
 /*==============================Items Block===========================================================================*/
 
-function addNewItem() {
+function addNewItem_af() {
 	
-	var itemsList = document.getElementById("itemsList");
-	var itemValue = document.getElementById("textForm").value;
-	var listBlock = document.getElementById("toDoList");
+	var itemsList = document.getElementById("itemsList_af");
+	var itemValue = document.getElementById("textForm_af").value;
+	var listBlock = document.getElementById("toDoList_af");
+	var form = document.getElementById("form_af");
 
 	if (itemValue == "") {
-		alertMessage ("Please insert Description!",listBlock,form);
+		alertMessage_af ("Please insert Description!",listBlock,form_af);
 	}
 	else if (itemValue === localStorage.getItem(itemValue)) {
-		alertMessage ("This item is already present! Please insert another Description",listBlock,form);
+		alertMessage_af ("This item is already present! Please insert another Description",listBlock,form);
 	}
 	else if (localStorage.length >= 30) {
-		alertMessage ("you can not add more than 30 items! Please clear previous items",listBlock,form);
+		alertMessage_af ("you can not add more than 30 items! Please clear previous items",listBlock,form);
 	}
 	else {
 		var tagLi = document.createElement('li');
 		tagLi.innerHTML = itemValue;
-		tagLi.className = "todo-list-li";
-		tagLi.setAttribute("onclick", "delItem(this);");
+		tagLi.className = "todo-list-li_af";
+		tagLi.setAttribute("onclick", "delItem_af(this);");
 		itemsList.appendChild(tagLi);
 		localStorage.setItem(itemValue, itemValue);
-		document.getElementById("textForm").value = "";
+		document.getElementById("textForm_af").value = "";
 	}	
 }
 
-function alertMessage (str, parentElement, nextSibling) {
+function alertMessage_af (str, parentElement, nextSibling) {
 
 	var tagDiv = document.createElement('div');
-	tagDiv.className = "alert";
+	tagDiv.className = "alert_af";
 	tagDiv.innerHTML = str;
 
 	parentElement.insertBefore(tagDiv, nextSibling);
@@ -159,18 +164,19 @@ function alertMessage (str, parentElement, nextSibling) {
 	}, 1500)
 }
 
-function delItem(clickedElem) {	
+function delItem_af(clickedElem) {
+	var itemsList = document.getElementById("itemsList_af");
 	localStorage.removeItem(clickedElem.innerHTML);
-	itemsList.removeChild(clickedElem);	
+	itemsList.removeChild(clickedElem);
 }
 
-function displayItems() {
-	var itemsList = document.getElementById("itemsList");
+function displayItems_af() {
+	var itemsList = document.getElementById("itemsList_af");
 	for (var i = 0; i <localStorage.length; i++) {
 		var tagLi = document.createElement('li');
 		tagLi.innerHTML = localStorage.getItem(localStorage.key(i));
-		tagLi.className = "todo-list-li";
-		tagLi.setAttribute("onclick", "delItem(this);");
+		tagLi.className = "todo-list-li_af";
+		tagLi.setAttribute("onclick", "delItem_af(this);");
 		itemsList.appendChild(tagLi);	
 	}
 }
@@ -179,13 +185,13 @@ function displayItems() {
 
 /*==============================Users Block===========================================================================*/
 
-function Users(usersSource) {
+function Users_af(usersSource) {
 	this._allUsers = [];
 }
-Users.prototype = Object.create(Object.prototype);
-Users.prototype.constructor = Users;
+Users_af.prototype = Object.create(Object.prototype);
+Users_af.prototype.constructor = Users_af;
 
-Users.prototype.generateUsers = function (url) {
+Users_af.prototype.generateUsers = function (url) {
 	var self = this;
 	var	req	= new XMLHttpRequest();
 	req.open("GET",	url, true);
@@ -195,7 +201,7 @@ Users.prototype.generateUsers = function (url) {
 			if (req.status == 200) {
 				var responce = JSON.parse(req.responseText);
 				self._allUsers = responce.results;
-				callback();
+				callback_af();
 			}
 
 			else {
@@ -206,16 +212,16 @@ Users.prototype.generateUsers = function (url) {
 	req.send(null);
 };
 
-function SortedUsers(usersSource) {
-	Users.apply(this,arguments);
+function SortedUsers_af(usersSource) {
+	Users_af.apply(this,arguments);
 	this._female = [];
 	this._male = [];
 }
 
-SortedUsers.prototype = Object.create(Users.prototype);
-SortedUsers.prototype.constructor = SortedUsers;
+SortedUsers_af.prototype = Object.create(Users_af.prototype);
+SortedUsers_af.prototype.constructor = SortedUsers_af;
 
-SortedUsers.prototype.sortUsersByGender = function () {
+SortedUsers_af.prototype.sortUsersByGender = function () {
 	var arrAllUsers = this._allUsers;
 	if (arrAllUsers) {
 		for (var i = 0; i < arrAllUsers.length; i++) {
@@ -232,7 +238,7 @@ SortedUsers.prototype.sortUsersByGender = function () {
 	}
 };
 
-SortedUsers.prototype.getSetUser = function (newUser) {
+SortedUsers_af.prototype.getSetUser = function (newUser) {
 	var self = this;
 	if (arguments.length > 0) {
 		addUser(newUser);
@@ -252,37 +258,37 @@ SortedUsers.prototype.getSetUser = function (newUser) {
 	}
 };
 
-function DisplayedUsers(usersSource) {
-	SortedUsers.apply(this, arguments);
+function DisplayedUsers_af(usersSource) {
+	SortedUsers_af.apply(this, arguments);
 }
 
-DisplayedUsers.prototype = Object.create(SortedUsers.prototype);
-DisplayedUsers.prototype.constructor = DisplayedUsers;
+DisplayedUsers_af.prototype = Object.create(SortedUsers_af.prototype);
+DisplayedUsers_af.prototype.constructor = DisplayedUsers_af;
 
-DisplayedUsers.prototype.display = function () {
+DisplayedUsers_af.prototype.display = function () {
 		var usersForDisplay = this.getSetUser();
 		var tagLi = {}, tagH3 = {}, tagImg = {};
-		var malesList = document.getElementById("males");
-		var femalesList = document.getElementById("females");
-		clearSiblings();
+		var malesList = document.getElementById("males_af");
+		var femalesList = document.getElementById("females_af");
+		clearSiblings_af();
 		malesList.style.display = "block";
 		femalesList.style.display = "block";
 
 		for (var i = 0; i < usersForDisplay.female.length; i++) {
 			tagLi = document.createElement('li');
-			tagLi.className = "some_peoples-block";
+			tagLi.className = "some_peoples-block_af";
 			femalesList.appendChild(tagLi);
 
 			if(usersForDisplay.female[i].picture.medium) {
 				tagImg = document.createElement('img');
-				tagImg.className = "some_peoples-block-photo";
+				tagImg.className = "some_peoples-block-photo_af";
 				tagImg.setAttribute("src", usersForDisplay.female[i].picture.medium);
 				femalesList.children[i].appendChild(tagImg);
 			}
 
 			if (usersForDisplay.female[i].name.first) {
 				tagH3 = document.createElement('h3');
-				tagH3.className = "some_peoples-block-title";
+				tagH3.className = "some_peoples-block-title_af";
 				tagH3.innerHTML = usersForDisplay.female[i].name.first + " " + usersForDisplay.female[i].name.last;
 				femalesList.children[i].appendChild(tagH3);
 			}
@@ -290,31 +296,31 @@ DisplayedUsers.prototype.display = function () {
 		}
 		for (var j = 0; j < usersForDisplay.male.length; j++) {
 			tagLi = document.createElement('li');
-			tagLi.className = "some_peoples-block";
+			tagLi.className = "some_peoples-block_af";
 			malesList.appendChild(tagLi);
 
 			if(usersForDisplay.male[j].picture.medium) {
 				tagImg = document.createElement('img');
-				tagImg.className = "some_peoples-block-photo";
+				tagImg.className = "some_peoples-block-photo_af";
 				tagImg.setAttribute("src", usersForDisplay.male[j].picture.medium);
 				malesList.children[j].appendChild(tagImg);
 			}
 
 			if (usersForDisplay.male[j].name.first) {
 				tagH3 = document.createElement('h3');
-				tagH3.className = "some_peoples-block-title";
+				tagH3.className = "some_peoples-block-title_af";
 				tagH3.innerHTML = usersForDisplay.male[j].name.first + " " + usersForDisplay.male[j].name.last;
 				malesList.children[j].appendChild(tagH3);
 			}
 		}
 };
 
-function displayUsersOnPage() { 									//This function is handler of "Some Peoples" button
-	var newUsers = new DisplayedUsers();
+function displayUsersOnPage_af() { 									//This function is handler of "Some Peoples" button
+	var newUsers = new DisplayedUsers_af();
 	newUsers.generateUsers("http://api.randomuser.me/?results=10");	//AJAX Respond will call function callback
-	console.dir(newUsers);
+//	console.dir(newUsers);
 
-	window.callback = function () {
+	window.callback_af = function () {
 		newUsers.sortUsersByGender();
 		newUsers.display();
 	}
@@ -323,13 +329,16 @@ function displayUsersOnPage() { 									//This function is handler of "Some Peo
 /*==============================Users Block END=======================================================================*/
 
 /*==============================Initialization Page===================================================================*/
-function initialStart() {
-	displayHobbies(setHobbies());
-	getNews("news/news.json");
-	displayItems();
+function initialStartMainPage_af() {
+	displayHobbies_af(setHobbies_af());
+	getNews_af("news/news.json");
+	displayItems_af();
 }
 
-initialStart();
+initialStartMainPage_af();
 
 /*==============================Initialization Page End=============================================================*/
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////Aleksandr Feschenko ES5 Script END//////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
