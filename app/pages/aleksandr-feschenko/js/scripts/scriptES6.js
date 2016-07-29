@@ -136,13 +136,15 @@ function elementVisibility_af(elemId, boolean) {
 }
 
 function initStartPicturesPage_af () {
-    let sourceArr = [
-        "https://pixabay.com/api/?key=2980920-46f1aa264b036ffc6e45ebad0&orientation=vertical&q=red+flowers&min_height=500",
-        "https://pixabay.com/api/?key=2980920-46f1aa264b036ffc6e45ebad0&orientation=vertical&q=yellow+flowers&min_height=500"
-    ];
+    var pageId = document.getElementById("afPicturesPage");
+    if(pageId) {
+        let sourceArr = [
+            "https://pixabay.com/api/?key=2980920-46f1aa264b036ffc6e45ebad0&orientation=vertical&q=red+flowers&min_height=500",
+            "https://pixabay.com/api/?key=2980920-46f1aa264b036ffc6e45ebad0&orientation=vertical&q=yellow+flowers&min_height=500"
+        ];
 
-    getFromUrl_af(sourceArr);
-
+        getFromUrl_af(sourceArr);
+    }
 }
 
 const MAX_IMAGES_FOR_PAGE_af = 10;

@@ -13,12 +13,16 @@
 	line-height: 1;
 	border-collapse: collapse;
 	border-spacing: 0;
-	list-style: none;
+	list-style-type: none;
 	quotes: none;
+	position: static;
+	border-radius: 0;
+	height: auto;
 }
 /*//////////////////////////////RESET.CSS END/////////////////////////////////////////////////////////////////////*/
 
 .body_af {
+	background: white;
 	margin: 0;
 	padding: 0;
 	font-family: 'PT Sans', sans-serif;

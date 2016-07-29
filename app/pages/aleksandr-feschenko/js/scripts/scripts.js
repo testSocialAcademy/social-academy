@@ -330,9 +330,12 @@ function displayUsersOnPage_af() { 									//This function is handler of "Some 
 
 /*==============================Initialization Page===================================================================*/
 function initialStartMainPage_af() {
-	displayHobbies_af(setHobbies_af());
-	getNews_af("news/news.json");
-	displayItems_af();
+	var pageId = document.getElementById("afMainPage");
+	if(pageId) {
+		displayHobbies_af(setHobbies_af());
+		getNews_af("news/news.json");
+		displayItems_af();
+	}
 }
 
 initialStartMainPage_af();

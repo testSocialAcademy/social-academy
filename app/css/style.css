@@ -1,282 +1,181 @@
-/**
- * Eric Meyer's Reset CSS v2.0 
-(http://meyerweb.com/
-eric/tools/css/reset/)
- * http://cssreset.com
- */
+/*/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////Aleksandr Feschenko CSS //////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 
-html,
-body,
-div,
-span,
-applet,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-var,
-b,
-u,
-i,
-center,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-embed,
-figure,
-figcaption,
-footer,
-header,
-hgroup,
-menu,
-nav,
-output,
-ruby,
-section,
-summary,
-time,
-mark,
-audio,
-video {
+/*//////////////////////////////RESET.CSS/////////////////////////////////////////////////////////////////////////*/
+
+.body_af * {
   margin: 0;
   padding: 0;
   border: 0;
   font-size: 100%;
-  /*	font: inherit; */
   vertical-align: baseline;
   line-height: 1;
-}
-
-/* HTML5 display-role reset for older browsers */
-
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-menu,
-nav,
-section {
-  display: block;
-}
-
-body {
-  line-height: 1;
-}
-
-ol,
-ul {
-  list-style: none;
-}
-
-blockquote,
-q {
-  quotes: none;
-}
-
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
-  content: '';
-  content: none;
-}
-
-table {
   border-collapse: collapse;
   border-spacing: 0;
+  list-style-type: none;
+  quotes: none;
+  position: static;
+  border-radius: 0;
+  height: auto;
 }
-/* 
-	font-family: 'PT Sans', sans-serif;
-*/
 
-body {
+/*//////////////////////////////RESET.CSS END/////////////////////////////////////////////////////////////////////*/
+
+.body_af {
+  background: white;
+  margin: 0;
+  padding: 0;
   font-family: 'PT Sans', sans-serif;
-  font-size: 13px;
+  font-size: 17px;
 }
 
-.wrapper {
+.wrapper_af {
   margin: 0 auto;
-  width: 720px;
+  max-width: 1170px;
 }
 
-.header {
-  background-color: rgba(0,0,0,.25);
-  padding: 10px;
-  border-radius: 10px;
+.clearfix_af:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
-.header-title {
+.header_af {
+  background-color: whitesmoke;
+  padding: 15px;
+}
+
+.header-title_af {
   letter-spacing: 1px;
   font-weight: bold;
+  color: rgb(96, 96, 96);
+  display: inline-block;
+  text-decoration: none;
 }
 
-.content {
+.header-title_af:hover {
+  color: rgb(26, 187, 156);
+}
+
+.content_af {
   overflow: hidden;
 }
 
-.left_column {
+/*/////////////////////////////////////INDEX PAGE////////////////////////////////////////////////////////////////*/
+
+.left_column_af {
   float: left;
   width: 30%;
   margin: 10px;
 }
 
-.navigation_menu-list {
+.navigation_menu-list_af {
   list-style-type: none;
 }
 
-.navigation_menu-link {
+.navigation_menu-link_af {
   text-decoration: none;
-  background-color: rgba(0,0,0,0);
   display: block;
   border-radius: 10px;
-  margin: 1px 0;
+  margin: 3px 0;
   padding: 5px 7px;
   color: blue;
 }
 
-.navigation_menu-link:hover {
+.navigation_menu-link_af:hover {
   background-color: rgba(0,0,0,.25);
 }
 
-.navigation_menu-link:active {
+.navigation_menu-link_af:active {
   opacity: .50;
   color: blue;
 }
 
-.avatar {
-  max-height: 600px;
+.avatar_af {
   max-width: 100%;
   border: 1px solid rgba(0,0,0,.25);
   border-radius: 10px;
 }
 
-.right_column {
+.right_column_af {
   float: left;
   margin: 10px;
-  width: 64%;
+  width: 66%;
 }
 
-.user_information {
+.user_information_af {
   border: 1px solid rgba(0,0,0,.25);
   border-radius: 10px;
   padding: 8px;
 }
 
-.user_information-cells {
+.user_information-cells_af {
   vertical-align: top;
   text-align: left;
   font-weight: 400;
   padding: 7px;
 }
 
-.hobbies_list-li {
+.hobbies_list {
   list-style-type: none;
+}
+
+.hobbies_list-li_af {
   padding: 2px 0;
 }
 
-.news_list {
+.news_list_af {
   margin-top: 10px;
   border: 1px solid rgba(0,0,0,.25);
   border-radius: 10px;
   padding: 8px;
 }
 
-.news_list-block {
+.news_list-block_af {
   list-style-type: none;
   padding: 7px;
 }
 
-.news_list-block-title {
+.news_list-block-title_af {
   color: green;
   padding: 2px 0;
 }
 
-.news_list-block-content {
+.news_list-block-content_af {
   padding: 2px 0;
 }
 
-.news_list-block-anchor {
+.news_list-block-anchor_af {
   padding: 2px 0;
 }
 
-.some_peoples {
+.some_peoples_af {
   margin-top: 10px;
   border: 1px solid rgba(0,0,0,.25);
   border-radius: 10px;
   padding: 8px;
 }
 
-.some_peoples-block {
+.some_peoples-block_af {
   list-style-type: none;
   padding: 7px;
   overflow: hidden;
 }
 
-.some_peoples-block-photo {
+.some_peoples-block-photo_af {
   color: green;
   padding: 2px 0;
   float: left;
 }
 
-.some_peoples-block-title {
+.some_peoples-block-title_af {
   color: green;
   padding: 10px;
   float: left;
 }
 
-.todo {
+.todo_af {
   margin-top: 10px;
   border: 1px solid rgba(0,0,0,.25);
   border-radius: 10px;
@@ -284,82 +183,177 @@ body {
   overflow: hidden;
 }
 
-.todo-title {
+.todo-title_af {
   color: green;
   font-weight: bold;
   padding: 5px;
 }
 
-.todo-list {
+.todo-list_af {
   list-style-type: decimal;
   list-style-position: inside;
   padding-left: 15px;
 }
 
-.todo-list-li {
+.todo-list-li_af {
   margin: 2px 0;
 }
 
-.todo-list-li:hover {
+.todo-list-li_af:hover {
   cursor: pointer;
   font-size: larger;
   color: red;
 }
 
-.form {
+.form_af {
   margin: 6px;
   overflow: hidden;
 }
 
-.text_form {
+.text_form_af,
+.button_af {
   float: left;
-  height: 30px;
-  width: 63%;
-  padding: 0;
+  padding: 5px;
   border: 1px solid rgba(0,0,0,.25);
+  font-size: 17px;
+  font-family: 'PT Sans', sans-serif;
+}
+
+.text_form_af {
+  height: 30px;
+  width: 62%;
   border-radius: 10px 0 0 10px;
   border-right: none;
   text-indent: 8px;
 }
 
-.button {
-  float: left;
-  height: 32px;
+.button_af {
+  height: 42px;
   width: 36%;
-  padding: 0;
-  border: 1px solid rgba(0,0,0,.25);
   border-radius: 0 10px 10px 0;
   border-left: none;
   color: blue;
+  font-weight: bold;
 }
 
-.button:hover {
+.button_af:hover {
   background-color: rgba(0,0,0,.25);
   cursor: pointer;
 }
 
-.button:active {
+.button_af:active {
   opacity: .50;
 }
 
-.alert {
+.alert_af {
   background-color: rgba(255,0,0,.25);
   border: 1px solid rgba(255,0,0,1);
   border-radius: 10px;
   color: red;
   display: block;
   letter-spacing: 1px;
-  padding: 7px;
+  padding: 12px 0;
   margin: 6px;
+  text-indent: 13px;
 }
 
-.footer {
-  padding: 10px;
-  background-color: rgba(0,0,0,.25);
+/*/////////////////////////////////////INDEX PAGE END//////////////////////////////////////////////////////////////*/
+
+.footer_af {
+  padding: 15px;
+  background-color: whitesmoke;
   text-align: center;
-  padding: 10px;
-  border-radius: 10px;
+  color: rgb(96, 96, 96);
 }
+
+/*////////////////////////////////////////SLIDE SHOW PAGE//////////////////////////////////////////////////*/
+
+.slide_show_af {
+  margin: 10px auto;
+  border: 1px solid rgba(0,0,0,.25);
+  border-radius: 10px;
+  position: relative;
+  width: 100%;
+}
+
+.slide_show-left_button_af,
+.slide_show-right_button_af,
+.slide_show-play_button_af {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  margin-top: -41px;
+  opacity: .2;
+}
+
+.slide_show-left_button_af {
+  left: 5%;
+}
+
+.slide_show-right_button_af {
+  right: 5%;
+}
+
+.slide_show-play_button_af {
+  opacity: .05;
+  left: 50%;
+  margin-left: -41px;
+}
+
+.slide_show-left_button_af:hover,
+.slide_show-play_button_af:hover,
+.slide_show-right_button_af:hover {
+  opacity: .9;
+}
+
+.slide_show-left_button_af:hover,
+.slide_show-play_button_af:hover,
+.slide_show-right_button_af:hover {
+  opacity: .9;
+}
+
+.slide_show-left_button_af:active,
+.slide_show-play_button_af:active,
+.slide_show-right_button_af:active {
+  transform: scale(1.2, 1.2);
+}
+
+.slide_show-center_af {
+  margin: 8px;
+}
+
+.slide_show-center-image_af {
+  margin: 0 auto;
+  display: block;
+}
+
+.preview_images_af {
+  margin: 10px 0 10px 0;
+  border: 1px solid rgba(0,0,0,.25);
+  border-radius: 10px;
+  padding: 8px;
+}
+
+.preview_images-element_af {
+  float: left;
+  width: 9%;
+  padding: 0 5.5px;
+  overflow: hidden;
+}
+
+.preview_images-element-image_af {
+  max-height: 150px;
+  max-width: 150px;
+  display: block;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+/*/////////////////////////////////////SLIDE SHOW PAGE END/////////////////////////////////////////////////*/
+
+/*/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////Aleksandr Feschenko CSS END///////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 body {
   background: #edeef0;
 }
