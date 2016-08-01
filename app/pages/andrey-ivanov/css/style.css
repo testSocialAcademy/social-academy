@@ -13,7 +13,8 @@ header {
      border-bottom: 1px solid #466991;
      position: relative;
      margin-bottom: 10px;
-     border-radius: 10px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
 }
  /* nav {
      margin-left: 40px;
@@ -39,7 +40,9 @@ header {
      border-top: 1px solid #466991;
      position: relative ;
      margin-top: 10px;
-     border-radius: 10px;
+
+     border-top-left-radius: 15px;
+     border-top-right-radius: 15px;
  }
 .logo {
     margin: 4px;
@@ -74,7 +77,12 @@ header {
      margin-top:10px;
      margin-right: 10px;
  }
+#news p{
 
+    font-size: 12px;
+    text-align: justify;
+;
+}
  /*style my freands */
  .style_userImage {
      width: 50px;

@@ -5,33 +5,33 @@ var expect = chai.expect;
 
 
 describe("Результаты тестирования", function () {
-    describe("getHobby()", function() {
+    describe("getHobby_ai()", function() {
         it("Функция возвращает массив", function (){
-            expect(getHobby()).to.be.a('Array');
+            expect(getHobby_ai()).to.be.a('Array');
         });
         it("Функция возвращает массив", function (){
-            expect(getHobby()).to.not.be.a('String');
+            expect(getHobby_ai()).to.not.be.a('String');
         });
 
         it("Длина массива равная семи", function (){
-            expect(getHobby().length).to.be.equal(7);
+            expect(getHobby_ai().length).to.be.equal(7);
         });
     });
 
-    describe("loadNews()", function() {
+    describe("loadNews_ai()", function() {
         it("Массив передан", function (){
-            expect(loadNews()).to.not.be.false;
+            expect(loadNews_ai()).to.not.be.false;
             });
         it("Массив не пустой", function (){
-            expect(loadNews([])).to.not.be.false;
+            expect(loadNews_ai([])).to.not.be.false;
         });
         it("Массив не строка", function (){
-            expect(loadNews("string")).to.not.be.false;
+            expect(loadNews_ai("string")).to.not.be.false;
         });
     });
-    describe("newsDisplay(respText)", function() {
+    describe("newsDisplay_ai(respText)", function() {
         it("Массив аргументов", function (){
-            function newsDisplay(respText) {
+            function newsDisplay_ai(respText) {
                 expect(respText).to.be.arguments;
             }
         });
