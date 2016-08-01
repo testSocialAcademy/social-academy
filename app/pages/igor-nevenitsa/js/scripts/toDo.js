@@ -1,6 +1,10 @@
-var text = document.getElementById("toDoList");
 
-for ( var i = 0; i < localStorage.length; i++) {
+  var text = document.getElementById("toDoList");
+
+
+    function locStorStart() {
+
+        for ( var i = 0; i < localStorage.length; i++) {
 
 
 
@@ -18,11 +22,13 @@ for ( var i = 0; i < localStorage.length; i++) {
 
            newLi.innerHTML = locStor;
            text.appendChild(newLi);
-       
 
-}
 
-function locStorDel(param) {
+  }
+  }
+  locStorStart();
+
+  function locStorDel(param) {
 
     if(localStorage) {
 
@@ -35,12 +41,12 @@ function locStorDel(param) {
     param.parentNode.removeChild(param);    //удаляет ребенка ul => li со значением this из
     }                                       // newLi.setAttribute("onclick",  "locStorDel(this)" );
 
+ return true;
+
+  }
 
 
-}
-
-
-function addItem() {
+  function addItem() {
 
 
         var form = document.getElementById("toDo").value;
@@ -64,6 +70,6 @@ function addItem() {
 
         return form;
 
-}
+  }
 
 

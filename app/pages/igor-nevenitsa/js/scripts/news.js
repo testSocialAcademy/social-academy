@@ -19,6 +19,7 @@
         var resp1 = JSON.parse(xhr.responseText);
         var resp = resp1.responseData.entries;
 
+
     for (var i = 0; i < resp.length; i++) {
         var ul = document.createElement('ul');
         myList.appendChild(ul);
