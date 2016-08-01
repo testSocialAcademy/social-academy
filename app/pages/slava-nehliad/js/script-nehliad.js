@@ -81,15 +81,14 @@
         var tasks = document.getElementsByClassName("tasks");
 
         todoButton.addEventListener("click", addItems);
-        
+
 
         for (var i = 0; i < localStorage.length; i++) {
             var key = localStorage.key(i);
             newLi = document.createElement("li");
-
             newLi.innerHTML = key;
             myText.appendChild(newLi);
-
+            newLi.addEventListener("click", delItem);
         }
 
         function addItems() {
@@ -99,9 +98,10 @@
             newLi.addEventListener("click", delItem);
             newLi.innerHTML = info;
             myText.appendChild(newLi);
-            info.innerHTML = "";
-        };
-        
+            // info.innerHTML = "";
+        }
+
+
         function delItem() {
             console.log(this.textContent);
             if (this.parentNode) {
@@ -109,7 +109,6 @@
                 localStorage.removeItem(this.textContent);
             }
         }
-        
 
     };
     loadItems();
