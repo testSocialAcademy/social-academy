@@ -5,5 +5,19 @@
   "author": "PHP-ACADEMY",
   "dependencies": {
     "node-http-server": "^5.1.0"
-  }
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "main": "server.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/testSocialAcademy/social-academy.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/testSocialAcademy/social-academy/issues"
+  },
+  "homepage": "https://github.com/testSocialAcademy/social-academy#readme"
 }
