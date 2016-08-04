@@ -1,7 +1,3 @@
-'use strict';
-
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
-
 ;'use strict';
 //(function(){
 //Display hobbies	
@@ -17,41 +13,43 @@ function displayHobbies() {
 	return 1;
 }
 function formHobbies() {
-	var hobbies = ["literature", "bodybuilding", "art", "walking"];
+	var hobbies = ["literature","bodybuilding","art","walking"];
 	var pText = "Hobbies: ";
-	for (var i = 0; i < hobbies.length; i++) {
+	for (var i = 0; i < hobbies.length; i++){
 		pText += hobbies[i] + ", ";
 	}
-	pText = pText.slice(0, pText.length - 2);
+	pText = pText.slice(0,pText.length - 2);
 	return pText;
 }
 
 //Functions for news
-function displayNews() {
+function displayNews () {
 	var response = null;
 	response = newsRequest();
 	if (response != null) {
 		putNewsOnPage(response);
-	} else {
+	}
+	else {
 		return false;
 	}
+	
 }
 
 function newsRequest() {
 	var xhr = new XMLHttpRequest();
 	xhr.open("GET", "news.json", false);
 	xhr.send();
-	xhr.onreadystatechange = function () {
-		if (xhr.readeState != 4) return;
-	};
-	if (xhr.status != 200) {
-		alert(xhr.status + ": " + xhr.statusText);
-	} else {
-		return xhr.responseText;
-	}
+	xhr.onreadystatechange = function(){
+		if(xhr.readeState != 4) return;
+    };
+		if(xhr.status != 200) {
+			alert(xhr.status + ": " + xhr.statusText);
+		} else {
+			return xhr.responseText;
+		}
 }
 
-function putNewsOnPage(responseText) {
+function putNewsOnPage(responseText){
 	var response = JSON.parse(responseText);
 	var news = response.responseData.entries;
 	var column = document.getElementById("newsColumn");
@@ -62,42 +60,43 @@ function putNewsOnPage(responseText) {
 		div = formElement();
 		column.appendChild(div);
 	}
-
+	
 	function formElement() {
 		var p;
 		var a;
 		var div = document.createElement("div");
 		for (var key in obj) {
 			if (key == "link") {
-				a = document.createElement("a");
-				a.href = obj[key];
-				a.innerHTML = "Read more";
-				div.appendChild(a);
-			} else if (key != "url") {
-				p = document.createElement("p");
-				p.innerHTML = obj[key];
-				div.appendChild(p);
+			a = document.createElement("a");
+			a.href = obj[key];
+			a.innerHTML = "Read more";
+			div.appendChild(a);	
 			}
-		}
+			else if (key != "url") {
+			p = document.createElement("p");
+			p.innerHTML = obj[key];
+			div.appendChild(p);
+		    }
+		}	
 		p = document.createElement("p");
 		div.appendChild(p);
 		return div;
 	}
 }
 //Work with Local Storage
-function addElementLSList() {
+function addElementLSList () {
 	var keyLS = document.getElementById("keyLS");
 	var value = keyLS.value;
 	var result = localStorage.getItem(value);
-	if ((localStorage.length == 0 || result == null) && value != "") {
+	if ((localStorage.length == 0 || result == null) && (value != "")){
 		addElementLS();
 		addElementList();
 	}
-
+	
 	function addElementLS() {
-		localStorage.setItem(value, value);
+		localStorage.setItem(value,value);
 	}
-
+	
 	function addElementList() {
 		var li = document.createElement("li");
 		var listLS = document.getElementById("listLS");
@@ -109,45 +108,44 @@ function addElementLSList() {
 	}
 }
 
-function removeLi() {
+
+function removeLi(){	
 	var _this = this;
 	removeLiLS();
 	removeLiPage();
-
-	function removeLiLS() {
+	
+	function removeLiLS () {
 		localStorage.removeItem(_this.textContent);
 	}
-
+	
 	function removeLiPage() {
 		var listLS = document.getElementById("listLS");
 		listLS.removeChild(_this);
 	}
 }
 
-function displayLS() {
+function displayLS () {
 	var li = document.createElement("li");
 	var value;
-	if (value) {
-		value = document.getElementById("keyLS").value;
-	}
+if (value) {value = document.getElementById("keyLS").value;}
 	var listLS = document.getElementById("listLS");
 	for (var i = 0; i < localStorage.length; i++) {
 		li.textContent = localStorage.key(i);
 		li.onclick = removeLi;
 		listLS.appendChild(li);
 		li = document.createElement("li");
-	}
+	}		
 }
 // Work with Users
 function Users() {
 	var _this = this;
 	this._users = null;
-
-	this.getUsers = function (usersSource) {
+	
+	this.getUsers = function(usersSource) {
 		var response;
-
+		
 		response = usersRequest(usersSource);
-		if ((typeof response === 'undefined' ? 'undefined' : _typeof(response)) != 'object') {
+		if (typeof response != 'object') {
 			alert('Didn"t get Users!');
 		} else {
 			_this._users = response;
@@ -155,20 +153,20 @@ function Users() {
 	};
 	//get objectUsers
 	function usersRequest(source) {
-		var XHR = "onload" in new XMLHttpRequest() ? XMLHttpRequest : XDomainRequest;var xhr = new XHR();
+		var XHR = ("onload" in new XMLHttpRequest()) ? XMLHttpRequest : XDomainRequest;var xhr = new XHR();
 		var responseObject;
 		xhr.open('GET', source, false);
-		xhr.onload = function () {
+		xhr.onload = function() {
 			responseObject = JSON.parse(this.responseText).results;
 		};
-		xhr.onerror = function () {
-			alert('Ошибка ' + this.status);
+		xhr.onerror = function() {
+			alert( 'Ошибка ' + this.status );
 			responseObject = null;
 		};
 		xhr.send();
-
+		
 		return responseObject;
-	}
+	}	
 }
 
 function SexUsers() {
@@ -177,8 +175,8 @@ function SexUsers() {
 	var users = this._users;
 	var _this = this;
 	sortUsers();
-
-	function sortUsers() {
+	
+	function sortUsers () {
 		for (var i = 0; i < users.length; i++) {
 			if (users[i].gender == 'male') {
 				boys.push(users[i]);
@@ -187,23 +185,23 @@ function SexUsers() {
 			}
 		}
 	}
-
-	this.getSetUsers = function (newUser) {
+	
+	this.getSetUsers = function(newUser) {
 		var response;
-
+		
 		if (arguments.length > 0) {
 			addUser(newUser);
 		} else if (arguments.length == 0 && users == null) {
 			alert('No users. Add them!');
 		} else if (arguments.length == 0 && users.length > 0) {
 			response = boys.slice(0);
-			for (var i = 0; i < girls.length; i++) {
+			for ( var i = 0; i<girls.length; i++) {
 				response.push(girls[i]);
 			}
 			return response;
-		}
+		}	
 	};
-
+	
 	function addUser(newUser) {
 		users.push(newUser);
 		if (newUser.gender == 'male') {
@@ -211,17 +209,17 @@ function SexUsers() {
 		} else {
 			girls.push(newUser);
 		}
-	}
+	} 
 }
 
-function DisplayUsers() {
+function DisplayUsers () {
 	var users = this.getSetUsers();
 	var div;
 	for (var i = 0; i < users.length; i++) {
 		div = formElement(i);
-		appendElement(div, i);
+		appendElement(div,i);
 	}
-
+		
 	function formElement(i) {
 		var div;
 		var img;
@@ -236,45 +234,37 @@ function DisplayUsers() {
 		div.appendChild(p);
 		return div;
 	}
-
-	function appendElement(div, i) {
+		
+	function appendElement(div,i) {
 		var maleUsers = document.getElementById("maleUsers");
 		var femaleUsers = document.getElementById("femaleUsers");
 		var friendsUsers = document.getElementById("friendsUsers");
-		if (users[i].gender == "male") {
-			if (maleUsers) {
-				maleUsers.appendChild(div);
-			}
+		if (users[i].gender == "male") {	
+			if (maleUsers) {maleUsers.appendChild(div);}
 		} else {
-			if (femaleUsers) {
-				femaleUsers.appendChild(div);
-			}
+			if (femaleUsers) {femaleUsers.appendChild(div);}
 		}
-		if (!(i % 4)) {
+		if (!(i%4)) {
 			div = div.cloneNode(true);
-			if (friendsUsers) {
-				friendsUsers.appendChild(div);
-			}
+			if (friendsUsers) {friendsUsers.appendChild(div);}
 		}
 	}
 }
 //main body
-function workWithUsers() {
-	var usersSource = "http://api.randomuser.me/?results=10";
-	var users = new Users();
-	SexUsers.prototype = users;
-	users.getUsers(usersSource);
-	var sexUsers = new SexUsers();
-	DisplayUsers.prototype = sexUsers;
-	var displayUsers = new DisplayUsers();
+function workWithUsers () {
+var usersSource = "http://api.randomuser.me/?results=10";
+var users = new Users();
+SexUsers.prototype = users;
+users.getUsers(usersSource);
+var sexUsers = new SexUsers();
+DisplayUsers.prototype = sexUsers;
+var displayUsers = new DisplayUsers;
 }
 
-function workWithLS() {
-	var submitInputLS = document.getElementById("submitInputLS");
-	if (submitInputLS) {
-		submitInputLS.addEventListener("click", addElementLSList);
-	}
-	displayLS();
+function workWithLS () {
+var submitInputLS = document.getElementById("submitInputLS");
+ if (submitInputLS) {submitInputLS.addEventListener("click",addElementLSList);}
+displayLS();
 }
 
 workWithUsers();
