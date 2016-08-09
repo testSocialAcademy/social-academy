@@ -1,6 +1,3 @@
-// Karma configuration
-// Generated on Sat Jul 02 2016 19:38:13 GMT+0300 (FLE Daylight Time)
-
 module.exports = function(config) {
   config.set({
 
@@ -15,6 +12,7 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
+      'node_modules/babel-polyfill/dist/polyfill.js',
       'pages/**/js/scripts/*.js',
       'pages/**/js/tests/*.js'
     ],
@@ -28,11 +26,11 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'pages/**/js/**/*.js': ['coverage']
+      'pages/**/js/**/*.js': ['coverage','babel']
     },
 
 
-    // test results reporter to use
+    // tests results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
     reporters: ['progress', 'coverage'],
@@ -72,6 +70,19 @@ module.exports = function(config) {
       instrumenter: {
         'pages/**/js/**/*.js': 'istanbul' // Force the use of the Istanbul instrumenter to cover CoffeeScript files 
       }
-    }
+    },
+
+    babelPreprocessor: {
+      options: {
+        presets: ['es2015'],
+        sourceMap: 'inline'
+      },
+      filename: function (file) {
+        return file.originalPath.replace(/\.js$/, '.es5.js');
+      },
+      sourceFileName: function (file) {
+        return file.originalPath;
+      }
+    },
   })
 }

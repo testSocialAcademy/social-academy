@@ -15,26 +15,27 @@ function createNews(result) {
     if (result) {
         var data = result.responseData.entries;
         var newsTag = document.getElementById('news');
+        if (newsTag) {
+            for (var i = 0; i < data.length; i++) {
+                var ul = newsTag.appendChild(document.createElement('ul'));
+                ul.className = "list-group";
 
-        for (var i = 0; i < data.length; i++) {
-            var ul = newsTag.appendChild(document.createElement('ul'));
-            ul.className = "list-group";
+                var liTitle = ul.appendChild(document.createElement('li'));
+                liTitle.className = "list-group-item";
+                var aTitle = liTitle.appendChild(document.createElement('a'));
+                aTitle.href = data[i].url;
+                aTitle.innerHTML = data[i].title;
 
-            var liTitle = ul.appendChild(document.createElement('li'));
-            liTitle.className = "list-group-item";
-            var aTitle = liTitle.appendChild(document.createElement('a'));
-            aTitle.href = data[i].url;
-            aTitle.innerHTML = data[i].title;
+                var liContent = ul.appendChild(document.createElement('li'));
+                liContent.className = "list-group-item";
+                liContent.innerHTML = data[i].contentSnippet;
 
-            var liContent = ul.appendChild(document.createElement('li'));
-            liContent.className = "list-group-item";
-            liContent.innerHTML = data[i].contentSnippet;
-
-            var liLink = ul.appendChild(document.createElement('li'));
-            liLink.className = "list-group-item";
-            var aLink = liLink.appendChild(document.createElement('a'));
-            aLink.href = data[i].link;
-            aLink.innerHTML = data[i].link;
+                var liLink = ul.appendChild(document.createElement('li'));
+                liLink.className = "list-group-item";
+                var aLink = liLink.appendChild(document.createElement('a'));
+                aLink.href = data[i].link;
+                aLink.innerHTML = data[i].link;
+            }
         }
         return true;
     } else return false;

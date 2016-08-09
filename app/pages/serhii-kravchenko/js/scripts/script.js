@@ -6,11 +6,13 @@ var hobbySerhiiKravchenko = ["Плавать", "Стрелять с арбале
 function createHobbyList(list) {
     if (list) {
         var hobbyIdTag = document.getElementById('hobby');
-        for (var i = 0; i < list.length; i++) {
-            if (i != list.length - 1) {
-                hobbyIdTag.appendChild(document.createTextNode(list[i] + ", "));
-            } else {
-                hobbyIdTag.appendChild(document.createTextNode(list[i] + "."));
+        if(hobbyIdTag){
+            for (var i = 0; i < list.length; i++) {
+                if (i != list.length - 1) {
+                    hobbyIdTag.appendChild(document.createTextNode(list[i] + ", "));
+                } else {
+                    hobbyIdTag.appendChild(document.createTextNode(list[i] + "."));
+                }
             }
         }
         return true;
