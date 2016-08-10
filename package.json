@@ -10,7 +10,11 @@
     "start": "node server.js"
   },
   "main": "server.js",
-  "devDependencies": {},
+  "devDependencies": {
+    "istanbul": "^0.4.4",
+    "karma-istanbul": "0.0.2",
+    "mocha-istanbul": "^0.3.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/testSocialAcademy/social-academy.git"
