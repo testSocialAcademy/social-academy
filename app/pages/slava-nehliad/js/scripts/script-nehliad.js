@@ -1,19 +1,24 @@
-"use strict";
-(function() {
+;"use strict";
+
 //      Function add hobby
     
     function showHobby() {
+        var li;
         var personalInfo = document.getElementById("hobby-list");
         var list = document.createElement("ul");
         var hobby = ["music", "literature", "programming", "basket-ball"];
-           for (var i = 0; i < hobby.length; i++){
-               var li = document.createElement("li");
-               li.innerHTML = hobby[i];
-               list.appendChild(li);
-            }
-            
-            personalInfo.appendChild(list);
+
+        for (var i = 0; i < hobby.length; i++){
+            li = document.createElement("li");
+            li.innerHTML = hobby[i];
+            list.appendChild(li);
         }
+
+        if (personalInfo) {
+            personalInfo.appendChild(list);
+        };
+        return true;
+    };
     showHobby();
 
 
@@ -25,15 +30,17 @@
         xhr.open("GET", "news.json", false);
         xhr.send();
 
-        // xhr.onreadystatechange = function () {
-        //     if (xhr.readyState != 4) return;
-        // };
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState != 4) return;
+        };
 
         if (xhr.status != 200) {
             alert(xhr.status + ": " + xhr.statusText);
         } else {
             setNews(xhr.responseText);
         }
+    }
+
         
         function setNews(responseText) {
             var newTitle;
@@ -66,7 +73,7 @@
 
                 newsList.appendChild(newPost);
             }
-        }
+
     }
     loadNews();
     
@@ -80,7 +87,9 @@
         var newLi;
         var tasks = document.getElementsByClassName("tasks");
 
-        todoButton.addEventListener("click", addItems);
+        if (todoButton) {
+            todoButton.addEventListener("click", addItems);
+        }
 
 
         for (var i = 0; i < localStorage.length; i++) {
@@ -121,9 +130,7 @@
     
     
     
-    
-    
-})();
+
 
 
 
