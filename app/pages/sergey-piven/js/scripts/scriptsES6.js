@@ -9,11 +9,13 @@ let picturesDiv_sp = $("#pictures_sp");
 let resultFromFirstLink_sp;
 let resultFromSecondLink_sp;
 let resultFromLinksWidth_sp = [];
+let resultFromLinksWidthSum_sp = 0;
 let counter_sp = 0;
 let liToSliderUl_sp;
 let imgToSliderLi_sp;
 let intervalForSliderAutoPlay_sp;
 let sliderAutoPlayOn_sp = false;
+let test;
 
 function getPicturesFromFirstLinkAjax_sp(url) {
     return new Promise(function(resolve, reject) {
@@ -77,11 +79,26 @@ function callbackSecond_sp() {
         liToSliderUl_sp.appendChild(imgToSliderLi_sp);
         picturesDivUl_sp.append(liToSliderUl_sp);
     }
+    for (let i = 10; i < resultFromSecondLink_sp.hits.length; i++) {
+        if (resultFromSecondLink_sp.hits[i].webformatWidth == 426) {
+            resultFromLinksWidth_sp.push(resultFromSecondLink_sp.hits[i].webformatWidth);
+            liToSliderUl_sp = document.createElement("li");
+            imgToSliderLi_sp = document.createElement("img");
+            imgToSliderLi_sp.src = resultFromSecondLink_sp.hits[i].webformatURL;
+            liToSliderUl_sp.appendChild(imgToSliderLi_sp);
+            picturesDivUl_sp.append(liToSliderUl_sp);
+            break;
+        }
+    }
     liToSliderUl_sp = document.createElement("li");
     imgToSliderLi_sp = document.createElement("img");
     imgToSliderLi_sp.src = resultFromFirstLink_sp.hits[0].webformatURL;
     liToSliderUl_sp.appendChild(imgToSliderLi_sp);
     picturesDivUl_sp.append(liToSliderUl_sp);
+
+    for (let i = 0; i < resultFromLinksWidth_sp.length; i++) {
+        resultFromLinksWidthSum_sp += resultFromLinksWidth_sp[i];
+    }
 }
 
 getPicturesFromFirstLinkAjax_sp("https://pixabay.com/api/?key=2980920-46f1aa264b036ffc6e45ebad0&orientation=vertical&q=red+flowers&min_height=500")
@@ -93,14 +110,14 @@ getPicturesFromFirstLinkAjax_sp("https://pixabay.com/api/?key=2980920-46f1aa264b
         error => alert(`Rejected: ${error}`)
     );
 
-    getPicturesFromSecondLinkAjax_sp("https://pixabay.com/api/?key=2980920-46f1aa264b036ffc6e45ebad0&orientation=vertical&q=yellow+flowers&min_height=500")
-        .then(
-            response => {
-                resultFromSecondLink_sp = JSON.parse(response);
-                callbackSecond_sp();
-            },
-            error => alert(`Rejected: ${error}`)
-        );
+getPicturesFromSecondLinkAjax_sp("https://pixabay.com/api/?key=2980920-46f1aa264b036ffc6e45ebad0&orientation=vertical&q=yellow+flowers&min_height=500")
+    .then(
+        response => {
+            resultFromSecondLink_sp = JSON.parse(response);
+            callbackSecond_sp();
+        },
+        error => alert(`Rejected: ${error}`)
+    );
 
 $("#sliderRightButton_sp").on('click', function () {
     if (sliderAutoPlayOn_sp == true) {
@@ -113,6 +130,8 @@ $("#sliderRightButton_sp").on('click', function () {
         if (++counter_sp == resultFromLinksWidth_sp.length) {
             counter_sp = 0;
             picturesDivUl_sp.css('margin-left', 0);
+            picturesDiv_sp.animate({'width': resultFromLinksWidth_sp[0]}, 0);
+            console.log("callback counter : " + counter_sp);
         }
     });
 });
@@ -125,8 +144,8 @@ $("#sliderLeftButton_sp").on('click', ()=> {
     }
     counter_sp--;
     if (counter_sp == -1) {
-        counter_sp = 20;
-        picturesDivUl_sp.css('margin-left', -9239);
+        counter_sp = 21;
+        picturesDivUl_sp.css('margin-left', -resultFromLinksWidthSum_sp);
         counter_sp--;
     }
     picturesDiv_sp.animate({'width': resultFromLinksWidth_sp[counter_sp]}, 1000);
