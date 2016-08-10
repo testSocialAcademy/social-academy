@@ -72,6 +72,6 @@ module.exports = function(config) {
       instrumenter: {
         'pages/**/js/**/*.js': 'istanbul' // Force the use of the Istanbul instrumenter to cover CoffeeScript files 
       }
-    }
+    },
   })
 }
