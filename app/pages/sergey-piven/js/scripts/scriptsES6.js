@@ -15,7 +15,6 @@ let liToSliderUl_sp;
 let imgToSliderLi_sp;
 let intervalForSliderAutoPlay_sp;
 let sliderAutoPlayOn_sp = false;
-let test;
 
 function getPicturesFromFirstLinkAjax_sp(url) {
     return new Promise(function(resolve, reject) {
