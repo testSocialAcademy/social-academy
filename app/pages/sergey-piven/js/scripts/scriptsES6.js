@@ -130,8 +130,6 @@ $("#sliderRightButton_sp").on('click', function () {
         if (++counter_sp == resultFromLinksWidth_sp.length) {
             counter_sp = 0;
             picturesDivUl_sp.css('margin-left', 0);
-            picturesDiv_sp.animate({'width': resultFromLinksWidth_sp[0]}, 0);
-            console.log("callback counter : " + counter_sp);
         }
     });
 });
