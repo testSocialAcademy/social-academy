@@ -1,20 +1,17 @@
 
 
-
-p {
-    margin: 20px 0;
-}
-
-.form-control {
+.form-control .form-control_IN{
     box-shadow: none;
 }
 
-.btn {
+.btn .btn_IN {
     font-family: @brand-font;
 }
 
-.heading {
+.heading  #profile_IN{
     background-color: #3c3c3c;
+    text-align: center;
+    color: #1b6d85;
 }
 
 #wrapper_IN {
@@ -22,22 +19,19 @@ p {
     margin: auto;
     background-color: #2aabd2;
 }
-header {
+#header_IN {
     padding: 20px 0;
 }
-body {
+#body_IN {
     border-top: 5px solid #7e7e7e;
 
     background-color: #1b6d85;
 }
 
-.navi {
+#navi_IN
+{
     background-color: #3c3c3c;
     width: 900px;
-}
-h1 {
-    text-align: center;
-    color: #1b6d85;
 }
 
 

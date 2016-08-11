@@ -458,6 +458,33 @@ h2 {
   float: left;
   margin-right: 5px;
 }
+/*серый фон страницы*/
+
+/*специфический голубой фон данного дизайна*/
+
+/*фон панелей*/
+
+/*цвет рамки панелей*/
+
+/*убираем скругление у блоков*/
+
+/*первичные кнопки имеют голубой фон*/
+
+/*если ширина экрана больше 992px, то ширина контейнера 960px*/
+
+/*если ширина экрана больше 1200px, то ширина контейнера так же 960px*/
+
+/*основным шрифтом будет Tahoma*/
+
+/*задаем базовый размер*/
+
+/*основной цвет текста на странице*/
+
+/*серый фон текстовых полей*/
+
+/*серая рамка текстовых полей*/
+
+/*серый цвет текста в полях*/
 p {
   margin: 20px 0;
 }
@@ -466,11 +493,15 @@ p {
   box-shadow: none;
 }
 
-.heading {
-  background-color: #3c763d;
+.btn {
+  font-family: @brand-font;
 }
 
-#wrapper {
+.heading {
+  background-color: #3c3c3c;
+}
+
+#wrapper_IN {
   max-width: 960px;
   margin: auto;
   background-color: #2aabd2;
@@ -482,8 +513,24 @@ header {
 
 body {
   border-top: 5px solid #7e7e7e;
-  background-image: url("igor-nevenitsa/images/bg.png");
   background-color: #1b6d85;
+}
+
+.navi {
+  background-color: #3c3c3c;
+  width: 900px;
+}
+
+h1 {
+  text-align: center;
+  color: #1b6d85;
+}
+
+.people_IN li {
+  border: 0px !important;
+  color: #0f0f0f;
+  font-size: 20px;
+  text-transform: capitalize;
 }
 .main,
 .header,
