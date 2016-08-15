@@ -79,7 +79,7 @@ function callbackSecond_sp() {
         picturesDivUl_sp.append(liToSliderUl_sp);
     }
     for (let i = 10; i < resultFromSecondLink_sp.hits.length; i++) {
-        if (resultFromSecondLink_sp.hits[i].webformatWidth == 426) {
+        if (resultFromSecondLink_sp.hits[i].webformatWidth == resultFromLinksWidth_sp[0]) {
             resultFromLinksWidth_sp.push(resultFromSecondLink_sp.hits[i].webformatWidth);
             liToSliderUl_sp = document.createElement("li");
             imgToSliderLi_sp = document.createElement("img");
