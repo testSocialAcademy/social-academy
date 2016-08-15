@@ -147,7 +147,7 @@ function initStartPicturesPage_af () {
     }
 }
 
-const MAX_IMAGES_FOR_PAGE_af = 10;
+const MAX_IMAGES_FOR_PAGE_af = 20;
 const SLIDE_SHOW_INTERVAL_af = 2000;
 initStartPicturesPage_af ();
 
