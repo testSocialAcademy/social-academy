@@ -178,7 +178,7 @@ function Users_IN() {
     this.response_IN = function (UsersLink) {
         var resp;
 
-        resp = ajaxResp_IN(UsersLink);
+        resp = this.ajaxResp_IN(UsersLink);
 
         if (resp == undefined) {
             alert("Can't find Users")
@@ -191,7 +191,8 @@ function Users_IN() {
     };
 
     //AJAX запрос с аргументом--------
-    function ajaxResp_IN (UsersLink) {
+    this.ajaxResp_IN = function (UsersLink) {
+  /*  function ajaxResp_IN (UsersLink) {*/
 
         var XHR_IN = ("onload" in new XMLHttpRequest()) ? XMLHttpRequest : XDomainRequest;
         var xhr_IN = new XHR_IN();
