@@ -4,26 +4,21 @@
 
 function getJSONFromUrl_af(sourceUrl) {
     return new Promise(function(resolve, reject) {
-        var	req	= new XMLHttpRequest();
-        req.open("GET",	sourceUrl, true);
-
-        req.onreadystatechange = function() {
-            if (req.readyState == 4) {
-                if (req.status == 200) {
-                    resolve(req.responseText);
-                }
-                else if (!req.status) {
+        $.ajax({
+            url: sourceUrl,
+            dataType: "text",
+            success: function(data){
+                resolve(data);
+            },
+            error: function (errorObj,status) {
+                if(errorObj.status < 100) {
                     reject("No response from the server");
                 }
-                else {
-                    reject(`${req.status} ${req.statusText}`);
-                }
+                reject(status);
             }
-        };
-        req.send(null);
+        });
     });
 }
-
 
 function getFromUrl_af(srcArr) {
     let chain = Promise.resolve();
@@ -31,108 +26,127 @@ function getFromUrl_af(srcArr) {
 
     srcArr.forEach(function(url) {
         chain = chain
-            .then(() => getJSONFromUrl_af(url))                                    //return promise
+            .then(() => getJSONFromUrl_af(url))                                 //return promise
             .then((resultOfXhr) => {                                            //nothing return
                 resultJSON.push(JSON.parse(resultOfXhr));
             });
     });
 
     chain
-        .then(() => saveToSessionStorage_af(resultJSON))                           //return value
-        .then((arrIndexes) => {                                                 //nothing return
-            display_af(resultJSON,arrIndexes)
-        })
+        .then(() => setDataToTemplate_af (resultJSON))                           //return data
+        .then((cuttedJSON) => displayPreviewImages_af (cuttedJSON))                 //nothing return
         .catch((error) => {
             alert(error);
-            //throw new Error(error);           //Commented out, as a result of the console output after 5 seconds, unlike alert
         });
 }
 
-function saveToSessionStorage_af(arrJSON) {
-    var indexCategoriesArr = [];
-    sessionStorage.clear();
-    for (let i = 0; i < arrJSON.length; i++) {
-        sessionStorage.setItem(`${i}`,JSON.stringify(arrJSON[i]));
-        indexCategoriesArr.push(`${i}`);
+function setDataToTemplate_af (JSON) {
+    let imagesList = $('.slide_show-center-list_af');
+    let template = Handlebars.compile( $('#template_af').html() );
+    for (let i = 0; i < JSON.length; i++) {
+        JSON[i].hits.length = MAX_COUNT_IMG_ON_PAGE_af / JSON.length;            //Cut images count according to the statement
+        imagesList.append( template(JSON[i]) );
     }
-    return indexCategoriesArr;
+
+    $(".slide_af").eq(0).clone().appendTo(".slide_show-center-list_af");        //to create the illusion of an endless canvas
+
+    return JSON;
 }
 
-function display_af (resultJSONArr, indexCategoriesArr) {
-    setBigImageSlide_af();                     
+function displayPreviewImages_af (JSON) {
+    for (let i = 0; i < JSON.length; i++) {
+        let previewBlock = $(`#images${i}_af`);
+        let template = Handlebars.compile( $(`#template_preview_${i}_af`).html() );
+        previewBlock.append( template(JSON[i]) );
+    }
+}
 
-    for (let j = 0; j < indexCategoriesArr.length; j++) {
-        let tagLi = {}, tagImg = {};
-        let previewImagesList = document.getElementById(`images${indexCategoriesArr[j]}_af`);
-
-        for (let i = 0; i < MAX_IMAGES_FOR_PAGE_af; i++) {
-            let previewImageSrc = resultJSONArr[j].hits[i].previewURL;
-            tagLi = document.createElement('li');
-            tagLi.className = "preview_images-element_af";
-            previewImagesList.appendChild(tagLi);
-
-            if(previewImageSrc) {
-                tagImg = document.createElement('img');
-                tagImg.className = "preview_images-element-image_af";
-                tagImg.setAttribute("src", previewImageSrc);
-                tagImg.setAttribute("onclick", `setBigImageSlide_af(${indexCategoriesArr[j]},${i})`);
-                previewImagesList.children[i].appendChild(tagImg);
-            }
+function getImageIndex_af () {
+    let currentIndex = 0;
+    function current (direction) {
+        if (direction === "next") {
+            return ++currentIndex;
+        }
+        else if (direction === "prev") {
+            return --currentIndex;
+        } else {
+            throw new Error("Wrong Direction!");
         }
     }
+    current.set = function (num) {
+        currentIndex = num;
+    };
+    return current;
 }
 
-function setBigImageSlide_af(categoryIndex = 0, imageIndex = 0) {
-    let bigImageSlide = document.getElementById("big_image-slide_af");
-    let category = JSON.parse(sessionStorage.getItem(`${categoryIndex}`));
-    bigImageSlide.setAttribute("alt",`${categoryIndex}, ${imageIndex}`);
-    bigImageSlide.src = category.hits[imageIndex].webformatURL;
-    elementVisibility_af("leftButton_af", true);
-    elementVisibility_af("rightButton_af", true);
+$('.slide_show-left_button_af').on('click', function() {
+    setAnotherPicture_af("prev");
+});
+
+$('.slide_show-right_button_af').on('click', function() {
+    setAnotherPicture_af("next");
+});
+
+$('.slide_show-play_button_af').on('click', function() {
+    playSlideShow_af();
+});
+
+$('.slide_show-pause_button_af').on('click', function() {
+    pauseSlideShow_af();
+});
+
+function setAnotherPicture_af(direction) {
+    let imagesList = $('.slide_show-center-list_af');
+    let imagesCollection = $('.slide_af');
+    let slideWindow = $('.slide_show-center_af');
+    let newImgIndex = imageIndex_af(direction);
+    let frameWidth = imagesCollection.eq(newImgIndex).width();
+    let maxOffset = 0;
+
+    imagesList.stop(true, true);
+    slideWindow.stop(true,true);
+
+    if(direction === "next") {
+        let offset = imagesCollection.eq(newImgIndex-1).width();
+        slideWindow.animate({'width': frameWidth },500);
+        imagesList.animate({'margin-left': '-=' + offset},500, function() {
+            if(newImgIndex >= MAX_COUNT_IMG_ON_PAGE_af) {
+                imageIndex_af.set(0);
+                imagesList.css('margin-left', 0);
+            }
+        });
+    }
+
+    else if(direction === "prev") {
+        if (newImgIndex < 0) {
+            newImgIndex = MAX_COUNT_IMG_ON_PAGE_af-1;
+            imageIndex_af.set(MAX_COUNT_IMG_ON_PAGE_af-1);
+            maxOffset = function () {
+                let result = 0;
+                for(let i=1; i < imagesCollection.length; i++) {
+                    result += imagesCollection.eq(i).width();
+                }
+                return -result;
+            }();
+            imagesList.css('margin-left', maxOffset);
+        }
+        let offset = imagesCollection.eq(newImgIndex).width();
+        slideWindow.animate({'width': frameWidth },500);
+        imagesList.animate({'margin-left': '+=' + offset},500);
+    }
+    console.log(newImgIndex);
 }
 
-function getAnotherPicture_af(direction, intervalId = null) {
-    let bigImageSlide = document.getElementById("big_image-slide_af");
-    let bigImageSlideCategory = +bigImageSlide.getAttribute("alt").split(", ")[0];
-    let bigImageSlideIndex = +bigImageSlide.getAttribute("alt").split(", ")[1];
-    let category = "";
-
-    if (direction === "next" && bigImageSlideIndex < (MAX_IMAGES_FOR_PAGE_af - 1)) {
-        elementVisibility_af("leftButton_af", true);
-        category = JSON.parse(sessionStorage.getItem(`${bigImageSlideCategory}`));
-        bigImageSlide.setAttribute("alt",`${bigImageSlideCategory}, ${bigImageSlideIndex+1}`);
-        bigImageSlide.src = category.hits[bigImageSlideIndex+1].webformatURL;
-    }
-    else if (direction === "prev" && bigImageSlideIndex > 0) {
-        elementVisibility_af("rightButton_af", true);
-        category = JSON.parse(sessionStorage.getItem(`${bigImageSlideCategory}`));
-        bigImageSlide.setAttribute("alt",`${bigImageSlideCategory}, ${bigImageSlideIndex-1}`);
-        bigImageSlide.src = category.hits[bigImageSlideIndex-1].webformatURL;
-    }
-    else if (bigImageSlideIndex === 0) {
-        elementVisibility_af("leftButton_af", false);
-    }
-    else {
-        clearInterval(intervalId);
-        elementVisibility_af("rightButton_af", false);
-        elementVisibility_af("playButton_af", true);
-    }
+function playSlideShow_af() {
+    slideShowIntervalId_af = setInterval(() => setAnotherPicture_af("next"),1000);
+    $('.slide_show-pause_button_af').show();
+    $('.slide_show-left_button_af, .slide_show-right_button_af, .slide_show-play_button_af').hide();
 }
 
-function startSlideShow_af() {
-    let bigImageSlide = document.getElementById("big_image-slide_af");
-    let intervalId = setInterval(() => getAnotherPicture_af("next", intervalId), SLIDE_SHOW_INTERVAL_af);
-    elementVisibility_af("playButton_af", false);
-}
-
-function elementVisibility_af(elemId, boolean) {
-    let elem = document.getElementById(elemId);
-    if (boolean) {
-        elem.style.visibility = "visible";
-    }
-    else {
-        elem.style.visibility = "hidden";
-    }
+function pauseSlideShow_af() {
+    clearInterval(slideShowIntervalId_af);
+    $('.slide_show-pause_button_af').hide();
+    $('.slide_show-left_button_af, .slide_show-right_button_af, .slide_show-play_button_af').show();
 }
 
 function initStartPicturesPage_af () {
@@ -142,13 +156,13 @@ function initStartPicturesPage_af () {
             "https://pixabay.com/api/?key=2980920-46f1aa264b036ffc6e45ebad0&orientation=vertical&q=red+flowers&min_height=500",
             "https://pixabay.com/api/?key=2980920-46f1aa264b036ffc6e45ebad0&orientation=vertical&q=yellow+flowers&min_height=500"
         ];
-
         getFromUrl_af(sourceArr);
     }
 }
 
-const MAX_IMAGES_FOR_PAGE_af = 20;
-const SLIDE_SHOW_INTERVAL_af = 2000;
+const MAX_COUNT_IMG_ON_PAGE_af = 20;
+let imageIndex_af = getImageIndex_af ();
+let slideShowIntervalId_af;
 initStartPicturesPage_af ();
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
