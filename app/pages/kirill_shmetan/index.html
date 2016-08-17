@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <title>Front page</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mocha/2.1.0/mocha.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/2.1.0/mocha.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chai/2.0.0/chai.js"></script>
     <script src="http://code.jquery.com/jquery-3.0.0.js"></script>
 </head>
 <body>
@@ -11,13 +14,24 @@
       <p> PHP social-academy </p>
         </div>
   <img src="../../img/Kirill-Shmetan/avatar.jpg" class="avatar">
+
     <div class="information">
       <p><strong>Full name: Kirill Shmetan</strong></p>
       <p><strong>Date of birth: 30 september 1991</strong></p>
       <ul id="hobbies"><strong>My hobbies:</strong></ul>
     </div>
-  <div class="news" id = "news">
+  <div class="news" id = "news"> </div>
+        <div class="form">
+          <input type="text" id="text" placeholder="Your's to do list">
+          <button type="submit" id="button" onclick="addItem()"> Send </button>
+
+      <h3>To do:</h3>
+      <ul id="myItems"></ul>
+        </div>
+  <div id="mocha"></div>
       <script src="js/script.js" async></script>
       <script src="js/news.js" async></script>
+      <script src="js/list.js" async></script>
+      <script src="js/test.js" async></script>
   </body>
 </html>

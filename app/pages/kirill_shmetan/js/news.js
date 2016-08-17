@@ -1,4 +1,3 @@
-
 function newsDisplay() {
 
     var xhr = new XMLHttpRequest();

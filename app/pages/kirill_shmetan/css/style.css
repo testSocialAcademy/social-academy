@@ -3,7 +3,7 @@ body {
     font-weight: 500;
     margin:0;
     padding:0;
-    background: url('../../../img/Kirill-Shmetan/background.jpg') no-repeat;
+    background: url('../../../img/Kirill-Shmetan/background.jpg') repeat;
     width: 100%;
     overflow-x: hidden;
 }
@@ -65,4 +65,27 @@ p {
 }
 .news ul li a:hover {
     color: #ff6f40;
+}
+h3 {
+    color: #000000;
+    font-size: 22px;
+}
+.form {
+    width: 650px;
+    font-size:14px;
+    display: block;
+    border: 2px #8f00cc solid;
+    border-radius: 15px;
+    background-color: #d3dad7;
+    padding: 20px 50px 20px 50px;
+    float: right;
+    margin-right: 5%;
+    margin-top: 5%;
+    margin-bottom: 30px;
+    }
+#myItems{
+    font-size:14px;
+}
+#mocha{
+    width: 600px;
 }
