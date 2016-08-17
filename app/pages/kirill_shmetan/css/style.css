@@ -2,63 +2,67 @@ body {
     font-family: "PT Sans", sans-serif;
     font-weight: 500;
     margin:0;
+    padding:0;
+    background: url('../../../img/Kirill-Shmetan/background.jpg') no-repeat;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.header {
+    height: 50px;
+    border-top: 50px #E5E4E2 solid ;
+    display: block;
+    width: 100%;
+    border-radius: 10px;
+}
+
+ .header P{
+     color: #0000CD ;
+     text-align: center;
+     top:-60px;
 }
 p {
     color: #ffa509;
     font-size: 22px;
-    display: block;
     position: relative;
     left: 20px;
 }
-.header {
-    height: 50px;
-    width: 1600px;
-    border-top: 50px #E5E4E2 solid ;
-    position: absolute;
-    margin: 0 auto;
-    display: block;
-     }
-.main_picture{
-    top:50px;
-    height: 100%;
-    width: 1600px;
-    margin: 0 auto;
-    background: url('../../../img/Kirill-Shmetan/background.jpg') no-repeat;
-    display: block;
-    position: absolute;
-}
- .header P{
-     color: #0000CD ;
-     position:absolute;
-     top:-60px;
-     left: 750px;
-     ;
-}
 .avatar {
-    top:100px;
     height: 300px;
     width:450px;
-    position: absolute;
-    left: 100px;
     border: 2px #8f00cc solid;
     border-radius: 15px;
+    float: left;
+    margin-left: 5%;
 }
 .information {
-    position: absolute;
-    width: 450px;
     height: 300px;
-    top: 100px;
-    left: 1000px;
+    width: 650px;
+    border: 2px #8f00cc solid;
+    border-radius: 15px;
+    background-color: #d3dad7;
+    float: right;
+    margin-right: 5%;
+    padding: 0px 50px 0px 50px;
+    }
+#hobbies {
+    color: #ffa509;
+    font-size:20px;
+    display: block;
+}
+.news {
+    width: 650px;
+    font-size:14px;
     display: block;
     border: 2px #8f00cc solid;
     border-radius: 15px;
     background-color: #d3dad7;
-    }
-#hobbies {
-    color: #ffa509;
-    position: absolute;
-    left: 0px;
-    top:110px;
-    font-size:20px;
-    display: block;
+    padding: 20px 50px 20px 50px;
+    float: right;
+    margin-right: 5%;
+    margin-top: 5%;
+    margin-bottom: 30px;
+}
+.news ul li a:hover {
+    color: #ff6f40;
 }

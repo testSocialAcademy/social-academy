@@ -4,6 +4,15 @@
   "description": "Our own facebook",
   "author": "PHP-ACADEMY",
   "dependencies": {
+    "chai": "^3.5.0",
+    "karma": "^1.2.0",
     "node-http-server": "^5.1.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "karma": "^1.2.0",
+    "karma-chai": "^0.1.0",
+    "karma-mocha": "^1.1.1",
+    "mocha": "^3.0.2"
   }
 }

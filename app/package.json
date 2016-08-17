@@ -5,7 +5,9 @@
   "author": "PHP-ACADEMY",
   "dependencies": {
     "bootstrap": "^3.3.6",
-    "normalize.css": "^4.2.0"
+    "chai": "^3.5.0",
+    "normalize.css": "^4.2.0",
+    "sinon": "^1.17.5"
   },
   "devDependencies": {
     "chai": "^3.5.0",
@@ -17,5 +19,10 @@
     "mocha": "^2.5.3",
     "sinon": "^1.17.4",
     "sinon-chai": "^2.8.0"
-  }
+  },
+  "main": "karma.conf.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "license": "ISC"
 }
