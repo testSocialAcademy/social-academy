@@ -1,7 +1,7 @@
 function newsDisplay() {
 
     var xhr = new XMLHttpRequest();
-    xhr.open("GET", "news.json", false);
+    xhr.open("GET", "../news.json", false);
     xhr.send();
     xhr.onreadystatechange = function () {
         if (xhr.readeState != 4) return;
