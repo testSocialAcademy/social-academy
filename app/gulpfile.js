@@ -1,14 +1,14 @@
 const gulp = require('gulp');
 const babel = require('gulp-babel');
-const rename = require('gulp-rename');
 const concatCss = require('gulp-concat-css');
+const concat = require('gulp-concat');
 
 gulp.task('js combine', () => {
     return gulp.src('pages/**/js/scripts/*.js')
+        .pipe(concat('all.js'))
         .pipe(babel({
             presets: ['es2015']
         }))
-        .pipe(rename("scripts.js"))
         .pipe(gulp.dest('js/'));
 });
 
