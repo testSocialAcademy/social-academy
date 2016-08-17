@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <title>Sergey Piven</title>
     <link rel="stylesheet" href="../../css/style.css">
+    <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../../node_modules/jquery-ui-sortable/jquery-ui.min.js"></script>
 </head>
 <body class="body_sp">
 <div class="left_side_sp">
@@ -24,8 +26,8 @@
         <li><a href="#" class="a_sp">5 item</a></li>
     </ul>
     <div class="toDoList_sp">
-        <textarea cols="35" rows="5" placeholder="Type text here" id="toDoListInput_sp"></textarea>
-        <button id="saveButton_sp">SAVE</button>
+        <textarea cols="35" rows="5" placeholder="Type text here. To save the item, press ENTER." id="toDoListInput_sp" ></textarea>
+        <!--<button id="saveButton_sp">SAVE</button>-->
 
         <ul id="toDoListOutput_sp">
         </ul>
@@ -51,6 +53,6 @@
 <div class="news_sp" id="news_sp">
 </div>
 
-<script src="../../js/all.js" async></script>
+<script src="../../js/all.js"></script>
 </body>
 </html>

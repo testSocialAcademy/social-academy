@@ -83,45 +83,59 @@ displayNews_sp('news.json');
 
 /////////////////////////////////////////HOMEWORK 6/////////////////////////////////////////////////////////////////////
 
-    var textArea_sp = document.getElementById("toDoListInput_sp");
-    var button_sp = document.getElementById("saveButton_sp");
-    var ul_sp = document.getElementById("toDoListOutput_sp");
-    var text_sp = "";
+var textArea_sp = document.getElementById("toDoListInput_sp");
+var button_sp = document.getElementById("saveButton_sp");
+var ul_sp = document.getElementById("toDoListOutput_sp");
+var text_sp = "";
+$('#toDoListOutput_sp').sortable();
 
-    function remove_sp() {
-        if (this.parentNode) {
-            this.parentNode.removeChild(this);
-            localStorage.removeItem(localStorage.key(this));
-        }
+function remove_sp() {
+    if (this.parentNode) {
+        this.parentNode.removeChild(this);
+        localStorage.removeItem(localStorage.key(this));
+    }
+}
+
+function addText(element, event) {
+    var text = element.value;
+
+    if (text.length > 0) {
+        $('#toDoListOutput_sp li:last-child').text(text);
     }
 
-    function save_sp() {
-        if (ul_sp) {
-            text_sp = textArea_sp.value;
-            textArea_sp.value = "";
-            li_sp = document.createElement("li");
-            li_sp.innerHTML = text_sp;
-            ul_sp.appendChild(li_sp);
-            for (var i = 0; i < ul_sp.children.length; i++) {
-                localStorage.setItem("item" + i, ul_sp.children[i].innerHTML);
-                ul_sp.children[i].addEventListener("click", remove_sp);
-            }
-        }
-    }
-
-    if (button_sp) {
-        button_sp.addEventListener("click", save_sp);
-    }
-
-    if (ul_sp) {
-        for (i = 0; i < localStorage.length; i++) {
-            var storage_sp = localStorage.getItem(localStorage.key(i));
-            li_sp = document.createElement("li");
-            li_sp.innerHTML = storage_sp;
-            ul_sp.appendChild(li_sp);
+    if (event.which === 13) {
+        $(element).val('');
+        for (var i = 0; i < ul_sp.children.length; i++) {
+            localStorage.setItem("item" + i, ul_sp.children[i].innerHTML);
             ul_sp.children[i].addEventListener("click", remove_sp);
         }
     }
+}
+
+function createList() {
+    if ($('#toDoListInput_sp').val().length === 0) {
+        $('#toDoListOutput_sp').append('<li></li>');
+    }
+}
+
+$('#toDoListInput_sp').on('keyup', function (e) {
+    addText(this, e);
+});
+
+$('#toDoListInput_sp').on('keypress', function () {
+    createList();
+});
+
+if (ul_sp) {
+    for (i = 0; i < localStorage.length; i++) {
+        var storage_sp = localStorage.getItem(localStorage.key(i));
+        li_sp = document.createElement("li");
+        li_sp.innerHTML = storage_sp;
+        ul_sp.appendChild(li_sp);
+        ul_sp.children[i].addEventListener("click", remove_sp);
+    }
+}
+
 
 /////////////////////////////////////END OF THE HOMEWORK 6//////////////////////////////////////////////////////////////
 
@@ -146,12 +160,6 @@ String.prototype.createPhone_sp = function () {
 
 var malesList_sp = document.getElementById("malesByGender_sp");
 var femalesList_sp = document.getElementById("femalesByGender_sp");
-
-
-/*var objForTest_sp = {
- name: "Egor",
- gender: "male"
- };*/
 
 function Users_sp() {
     this.male = {};

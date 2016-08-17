@@ -94,7 +94,15 @@ li {
 }
 
 #toDoListOutput_sp {
-    list-style: decimal;
+    list-style-image: url('../../../img/sergey-piven/toDoListLiImage.png');
+    padding-top: 10px;
+}
+
+#toDoListOutput_sp li {
+    border: groove;
+    background-color: #DDDDDD ;
+    padding: 2px;
+    margin-top: 5px;
 }
 
 #saveButton_sp {
