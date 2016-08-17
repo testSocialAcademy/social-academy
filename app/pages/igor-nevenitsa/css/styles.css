@@ -19,13 +19,15 @@
     margin: auto;
     background-color: #2aabd2;
 }
+
 #header_IN {
     padding: 20px 0;
 }
-#body_IN {
-    border-top: 5px solid #7e7e7e;
 
-    background-color: #1b6d85;
+ #body_IN {
+    border-top: 5px solid #7e7e7e ;
+    background-color: #1b6d85 ;
+     background-image: none;
 }
 
 #navi_IN
