@@ -5,8 +5,8 @@
 /////////////////////////////////////////HOMEWORK 4/////////////////////////////////////////////////////////////////////
 
 var hobbiesInterests_sp = document.getElementById('hobbiesInterests_sp');
-var hobbies_sp = ["IT", "Medicine", "Video games", "DC Universe", "Marvel Universe", "Fantasy", "Science fiction",
-    "Science", "Cars"];
+var hobbies_sp = ["IT", "Programming", "Medicine", "Video games", "DC Universe", "Marvel Universe", "Fantasy", "Science",
+    "Science fiction", "Cars"];
 
 function setHobbiesInterests_sp() {
     return hobbies_sp;
