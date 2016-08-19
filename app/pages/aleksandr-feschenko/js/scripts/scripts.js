@@ -151,6 +151,7 @@ function addNewItem_af() {
 	}	
 }
 
+
 function alertMessage_af (str, parentElement, nextSibling) {
 
 	var tagDiv = document.createElement('div');
@@ -178,6 +179,24 @@ function displayItems_af() {
 		tagLi.className = "todo-list-li_af";
 		tagLi.setAttribute("onclick", "delItem_af(this);");
 		itemsList.appendChild(tagLi);	
+	}
+}
+
+$('#textForm_af').on('keyup', function (e) {
+	addInsertedItemValue_af(this, e);
+});
+
+$('#textForm_af').on('keydown', function () {
+	createItemsList ();
+});
+
+function addInsertedItemValue_af(element, event) {
+
+}
+
+function createItemsList () {
+	if($('#textForm_af').val().length === 0) {
+		$('#itemsList_af').append('<li></li>');
 	}
 }
 
