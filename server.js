@@ -1,4 +1,4 @@
-var server = require('node-http-server');
+const server = require('node-http-server');
 
 server.deploy(
     {
