@@ -138,21 +138,19 @@ if (value) {value = document.getElementById("keyLS").value;}
 }
 // Work with Users
 function Users() {
-	var _this = this;
 	this._users = null;
-	
-	this.getUsers = function(usersSource) {
+}
+Users.prototype.getUsers = function(usersSource) {
 		var response;
 		
-		response = usersRequest(usersSource);
+		response = this._usersRequest(usersSource);
 		if (typeof response != 'object') {
 			alert('Didn"t get Users!');
 		} else {
-			_this._users = response;
+			this._users = response;
 		}
-	};
-	//get objectUsers
-	function usersRequest(source) {
+};
+Users.prototype._usersRequest = function(source) {
 		var XHR = ("onload" in new XMLHttpRequest()) ? XMLHttpRequest : XDomainRequest;var xhr = new XHR();
 		var responseObject;
 		xhr.open('GET', source, false);
@@ -166,61 +164,60 @@ function Users() {
 		xhr.send();
 		
 		return responseObject;
-	}	
-}
+};
 
 function SexUsers() {
-	var girls = [];
-	var boys = [];
-	var users = this._users;
-	var _this = this;
-	sortUsers();
-	
-	function sortUsers () {
-		for (var i = 0; i < users.length; i++) {
-			if (users[i].gender == 'male') {
-				boys.push(users[i]);
+	this._girls = [];
+	this._boys = [];
+	this._div = {};
+	Users.apply(this, arguments);
+}
+SexUsers.prototype = Object.create(Users.prototype);
+SexUsers.prototype.constructor = SexUsers;
+
+	SexUsers.prototype.sortUsers = function () {
+		for (var i = 0; i < this._users.length; i++) {
+			if (this._users[i].gender == 'male') {
+				this._boys.push(this._users[i]);
 			} else {
-				girls.push(users[i]);
+				this._girls.push(this._users[i]);
 			}
 		}
-	}
-	
-	this.getSetUsers = function(newUser) {
+	};
+
+SexUsers.prototype.getSetUsers = function(newUser) {
 		var response;
 		
 		if (arguments.length > 0) {
-			addUser(newUser);
-		} else if (arguments.length == 0 && users == null) {
+			this._addUser(newUser);
+		} else if (arguments.length == 0 && this._users == null) {
 			alert('No users. Add them!');
-		} else if (arguments.length == 0 && users.length > 0) {
-			response = boys.slice(0);
-			for ( var i = 0; i<girls.length; i++) {
-				response.push(girls[i]);
+		} else if (arguments.length == 0 && this._users.length > 0) {
+			response = this._boys.slice(0);
+			for ( var i = 0; i<this._girls.length; i++) {
+				response.push(this._girls[i]);
 			}
 			return response;
 		}	
 	};
-	
-	function addUser(newUser) {
-		users.push(newUser);
-		if (newUser.gender == 'male') {
-			boys.push(newUser);
-		} else {
-			girls.push(newUser);
-		}
-	} 
-}
 
-function DisplayUsers () {
-	var users = this.getSetUsers();
-	var div;
-	for (var i = 0; i < users.length; i++) {
-		div = formElement(i);
-		appendElement(div,i);
-	}
-		
-	function formElement(i) {
+SexUsers.prototype._addUser = function(newUser) {
+	this._users.push(newUser);
+		if (newUser.gender == 'male') {
+			this._boys.push(newUser);
+		} else {
+			this._girls.push(newUser);
+		}
+	};
+
+SexUsers.prototype.display = function () {
+		for (var i = 0; i < this._users.length; i++) {
+			this._div = this._formElement(i);
+			this._appendElement(this._div, i);
+		}
+	};
+
+SexUsers.prototype._formElement = function(i) {
 		var div;
 		var img;
 		var p;
@@ -228,18 +225,18 @@ function DisplayUsers () {
 		img = document.createElement("img");
 		p = document.createElement("p");
 		img.className = "img-responsive userImage";
-		img.src = users[i].picture.large;
-		p.textContent = users[i].name.first + " " + users[i].name.last;
+		img.src = this._users[i].picture.large;
+		p.textContent = this._users[i].name.first + " " + this._users[i].name.last;
 		div.appendChild(img);
 		div.appendChild(p);
 		return div;
-	}
-		
-	function appendElement(div,i) {
+	};
+
+SexUsers.prototype._appendElement = function (div,i) {
 		var maleUsers = document.getElementById("maleUsers");
 		var femaleUsers = document.getElementById("femaleUsers");
 		var friendsUsers = document.getElementById("friendsUsers");
-		if (users[i].gender == "male") {	
+		if (this._users[i].gender == "male") {
 			if (maleUsers) {maleUsers.appendChild(div);}
 		} else {
 			if (femaleUsers) {femaleUsers.appendChild(div);}
@@ -248,17 +245,59 @@ function DisplayUsers () {
 			div = div.cloneNode(true);
 			if (friendsUsers) {friendsUsers.appendChild(div);}
 		}
+	};
+//HOMEWORK 9
+
+function PhoneError(type) {
+	this.name = "PhoneError";
+	this.message = "Неправильный формат." + type;
+	if (Error.captureStackTrace) {
+		Error.captureStackTrace(this, this.constructor); // (*)
+	} else {
+		this.stack = (new Error()).stack;
+	}
+
+}
+PhoneError.prototype = Object.create(Error.prototype);
+PhoneError.prototype.constructor = PhoneError;
+
+
+String.prototype.createPhone = function () {
+	var i;
+	var result = "";
+	if (this.search(/\D/) != -1) {
+		throw new PhoneError("Вводите только цифры");
+	}
+	if (this.length != 10) {
+		throw new PhoneError("Цифр должно быть 10");
+	}
+	for (i = 0; i < this.length; i++) {
+		if (i != 0 && !(i%3)) {
+			result += "-"
+		}
+		result += this[i];
+	}
+	return result;
+};
+
+try {
+	var result = "123123123112".createPhone();  //Пробуем здесь разные входные данные
+	alert(result);
+} catch (err) {
+	if (err instanceof PhoneError) {
+		alert( err.message );
+	} else {
+		throw err;
 	}
 }
-//main body
+
+//main body///////////////
 function workWithUsers () {
 var usersSource = "http://api.randomuser.me/?results=10";
-var users = new Users();
-SexUsers.prototype = users;
+var users = new SexUsers();
 users.getUsers(usersSource);
-var sexUsers = new SexUsers();
-DisplayUsers.prototype = sexUsers;
-var displayUsers = new DisplayUsers;
+users.sortUsers();
+users.display();
 }
 
 function workWithLS () {
