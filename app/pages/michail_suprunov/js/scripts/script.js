@@ -290,7 +290,7 @@ String.prototype.createPhone = function () {
 };
 
 try {
-    var result = "123123123112".createPhone();  //Пробуем здесь разные входные данные
+    var result = "1231231231".createPhone();  //Пробуем здесь разные входные данные
     alert(result);
 } catch (err) {
     if (err instanceof PhoneError) {
