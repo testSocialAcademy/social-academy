@@ -94,7 +94,7 @@
 
 .avatar_af {
   max-width: 100%;
-  border: 1px solid rgba(0,0,0,.25);
+  border: 3px solid rgba(0,0,0,.25);
   border-radius: 10px;
 }
 
@@ -105,7 +105,7 @@
 }
 
 .user_information_af {
-  border: 1px solid rgba(0,0,0,.25);
+  border: 3px solid rgba(0,0,0,.25);
   border-radius: 10px;
   padding: 8px;
 }
@@ -127,7 +127,7 @@
 
 .news_list_af {
   margin-top: 10px;
-  border: 1px solid rgba(0,0,0,.25);
+  border: 3px solid rgba(0,0,0,.25);
   border-radius: 10px;
   padding: 8px;
 }
@@ -152,7 +152,7 @@
 
 .some_peoples_af {
   margin-top: 10px;
-  border: 1px solid rgba(0,0,0,.25);
+  border: 3px solid rgba(0,0,0,.25);
   border-radius: 10px;
   padding: 8px;
 }
@@ -177,7 +177,7 @@
 
 .todo_af {
   margin-top: 10px;
-  border: 1px solid rgba(0,0,0,.25);
+  border: 3px solid rgba(0,0,0,.25);
   border-radius: 10px;
   padding: 8px;
   overflow: hidden;
@@ -272,7 +272,7 @@
 
 .slide_show_af {
   margin: 10px auto;
-  border: 1px solid rgba(0,0,0,.25);
+  border: 3px solid rgba(0,0,0,.25);
   border-radius: 10px;
   position: relative;
   width: 100%;
@@ -336,7 +336,7 @@
 .slide_show-center_af {
   margin: 8px auto;
   width: 422px;
-  border: 1px solid rgba(0,0,0,.25);
+  border: 3px solid rgba(0,0,0,.25);
   height: 640px;
   overflow: hidden;
 }
@@ -356,7 +356,7 @@
 
 .preview_images_af {
   margin: 10px 0 10px 0;
-  border: 1px solid rgba(0,0,0,.25);
+  border: 3px solid rgba(0,0,0,.25);
   border-radius: 10px;
   padding: 8px;
 }
@@ -365,10 +365,9 @@
   float: left;
   box-sizing: border-box;
   width: 10%;
-  padding: 0 5.5px;
   margin: 3px 0;
   overflow: hidden;
-  border: 1px solid rgba(0,0,0,.1);
+  border: 3px solid transparent;
 }
 
 .preview_images-element-image_af {
@@ -376,7 +375,6 @@
   max-width: 150px;
   display: block;
   margin: 0 auto;
-  cursor: pointer;
 }
 
 @media screen and (max-width: 1200px) and (min-width: 993px) {
