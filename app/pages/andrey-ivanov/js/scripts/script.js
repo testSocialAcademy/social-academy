@@ -45,7 +45,7 @@ function hiddenHobby_ai() {
 //add li in 'to do list' and local Storage
 
 function addLiTodoLS_ai() {
-    var ulList = document.getElementById('listToDo');
+    var ulList = document.getElementById('listToDo_ai');
     var info = document.getElementById('todo').value;
     var Li = document.createElement('li');
     Li.addEventListener('click', deleteLi_ai);
@@ -56,7 +56,7 @@ function addLiTodoLS_ai() {
 
 //delete newLi with 'to do list'
     function deleteLi_ai(){
-        var ulList = document.getElementById('listToDo');
+        var ulList = document.getElementById('listToDo_ai');
         ulList.removeChild(this);
         localStorage.removeItem(this.textContent);
     }
@@ -64,7 +64,7 @@ function addLiTodoLS_ai() {
 //recovery with LS
 function getLiWithLS_ai() {
     for (var i = 0; i < localStorage.length; i++) {
-        var newUlList = document.getElementById('listToDo');
+        var newUlList = document.getElementById('listToDo_ai');
         var newInfo = localStorage.getItem(localStorage.key(i));
         var newLi = document.createElement('li');
         newLi.addEventListener('click', deleteNewLi_ai);
@@ -76,7 +76,7 @@ getLiWithLS_ai();
 
  //delete newLi with local Storage onclick
 function deleteNewLi_ai() {
-        var newUlList = document.getElementById('listToDo');
+        var newUlList = document.getElementById('listToDo_ai');
         newUlList.removeChild(this);
         localStorage.removeItem(this.textContent);
     }

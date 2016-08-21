@@ -24,7 +24,7 @@ function newsDisplay_ai(respText){
     var newLi;
     var resp = JSON.parse(respText);
     var blokNews = resp.responseData.entries;
-    var list = document.getElementById ('news');
+    var list = document.getElementById ('news_ai');
     var i;
     for (i = 0; i < blokNews.length; i++){
         var ul = document.createElement('ul');
