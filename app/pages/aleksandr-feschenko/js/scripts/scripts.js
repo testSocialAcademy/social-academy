@@ -82,7 +82,7 @@ function getNews_af(jsonFile) {
 }
 
 function displayNews_af(arrNews) {
-	var tagLi = {}, tagH3 = {}, tagP = {}, tagA = {};
+	var tagLi, tagH3, tagP, tagA;
 	var newsList = document.getElementById("newsList_af");
 	if(newsList) {
 		clearSiblings_af();
@@ -124,61 +124,55 @@ function displayNews_af(arrNews) {
 
 /*==============================Items Block===========================================================================*/
 
-function addNewItem_af() {
-	
-	var itemsList = document.getElementById("itemsList_af");
-	var itemValue = document.getElementById("textForm_af").value;
-	var listBlock = document.getElementById("toDoList_af");
-	var form = document.getElementById("form_af");
-
-	if (itemValue == "") {
-		alertMessage_af ("Please insert Description!",listBlock,form_af);
-	}
-	else if (itemValue === localStorage.getItem(itemValue)) {
-		alertMessage_af ("This item is already present! Please insert another Description",listBlock,form);
-	}
-	else if (localStorage.length >= 30) {
-		alertMessage_af ("you can not add more than 30 items! Please clear previous items",listBlock,form);
-	}
-	else {
-		var tagLi = document.createElement('li');
-		tagLi.innerHTML = itemValue;
-		tagLi.className = "todo-list-li_af";
-		tagLi.setAttribute("onclick", "delItem_af(this);");
-		itemsList.appendChild(tagLi);
-		localStorage.setItem(itemValue, itemValue);
-		document.getElementById("textForm_af").value = "";
-	}	
-}
-
-
-function alertMessage_af (str, parentElement, nextSibling) {
-
-	var tagDiv = document.createElement('div');
-	tagDiv.className = "alert_af";
-	tagDiv.innerHTML = str;
-
-	parentElement.insertBefore(tagDiv, nextSibling);
+function alertMessage_af (str, nextSibling) {
+	var tagDiv = $('<div></div>').addClass('alert_af').text(str);
+	$(nextSibling).before(tagDiv);
 
 	setTimeout(function() {
-		parentElement.removeChild(tagDiv);
+		$(tagDiv).remove();
 	}, 1500)
 }
 
-function delItem_af(clickedElem) {
-	var itemsList = document.getElementById("itemsList_af");
-	localStorage.removeItem(clickedElem.innerHTML);
-	itemsList.removeChild(clickedElem);
+function displayItems_af() {
+	var itemsList = $('#itemsList_af');
+	for (var i = 0; i < localStorage.length; i++) {
+		var tagLi = $('<li></li>')
+			.addClass('todo-list-li_af')
+			.text(localStorage.getItem(localStorage.key(i)));
+		$(itemsList).append($(tagLi));
+	}
+	$(itemsList).sortable();							//All inside elements will be sortable using JQueryUI
 }
 
-function displayItems_af() {
-	var itemsList = document.getElementById("itemsList_af");
-	for (var i = 0; i <localStorage.length; i++) {
-		var tagLi = document.createElement('li');
-		tagLi.innerHTML = localStorage.getItem(localStorage.key(i));
-		tagLi.className = "todo-list-li_af";
-		tagLi.setAttribute("onclick", "delItem_af(this);");
-		itemsList.appendChild(tagLi);	
+function addInsertedItemValue_af(element, event) {
+	var text = element.value;
+	var form = $('#form_af');
+
+	if(text.length > 0) {
+		$('#itemsList_af').children('li').last().text(text);
+	}
+
+	if(event.which === 13) {
+		if(text.length === 0) {
+			alertMessage_af ("Please insert Description!",$(form));
+		}
+		else if(text === localStorage.getItem(text)) {
+			alertMessage_af ("This item is already present! Please insert another Description",$(form));
+		}
+		else if(localStorage.length >= 30) {
+			alertMessage_af ("you can not add more than 30 items! Please clear previous items",$(form));
+		} else {
+			localStorage.setItem(text, text);
+			$(element).val('');
+		}
+	}
+}
+
+function createItemsList_af () {
+	var itemsList = $('#itemsList_af');
+	if($('#textForm_af').val().length === 0) {
+		$(itemsList).append('<li></li>');
+		$(itemsList).children('li').last().addClass('todo-list-li_af');
 	}
 }
 
@@ -186,19 +180,19 @@ $('#textForm_af').on('keyup', function (e) {
 	addInsertedItemValue_af(this, e);
 });
 
-$('#textForm_af').on('keydown', function () {
-	createItemsList ();
+$('#textForm_af').on('keypress', function () {
+	createItemsList_af ();
 });
 
-function addInsertedItemValue_af(element, event) {
+$('#button_af').on('click', function () {
+	var elem = document.getElementById('textForm_af');
+	addInsertedItemValue_af(elem, {which: 13});
+});
 
-}
-
-function createItemsList () {
-	if($('#textForm_af').val().length === 0) {
-		$('#itemsList_af').append('<li></li>');
-	}
-}
+$('#itemsList_af').on('dblclick', 'li', function () {
+	localStorage.removeItem(this.innerHTML);
+	$(this).remove();
+});
 
 /*==============================Items Block END======================================================================*/
 
@@ -286,7 +280,7 @@ DisplayedUsers_af.prototype.constructor = DisplayedUsers_af;
 
 DisplayedUsers_af.prototype.display = function () {
 		var usersForDisplay = this.getSetUser();
-		var tagLi = {}, tagH3 = {}, tagImg = {};
+		var tagLi, tagH3, tagImg;
 		var malesList = document.getElementById("males_af");
 		var femalesList = document.getElementById("females_af");
 		clearSiblings_af();

@@ -13,13 +13,13 @@
 	line-height: 1;
 	border-collapse: collapse;
 	border-spacing: 0;
-	list-style-type: none;
+	/*	list-style-type: none; */
 	quotes: none;
 	position: static;
 	border-radius: 0;
 	height: auto;
 }
-/*//////////////////////////////RESET.CSS END/////////////////////////////////////////////////////////////////////*/
+    /*//////////////////////////////RESET.CSS END/////////////////////////////////////////////////////////////////////*/
 
 .body_af {
 	background: white;
@@ -193,11 +193,13 @@
 .todo-list_af {
 	list-style-type: decimal;
 	list-style-position: inside;
-	padding-left: 15px;	
+	padding: 0 15px;
 }
 
 .todo-list-li_af {
 	margin: 2px 0;
+	padding: 5px;
+	border: 1px solid black;
 }
 
 .todo-list-li_af:hover{
@@ -376,7 +378,6 @@
 	display: block;
 	margin: 0 auto;
 }
-
 
 @media screen and (max-width: 1200px) and (min-width: 993px) {
 	.wrapper_af {

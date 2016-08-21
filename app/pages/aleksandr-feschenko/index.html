@@ -6,6 +6,7 @@
 	<link href='https://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="../../css/style.css">
 	<script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
 </head>
 
 <body class="body_af" id="afMainPage">
@@ -47,10 +48,11 @@
 				<div class = "todo_af" id = "toDoList_af">
 					<h2 class = "todo-title_af">Current tasks: </h2>
 					<ul class = "todo-list_af" id = "itemsList_af">
+
 					</ul>
 					<div class="form_af" id = "form_af">
 						<input class = "text_form_af" id = "textForm_af" type = "text" placeholder = "Description...">
-						<input class = "button_af" type="submit" value="Add item" onclick = "addNewItem_af();">
+						<input class = "button_af"  id = "button_af" type="submit" value="Add item">
 					</div>
 				</div>
 
