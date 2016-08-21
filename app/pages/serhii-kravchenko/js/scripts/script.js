@@ -3,9 +3,9 @@
 var hobbySerhiiKravchenko = ["Плавать", "Стрелять с арбалета", "Нюхать цветы", "Летать на драконах"];
 
 
-function createHobbyList(list) {
+function createHobbyList_skr(list) {
     if (list) {
-        var hobbyIdTag = document.getElementById('hobby');
+        var hobbyIdTag = document.getElementById('hobby_skr');
         if(hobbyIdTag){
             for (var i = 0; i < list.length; i++) {
                 if (i != list.length - 1) {
@@ -19,4 +19,4 @@ function createHobbyList(list) {
     } else return false;
 }
 
-createHobbyList(hobbySerhiiKravchenko);
+createHobbyList_skr(hobbySerhiiKravchenko);

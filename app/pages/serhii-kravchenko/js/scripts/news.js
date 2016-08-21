@@ -1,20 +1,20 @@
 ;'use strict';
 
-var xhr = new XMLHttpRequest();
-xhr.open("GET", "news.json", false);
-xhr.send();
+var xhr_skr = new XMLHttpRequest();
+xhr_skr.open("GET", "news.json", false);
+xhr_skr.send();
 
 
-if (xhr.status != 200) {
-    alert(xhr.status + " " + xhr.statusText);
+if (xhr_skr.status != 200) {
+    alert(xhr_skr.status + " " + xhr_skr.statusText);
 } else {
-    var result = JSON.parse(xhr.responseText);
+    var result_skr = JSON.parse(xhr_skr.responseText);
 }
 
-function createNews(result) {
-    if (result) {
-        var data = result.responseData.entries;
-        var newsTag = document.getElementById('news');
+function createNews(result_skr) {
+    if (result_skr) {
+        var data = result_skr.responseData.entries;
+        var newsTag = document.getElementById('news_skr');
         if (newsTag) {
             for (var i = 0; i < data.length; i++) {
                 var ul = newsTag.appendChild(document.createElement('ul'));
@@ -41,7 +41,7 @@ function createNews(result) {
     } else return false;
 }
 
-createNews(result);
+createNews(result_skr);
                 
          
     

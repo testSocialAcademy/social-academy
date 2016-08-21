@@ -1,9 +1,9 @@
 'use strict';
-function Users() {
+function Users_skr() {
     this.usersData={};
 
 }
-Users.prototype.users = function () {
+Users_skr.prototype.users = function () {
     var xhr = new XMLHttpRequest();
     xhr.open("GET", "http://api.randomuser.me/?results=10", false);
     xhr.send();
@@ -14,19 +14,19 @@ Users.prototype.users = function () {
         this.usersData = allUsers.results;
     }
 };
-Users.prototype.getUsers = function () {
-    Users.prototype.users();
+Users_skr.prototype.getUsers = function () {
+    Users_skr.prototype.users();
     return this.usersData;
 };
 
-function GenderUsers() {
+function GenderUsers_skr() {
     this.males = [];
     this.females = [];
 }
-GenderUsers.prototype = Object.create(Users.prototype);
-GenderUsers.prototype.constructor = GenderUsers;
+GenderUsers_skr.prototype = Object.create(Users_skr.prototype);
+GenderUsers_skr.prototype.constructor = GenderUsers_skr;
 
-GenderUsers.prototype.sortUsersByGender = function () {
+GenderUsers_skr.prototype.sortUsersByGender = function () {
     for (var i = 0; i < this.users.length; i++) {
         if (this.users[i].gender == "male") {
             this.males.push(this.users[i])
@@ -35,7 +35,7 @@ GenderUsers.prototype.sortUsersByGender = function () {
         }
     }
 };
-GenderUsers.prototype.getOrSetUser = function (person) {
+GenderUsers_skr.prototype.getOrSetUser = function (person) {
     if (!arguments.length) {
         return this.getUsers();
     } else if (person.gender == "male") {
@@ -44,10 +44,10 @@ GenderUsers.prototype.getOrSetUser = function (person) {
         this.females.push(person);
     }
 };
-GenderUsers.prototype.displayOnPageUsersByGender = function () {
+GenderUsers_skr.prototype.displayOnPageUsersByGender = function () {
     var usersToDisplay = this.getOrSetUser();
-    var ulBoys = document.getElementById('boys');
-    var ulGirls = document.getElementById('girls');
+    var ulBoys = document.getElementById('boys_skr');
+    var ulGirls = document.getElementById('girls_skr');
     if (ulBoys) {
         for (var i = 0; i < usersToDisplay.length; i++) {
             if (usersToDisplay[i].gender == "male") {
@@ -63,11 +63,11 @@ GenderUsers.prototype.displayOnPageUsersByGender = function () {
     }
 };
 
-var gender = new GenderUsers();
-gender.displayOnPageUsersByGender();
+var gender_skr = new GenderUsers_skr();
+gender_skr.displayOnPageUsersByGender();
 
 
-String.prototype.phoneParser = function(){
+String.prototype.phoneParser_skr = function(){
     var count = 0;
     var result = "";
     for (var i=0; i<this.length;i++){
@@ -86,10 +86,10 @@ String.prototype.phoneParser = function(){
     return result;
 };
 
-var result = "9873216549".phoneParser();
+var resultPhone_skr = "9873216549".phoneParser_skr();
 
-console.log(result); //987-321-654-9
+console.log(resultPhone_skr); //987-321-654-9
 
-var result1 = "9873216549nnn".phoneParser();
+var resultPhone1_skr = "9873216549nnn".phoneParser_skr();
 
-console.log(result1); // Error: Неправильный формат
+console.log(resultPhone1_skr); // Error: Неправильный формат
