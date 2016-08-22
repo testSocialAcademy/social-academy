@@ -1,6 +1,6 @@
 'use strict';
-//Homework 5
-function loadNews() {
+///////////////////////////////////////////Homework 5//////////////////////////////////////////////////////////////
+function loadNews_ai() {
     var xhr = new XMLHttpRequest();
     xhr.open('GET', 'news.json', true);
     xhr.send();
@@ -12,19 +12,19 @@ function loadNews() {
             alert(xhr.status + ': ' + xhr.statusText);
         } else {
             respText = xhr.responseText;
-           newsDisplay(respText);
+           newsDisplay_ai(respText);
             return respText;
         }
     };
     return respText;
 }
-loadNews();
+loadNews_ai();
 
-function newsDisplay(respText){
+function newsDisplay_ai(respText){
     var newLi;
     var resp = JSON.parse(respText);
     var blokNews = resp.responseData.entries;
-    var list = document.getElementById ('news');
+    var list = document.getElementById ('news_ai');
     var i;
     for (i = 0; i < blokNews.length; i++){
         var ul = document.createElement('ul');
@@ -32,14 +32,14 @@ function newsDisplay(respText){
     }
     for (i=0; i < blokNews.length; i++){
         if (blokNews[i].title){
-            newLi = document.createElement('h4');
+            newLi = document.createElement('strong');
             newLi.innerHTML = blokNews[i].title;
             list.children[i].appendChild(newLi);
         }
     }
     for (i=0; i < blokNews.length; i++){
         if (blokNews[i].contentSnippet){
-            newLi = document.createElement('p');
+            newLi = document.createElement('span');
             newLi.innerHTML = blokNews[i].contentSnippet;
             list.children[i].appendChild(newLi);
         }
