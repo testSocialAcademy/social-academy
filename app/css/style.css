@@ -783,11 +783,13 @@ body {
     padding: 10px;
   }
 }
-body {
-  margin: 0;
+.body_sp {
+  margin: 0 auto;
   padding: 0;
   font: 1em/1.4em sans-serif;
+  width: 960px;
   background: url("../img/sergey-piven/background.png") repeat;
+  border-top: none;
 }
 
 a {
@@ -800,7 +802,11 @@ ul {
   list-style: none;
 }
 
-.main {
+li {
+  line-height: 1.5;
+}
+
+.main_sp {
   margin: 20px 20px 0 450px;
   border: 3px #CCCCCC solid;
   border-radius: 15px;
@@ -808,7 +814,7 @@ ul {
   padding: 0 50px 20px 50px;
 }
 
-.news {
+.news_sp {
   margin: 20px 20px 0 450px;
   border: 3px #CCCCCC solid;
   border-radius: 15px;
@@ -816,44 +822,87 @@ ul {
   padding: 20px 50px 20px 50px;
 }
 
-.news ul {
+.news_sp ul {
   margin: 15px 0;
 }
 
-.news ul li:first-child {
+.news_sp ul li:first-child {
   text-decoration: underline;
 }
 
-.news ul li a {
+.news_sp ul li a {
   color: #c9302c;
 }
 
-.news ul li a:hover {
+.news_sp ul li a:hover {
   text-decoration: underline;
 }
 
-.avatar {
+.avatar_sp {
   border: 5px #CCCCCC solid;
   border-radius: 15px;
 }
 
-#hobbiesInterests {
+#hobbiesInterests_sp {
   list-style: disc;
 }
 
-#hobbiesInterests li {
+#hobbiesInterests_sp li {
   margin-left: 20px;
+}
+
+.toDoList_sp {
+  margin-top: 5px;
+  width: 300px;
+  border: 3px #CCCCCC solid;
+  border-radius: 15px;
+  background-color: #ECECEC;
+  padding: 20px 50px 20px 50px;
+}
+
+.malesByGender_sp {
+  margin-top: 5px;
+  width: 300px;
+  border: 3px #CCCCCC solid;
+  border-radius: 15px;
+  background-color: #ECECEC;
+  padding: 20px 50px 20px 50px;
+}
+
+.femalesByGender_sp {
+  margin-top: 5px;
+  width: 300px;
+  border: 3px #CCCCCC solid;
+  border-radius: 15px;
+  background-color: #ECECEC;
+  padding: 20px 50px 20px 50px;
+}
+
+#toDoListOutput_sp {
+  list-style-image: url("../img/sergey-piven/toDoListLiImage.png");
+  padding-top: 10px;
+}
+
+#toDoListOutput_sp li {
+  border: groove;
+  background-color: #DDDDDD;
+  padding: 2px;
+  margin-top: 5px;
+}
+
+#saveButton_sp {
+  margin-left: 125px;
 }
 
 /*Внешний вид меню */
 
-.left_side {
+.left_side_sp {
   width: 200px;
   margin: 0 20px 20px 20px;
   float: left;
 }
 
-.menu a {
+.menu_sp a {
   background: #3d3d3d;
   color: #fff;
   padding: 10px;
@@ -862,34 +911,34 @@ ul {
   transition: 0.5s all;
 }
 
-.menu a:hover {
+.menu_sp a:hover {
   background: #666;
   padding: 10px 0 10px 20px;
 }
 
-.menu li:first-child a,
-.menu li .menu_drop li:first-child a {
+.menu_sp li:first-child a,
+.menu_sp li .menu_drop li:first-child a {
   border-radius: 3px 3px 0 0;
 }
 
-.menu li:last-child a,
-.menu li .menu_drop li:last-child a {
+.menu_sp li:last-child a,
+.menu_sp li .menu_drop_sp li:last-child a {
   border-radius: 0 0 3px 3px;
   border-bottom: 0;
 }
 
-.menu li .menu_drop li a {
+.menu_sp li .menu_drop_sp li a {
   border-radius: 0;
   border-bottom: 1px solid #666;
 }
 
 /*Всплывающие меню */
 
-.menu_list {
+.menu_list_sp {
   position: relative;
 }
 
-.menu_drop {
+.menu_drop_sp {
   position: absolute;
   width: 100%;
   left: 100%;
@@ -899,14 +948,14 @@ ul {
   transition: 0.5s opacity;
 }
 
-.menu_list:hover .menu_drop {
+.menu_list_sp:hover .menu_drop_sp {
   opacity: 1;
   top: 0;
 }
 
 /*Иконки для вплывающих меню */
 
-.menu_list::after {
+.menu_list_sp::after {
   content: " ";
   position: absolute;
   border: 5px solid;
@@ -916,8 +965,60 @@ ul {
   transition: 0.5s;
 }
 
-.menu_list:hover::after {
+.menu_list_sp:hover::after {
   transform: scaleX(-1);
+}
+
+#pictures_sp {
+  margin: 0 auto;
+  width: 426px;
+  height: 640px;
+  overflow: hidden;
+  border: 10px double black;
+}
+
+#pictures_sp .slides_sp {
+  width: 600000px;
+}
+
+#pictures_sp img {
+  float: left;
+}
+
+#sliderLeftButton_sp {
+  width: 100px;
+  height: 100px;
+  float: left;
+  margin-top: 250px;
+}
+
+#sliderRightButton_sp {
+  width: 100px;
+  height: 100px;
+  float: right;
+  margin-top: 250px;
+}
+
+.slider_sp {
+  border: 3px #CCCCCC solid;
+  border-radius: 15px;
+  background-color: #ECECEC;
+  padding: 50px 20px 50px 20px;
+}
+
+.playAndStopButton_sp {
+  display: block;
+  margin: 30px auto 0 auto;
+  width: 100px;
+  height: 100px;
+  background-color: #cc0000;
+  border-radius: 60px;
+}
+
+.returnTohHomepageLink_sp {
+  display: block;
+  margin: 0 auto;
+  width: 150px;
 }
 /*header,*/
 
