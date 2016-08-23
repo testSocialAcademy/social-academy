@@ -354,3 +354,68 @@ function startUsers_IN() {
 startUsers_IN();
 Ajax_IN();
 hobbyAdd_IN();
+
+
+
+//----------------------------------------- IMAGES
+
+(function( $ ) {
+    $.fn.slideshow = function( options ) {
+        options = $.extend({
+            wrapper: ".slider-wrapper",
+            slides: ".slide",
+            previous: ".slider-previous",
+            next: ".slider-next",
+            //...
+            speed: 500,
+            easing: "linear"
+        }, options);
+
+        var slideTo = function( slide, element ) {
+            var $currentSlide = $( options.slides, element ).eq( slide );
+
+            $( options.wrapper, element ).
+            animate({
+                left: - $currentSlide.position().left
+            }, options.speed, options.easing );
+
+        };
+
+        return this.each(function() {
+            var $element = $( this ),
+                $previous = $( options.previous, $element ),
+                $next = $( options.next, $element ),
+                index = 0,
+                total = $( options.slides ).length;
+
+            $next.on( "click", function() {
+                index++;
+                $previous.show();
+
+                if( index == total - 1 ) {
+                    index = total - 1;
+                    $next.hide();
+                }
+
+                slideTo( index, $element );
+
+            });
+
+            $previous.on( "click", function() {
+                index--;
+                $next.show();
+
+                if( index == 0 ) {
+                    index = 0;
+                    $previous.hide();
+                }
+
+                slideTo( index, $element );
+
+            });
+
+
+        });
+    };
+
+})( jQuery );
