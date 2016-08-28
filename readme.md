@@ -1,6 +1,6 @@
-# Social School
+# Social Academy
 
-Site for the best students in Hamsters
+Site for the best students in PHP Academy
 
 ### Project requirements
 
