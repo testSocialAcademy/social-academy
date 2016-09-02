@@ -358,6 +358,7 @@ hobbyAdd_IN();
 
 
 //----------------------------------------- IMAGES
+/*
 
 (function( $ ) {
     $.fn.slideshow = function( options ) {
@@ -418,4 +419,49 @@ hobbyAdd_IN();
         });
     };
 
-})( jQuery );
+})( jQuery );*/
+//--------------  10
+
+function  promiseAjax_IN (url) {
+    var resp = null;
+    return new Promise (function(resolve, reject) {
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", url, true);
+
+        xhr.onload = function () {
+            if (this.status == 200) {
+                resp = JSON.parse(xhr.responseText).results;
+                resolve(this.response);
+                return resp;
+            }
+            else {
+                var error = new Error(this.statusText);
+                error.code = this.status;
+                reject(error);
+            }
+        };
+        xhr.onerror - function () {
+            reject(new error("Net Error, first Ajax"));
+        };
+        xhr.send();
+        return resp;
+    });
+
+}
+
+
+promiseAjax_IN("https://pixabay.com/api/?key=2980920-46f1aa264b036ffc6e45ebad0&orientation=vertical&q=red+flowers&min_height=500")
+    .then(
+        response => {
+            console.log(`----  Fulfilled  ------: ${response}`);
+            var user = JSON.parse(response);
+            console.log(`----  Fulfilled 22 ------: ${user}`);
+            return user;
+        })
+.then(user => {
+    console.log(`----  USER ------: ${user}`);
+});
+
+
+/* error => console.log(`----- Rejected ------- : ${error}`)*/
+/*var secondResp = promiseAjax1_IN("https://pixabay.com/api/?key=2980920-46f1aa264b036ffc6e45ebad0&orientation=vertical&q=yellow+flowers&min_height=500");*/
