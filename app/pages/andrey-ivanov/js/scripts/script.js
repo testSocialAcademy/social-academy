@@ -222,22 +222,22 @@ newUsers_ai.userRequest('http://api.randomuser.me/?results=10');
 
 ////////////////////////////////Homework 9/////////////////////////////////////////////////////////////////////////////
 
-function Users() {
+function Users_ai() {
     var _this = this;
     this._users = {};
     this.male = {};
     this.female = {};
 }
 
-    function Request() {
-         Users.apply(this, arguments);
+    function Request_ai() {
+         Users_ai.apply(this, arguments);
     }
 
-Request.prototype = Object.create(Users.prototype);
-Request.prototype.constructor = Request;
+Request_ai.prototype = Object.create(Users_ai.prototype);
+Request_ai.prototype.constructor = Request_ai;
 
-    Request.prototype.userRequest = function (link) {
-          Request.apply(this, arguments);
+    Request_ai.prototype.userRequest_ai = function (link) {
+          Request_ai.apply(this, arguments);
           var _this = this;
           var xhr = new XMLHttpRequest();
           xhr.open('GET', link, true);
@@ -245,7 +245,7 @@ Request.prototype.constructor = Request;
           xhr.onload = function () {
                 var responce = JSON.parse(xhr.responseText);
                 _this._users = responce.results;
-                RespRequest.prototype.responseRequest(responce.results);
+                RespRequest_ai.prototype.responseRequest_ai(responce.results);
           };
           xhr.onerror = function () {
                 alert(xhr.status + ": " + xhr.statusText);
@@ -253,18 +253,18 @@ Request.prototype.constructor = Request;
            xhr.send();
     };
 
-function GetSet() {
-    Request.apply(this, arguments);
+function GetSet_ai() {
+    Request_ai.apply(this, arguments);
 }
 
-GetSet.prototype = Object.create(Request.prototype);
-GetSet.prototype.constructor = GetSet;
+GetSet_ai.prototype = Object.create(Request_ai.prototype);
+GetSet_ai.prototype.constructor = GetSet_ai;
 
 
-         GetSet.prototype.getSetUsers = function (addNewUser) {
-               GetSet.apply(this, arguments);
+         GetSet_ai.prototype.getSetUsers_ai = function (addNewUser) {
+               GetSet_ai.apply(this, arguments);
                if (arguments.length > 0) {
-                   AddUserNew.prototype.addUser(addNewUser);
+                   AddUserNew_ai.prototype.addUser_ai(addNewUser);
                } else if (arguments.length === 0 && _this._users === null) {
                    throw new Error("Please add new user ");
                } else {
@@ -272,15 +272,15 @@ GetSet.prototype.constructor = GetSet;
                        }
          };
 
-function AddUserNew() {
-    GetSet.apply(this, arguments);
+function AddUserNew_ai() {
+    GetSet_ai.apply(this, arguments);
 }
 
-AddUserNew.prototype = Object.create(GetSet.prototype);
-AddUserNew.prototype.constructor = AddUserNew;
+AddUserNew_ai.prototype = Object.create(GetSet_ai.prototype);
+AddUserNew_ai.prototype.constructor = AddUserNew_ai;
 
-        AddUserNew.prototype.addUser = function (addNewUser) {
-                  AddUserNew.apply(this, arguments);
+        AddUserNew_ai.prototype.addUser_ai = function (addNewUser) {
+                  AddUserNew_ai.apply(this, arguments);
                   if (addNewUser.gender === 'female') {
                       _this.female.push(addNewUser);
                    } else if (addNewUser.gender === 'male') {
@@ -288,38 +288,38 @@ AddUserNew.prototype.constructor = AddUserNew;
                        } else {console.log("Unknown gender!");}
 };
 
-function Users2() {
-    AddUserNew.apply(this, arguments);
+function Users2_ai() {
+    AddUserNew_ai.apply(this, arguments);
 }
 
-Users2.prototype = Object.create(AddUserNew.prototype);
-Users2.prototype.constructor = Users2;
+Users2_ai.prototype = Object.create(AddUserNew_ai.prototype);
+Users2_ai.prototype.constructor = Users2_ai;
 
-function RespRequest() {
-    Users2.apply(this, arguments);
+function RespRequest_ai() {
+    Users2_ai.apply(this, arguments);
 }
 
-RespRequest.prototype = Object.create(Users2.prototype);
-RespRequest.prototype.constructor = RespRequest;
+RespRequest_ai.prototype = Object.create(Users2_ai.prototype);
+RespRequest_ai.prototype.constructor = RespRequest_ai;
 
 
-         RespRequest.prototype.responseRequest = function(responce) {
-                    Users2.apply(this, arguments);
+         RespRequest_ai.prototype.responseRequest_ai = function(responce) {
+                    Users2_ai.apply(this, arguments);
                     this._users = responce;
                     var thisUsers = this._users;
-                    OnDisplay.prototype.usersOnDisplay(thisUsers);
+                    OnDisplay_ai.prototype.usersOnDisplay_ai(thisUsers);
 };
 
-function SortGender() {
-    RespRequest.apply(this, arguments);
+function SortGender_ai() {
+    RespRequest_ai.apply(this, arguments);
 }
 
-SortGender.prototype = Object.create(RespRequest.prototype);
-SortGender.prototype.constructor = SortGender;
+SortGender_ai.prototype = Object.create(RespRequest_ai.prototype);
+SortGender_ai.prototype.constructor = SortGender_ai;
 
 
-         SortGender.prototype.sortUsers = function () {
-                  SortGender.apply(this, arguments);
+         SortGender_ai.prototype.sortUsers_ai = function () {
+                  SortGender_ai.apply(this, arguments);
                   var self = this;
                  for (var i = 0; i < self._users.length; i++) {
                       if (self._users[i].gender == "female") {
@@ -329,17 +329,17 @@ SortGender.prototype.constructor = SortGender;
                        }
                   }
           };
-         SortGender.prototype.sortUsers();
+         SortGender_ai.prototype.sortUsers_ai();
 
-function OnDisplay() {
-    SortGender.apply(this, arguments);
+function OnDisplay_ai() {
+    SortGender_ai.apply(this, arguments);
 }
 
-OnDisplay.prototype = Object.create(SortGender.prototype);
-OnDisplay.prototype.constructor = OnDisplay;
+OnDisplay_ai.prototype = Object.create(SortGender_ai.prototype);
+OnDisplay_ai.prototype.constructor = OnDisplay_ai;
 
-          OnDisplay.prototype.usersOnDisplay = function(thisUsers) {
-                     OnDisplay.apply(this, arguments);
+          OnDisplay_ai.prototype.usersOnDisplay_ai = function(thisUsers) {
+                     OnDisplay_ai.apply(this, arguments);
                       var self = this,
                       people = thisUsers,
                       divMale = document.getElementById("addMale"),
@@ -398,8 +398,8 @@ OnDisplay.prototype.constructor = OnDisplay;
                             }
                      }
           };
-var newUsers = new Users2();
-newUsers.userRequest('http://api.randomuser.me/?results=10');
+var newUsers_ai = new Users2_ai();
+newUsers_ai.userRequest_ai('http://api.randomuser.me/?results=10');
 
 ////// createPhone ///////////
 
