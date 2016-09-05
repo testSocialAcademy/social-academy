@@ -1,0 +1,28 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+li {
+    width: 100vw;
+    position: relative;
+    display: none;
+}
+
+li.active {
+    display: block;
+}
+
+li div {
+    text-align: center;
+}
+.buttons{
+    margin: auto;
+    width: 85px;
+}
