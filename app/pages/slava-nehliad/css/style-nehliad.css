@@ -35,3 +35,34 @@
     color: cadetblue;
 }
 
+/* Blocks with tasks */
+
+
+
+/* Blocks with users */
+.userList {
+    font-family: "Trebuchet MS", cursive;
+    margin-bottom: 15px;
+}
+
+.userList h3 {
+    font-family: 'Poiret One', cursive;
+    font-style: italic;
+    font-size: 25px;
+}
+
+.maleList {
+    border: 1px solid #0b97c4;
+    overflow: hidden;
+    margin-bottom: 10px;
+    padding: 5px;
+    background-color: #c7e6e8;
+    border-radius: 4px;
+}
+
+.femaleList {
+    border: 1px solid #0b97c4;
+    padding: 5px;
+    background-color: #f1dfd5;
+    border-radius: 4px;
+}
