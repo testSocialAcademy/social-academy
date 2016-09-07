@@ -13,7 +13,7 @@
   line-height: 1;
   border-collapse: collapse;
   border-spacing: 0;
-  list-style-type: none;
+  /*	list-style-type: none; */
   quotes: none;
   position: static;
   border-radius: 0;
@@ -192,11 +192,13 @@
 .todo-list_af {
   list-style-type: decimal;
   list-style-position: inside;
-  padding-left: 15px;
+  padding: 0 15px;
 }
 
 .todo-list-li_af {
   margin: 2px 0;
+  padding: 5px;
+  border: 1px solid black;
 }
 
 .todo-list-li_af:hover {
@@ -484,55 +486,49 @@
 /*/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////Aleksandr Feschenko CSS END///////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
-body {
+.ai {
   background: #edeef0;
 }
 
-.row {
+.row_ai {
   width: 100%;
   overflow: hidden;
 }
 
-header {
+.ai header {
   height: 45px;
   background-color: #507299;
   border-bottom: 1px solid #466991;
   position: relative;
   margin-bottom: 10px;
-  border-radius: 10px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
 }
 
-/* nav {
-     margin-left: 40px;
-     background-color: white;
-     border-radius: 10px;
-     float: left;
- }
-     */
-
-article {
+.ai article {
   margin-left: 70px;
   background-color: white;
   border-radius: 10px;
   float: left;
 }
 
-aside {
+.ai aside {
   margin-left: 10px;
   background-color: white;
   border-radius: 10px;
 }
 
-footer {
+.ai footer {
   height: 42px;
   background-color: #507299;
   border-top: 1px solid #466991;
   position: relative;
   margin-top: 10px;
-  border-radius: 10px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
 }
 
-.logo {
+.ai .logo_ai {
   margin: 4px;
   font-family: "Indie Flower",sans-serif;
   color: #edeef0;
@@ -541,13 +537,13 @@ footer {
   text-align: center;
 }
 
-.img-thumbnail {
+.ai .img-thumbnail {
   margin-top: 10px;
   width: 302px;
   height: 188px;
 }
 
-.container {
+.ai .container {
   width: 100%;
   min-height: 250px;
   border: 1px solid #e7e8ec;
@@ -557,25 +553,30 @@ footer {
   position: relative;
 }
 
-h2 {
+.ai h2 {
   font-size: 2em;
 }
 
-.info {
+.ai .info {
   margin-right: 10px;
   position: relative;
   float: left;
 }
 
-.form-control,
+.ai .form-control,
 .btn {
   margin-top: 10px;
   margin-right: 10px;
 }
 
+.ai #news p {
+  font-size: 12px;
+  text-align: justify;
+}
+
 /*style my freands */
 
-.style_userImage {
+.ai .style_userImage {
   width: 50px;
   height: 50px;
   position: relative;
@@ -620,61 +621,61 @@ body {
   width: 100%;
   border-radius: 10px;
 }
-[class*="col-"] {
+.body_mu [class*="col-"] {
   text-align: center;
   padding-top: 15px;
   font-size: 2rem;
 }
 
-html,
-body {
+.html_mu,
+.body_mu {
   height: 100%;
 }
 
-body {
+.body_mu {
   background: url("../img/michail_suprunov/background.png");
 }
 
-.page-wrapper {
+.body_mu  .page-wrapper_mu {
   display: flex;
   flex-direction: column;
   min-height: 100%;
 }
 
-.header-wrapper {
+.body_mu .header-wrapper_mu {
   background-color: #3CAFE2;
 }
 
-.main-wrapper {
+.body_mu .main-wrapper_mu {
   flex: 1 0 auto;
 }
 
-.main-header {
+.body_mu .main-header_mu {
   padding: 3px 0;
 }
 
-.main-nav ul {
+.body_mu .main-nav_mu ul {
   list-style-type: none;
   padding: 0;
   text-align: left;
 }
 
-.info {
+.body_mu .info_mu {
   height: 100%;
   padding-top: 0;
   padding-bottom: 0;
   overflow: hidden;
 }
 
-.personal-data {
+.body_mu .personal-data_mu {
   text-align: left;
 }
 
-.footer-wrapper {
+.body_mu .footer-wrapper_mu {
   flex: 0 0 auto;
 }
 
-.main-footer {
+.body_mu .main-footer_mu {
   background: #366472;
   padding: 5px 0;
   text-align: center;
@@ -682,7 +683,7 @@ body {
   padding: 10px;
 }
 
-#newsColumn {
+.body_mu #newsColumn_mu {
   margin: 50px 0;
   text-align: left;
   font-size: .8em;
@@ -691,95 +692,95 @@ body {
   padding-top: 0;
 }
 
-#newsColumn div {
+.body_mu #newsColumn_mu div {
   margin: 15px -15px;
   padding: 0 15px;
   border-bottom: 1px solid #19CEF0;
 }
 
-#newsColumn div:last-child {
+.body_mu #newsColumn_mu div:last-child {
   border-bottom: none;
 }
 
-.inputLS {
+.body_mu .inputLS_mu {
   text-align: left;
 }
 
-.wrapListLS {
+.body_mu  .wrapListLS_mu {
   border: 5px solid #19CEF0;
   border-radius: 20px;
   margin-top: 50px;
   padding-bottom: 15px;
 }
 
-.maleUsers,
-.femaleUsers,
-.friendsUsers {
+.body_mu .maleUsers_mu,
+.body_mu .femaleUsers_mu,
+.body_mu .friendsUsers_mu {
   border: 5px solid #19CEF0;
   border-radius: 20px;
   margin-top: 50px;
   font-size: .8em;
 }
 
-.userImage {
+.body_mu .userImage_mu {
   margin: 20px auto 0;
 }
 
 @media (max-width: 767px) {
-  .main-nav {
+  .body_mu .main-nav_mu {
     margin: 0;
     padding: 0;
     background-color: #E9EF06;
   }
 
-  .main-nav ul {
+  .body_mu .main-nav_mu ul {
     display: flex;
     justify-content: center;
     margin: 0;
   }
 
-  .main-nav li:last-child {
+  .body_mu .main-nav_mu li:last-child {
     border-right: none;
   }
 
-  .main-nav li {
+  .body_mu .main-nav_mu li {
     flex: 1;
     text-align: center;
     border-right: 1px solid black;
     padding: 5px 2px;
   }
 
-  .container {
+  .body_mu .container {
     margin: 0, auto;
   }
 }
 
 @media (max-width: 459px) {
-  #keyLS,
-  #submitInputLS,
-  #listLS {
+  .body_mu #keyLS_mu,
+  .body_mu #submitInputLS_mu,
+  .body_mu #listLS_mu {
     font-size: .7em;
   }
 
-  #keyLS {
+  .body_mu #keyLS_mu {
     width: 138px;
   }
 
-  .maleUsers,
-  .femaleUsers,
-  .friendsUsers {
+  .body_mu .maleUsers_mu,
+  .body_mu .femaleUsers_mu,
+  .body_mu .friendsUsers_mu {
     font-size: .7em;
   }
 
-  .maleUsers h3,
-  .femaleUsers h3,
-  .friendsUsers h3 {
+  .body_mu .maleUsers_mu h3,
+  .body_mu .femaleUsers_mu h3,
+  .body_mu .friendsUsers_mu h3 {
     font-size: 1.3em;
   }
 
-  .wrapMale,
-  .wrapFemale,
-  .wrapFriends {
+  .body_mu .wrapMale_mu,
+  .body_mu .wrapFemale_mu,
+  .body_mu .wrapFriends_mu {
     padding: 10px;
   }
 }
