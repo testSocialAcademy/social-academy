@@ -12,7 +12,7 @@ function newsDisplay() {
     }
     console.log(xhr.status,xhr.statusText);
    
-    if (typeof object == "string") {
+    if (typeof object == "object") {
         var news = document.getElementById('news');
         for (var i = 0; i < object.length; i++) {
             var ul = document.createElement('ul');
