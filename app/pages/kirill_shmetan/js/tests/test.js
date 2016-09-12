@@ -2,7 +2,12 @@ mocha.setup ('bdd');
 var expect = chai.expect;
 
 describe("check newsDisplay()", function() {
-    
+    it("not false if news display", function (){
+        expect(newsDisplay()).to.not.be.false;
+    });
+    it("undefined if request complete", function() {
+        expect(newsDisplay()).to.be.undefined;
+    });
     it("not return error if function complete", function() {
         expect(newsDisplay()).to.not.be.a('error');
     });
