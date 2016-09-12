@@ -1,14 +1,18 @@
 'use strict';
 
-    var elem = document.getElementById('hobbies');
+    var hobbies = document.getElementById('hobbies');
 
     var hobbie = ['guitar playing', 'football', 'running', 'road cycling', 'gym', 'literature'];
 
     function hobbyOpen () {
-    for (var i = 0; i < hobbie.length; i++) {
+        return hobbie;
+    }
+        
+if (hobbies) {
+    for (var i = 0; i < hobbyOpen().length; i++) {
         var newLi = document.createElement('li');
         newLi.innerHTML = hobbie[i] + ';';
-        elem.appendChild(newLi);
+        hobbies.appendChild(newLi);
     }
     }
     hobbyOpen();
