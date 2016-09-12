@@ -17,15 +17,20 @@
     "gulp-concat-css": "^2.3.0",
     "jquery": "^3.1.0",
     "jquery-ui-sortable": "^1.0.0",
-    "karma": "^1.1.0",
+    "karma": "^1.2.0",
     "karma-babel-preprocessor": "^6.0.1",
     "karma-chai": "^0.1.0",
     "karma-chai-sinon": "^0.1.5",
-    "karma-coverage": "^1.0.0",
+    "karma-chrome-launcher": "^2.0.0",
+    "karma-coverage": "^1.1.1",
+    "karma-growl-reporter": "^1.0.0",
     "karma-mocha": "^1.1.1",
     "karma-phantomjs-launcher": "^1.0.1",
+    "karma-sinon": "^1.0.5",
     "mocha": "^2.5.3",
-    "sinon": "^1.17.4",
+    "mocha-clean": "^1.0.0",
+    "phantomjs": "^2.1.7",
+    "sinon": "^1.17.5",
     "sinon-chai": "^2.8.0"
   }
 }

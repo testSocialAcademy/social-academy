@@ -1,10 +1,11 @@
 body {
+    margin: 0 auto;
+    padding: 0;
     font-family: "PT Sans", sans-serif;
     font-weight: 500;
-    margin:0;
-    padding:0;
-    background: url('../../../img/Kirill-Shmetan/background.jpg') repeat;
-    width: 100%;
+    background: url('../../../img/Kirill-Shmetan/background.jpg');
+    width: 960px;
+    height: auto;
     overflow-x: hidden;
 }
 
@@ -12,24 +13,24 @@ body {
     height: 50px;
     border-top: 50px #E5E4E2 solid ;
     display: block;
-    width: 100%;
+    width: 960px;
     border-radius: 10px;
 }
 
  .header P{
-     color: #0000CD ;
+     color: #32dac7;
      text-align: center;
      top:-60px;
 }
 p {
-    color: #ffa509;
+    color: #ffa8c2;
     font-size: 22px;
     position: relative;
     left: 20px;
 }
 .avatar {
-    height: 300px;
-    width:450px;
+    height: 200px;
+    width:300px;
     border: 2px #8f00cc solid;
     border-radius: 15px;
     float: left;
@@ -37,7 +38,7 @@ p {
 }
 .information {
     height: 300px;
-    width: 650px;
+    width: 350px;
     border: 2px #8f00cc solid;
     border-radius: 15px;
     background-color: #d3dad7;
@@ -46,7 +47,7 @@ p {
     padding: 0px 50px 0px 50px;
     }
 #hobbies {
-    color: #ffa509;
+    color: #ffa8c2;
     font-size:20px;
     display: block;
 }
@@ -62,9 +63,10 @@ p {
     margin-right: 5%;
     margin-top: 5%;
     margin-bottom: 30px;
+
 }
 .news ul li a:hover {
-    color: #ff6f40;
+    color: #ffa8c2;
 }
 h3 {
     color: #000000;
