@@ -7,11 +7,21 @@
 .btn .btn_IN {
     font-family: @brand-font;
 }
+.pictures_button_IN {
+    color:red;
+    font-weight: bold;
+}
+
+.pictures_button_IN:hover {
+    color:black;
+
+}
 
 .heading  #profile_IN{
     background-color: #3c3c3c;
     text-align: center;
     color: #1b6d85;
+    border-radius: 20% 0 20% 0;
 }
 
 #wrapper_IN {
@@ -32,6 +42,7 @@
 
 #navi_IN
 {
+    margin-top: 20px;
     background-color: #3c3c3c;
     width: 900px;
 }
@@ -102,6 +113,11 @@
     background-image: url(http://shamrockpalma.com/wp-content/uploads/2015/04/9czE97Mgi.png);
 
 }
+
+.people_IN_main {
+    margin-left: 35px;
+}
+
 /*                                      ----------------                               */
 
 

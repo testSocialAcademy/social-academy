@@ -6,7 +6,11 @@
     <title>GEEK.CLUB</title>
     <link href="../../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="../../node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <link href="css/styles.css" rel="stylesheet">
+    <script src="../../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../../node_modules/jquery-ui/jquery-ui.min.js"></script>
     <!--<link href="../../css/style.css" rel="stylesheet">-->
 
     <!--[if lt IE 9]>
@@ -36,16 +40,19 @@
         <li role="presentation"><a href="#profile">Profile</a></li>
         <li role="presentation"><a href="#">Messages</a></li>
         <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                Friends <span class="caret"></span>
-            </a>
+            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Friends
+            </button>
+
             <ul class="dropdown-menu">
-                <li><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
+                <li><a href="../../pages/aleksandr-feschenko/index.html">Олександр Фещенко</a></li>
+                <li><a href="../../pages/andrey-ivanov/index.html">Андрій Іванов</a></li>
+                <li><a href="../../pages/maksym-kolisnyk/index.html">Максим Колісник</a></li>
+                <li><a href="../../pages/michail_suprunov/index.html">Михайло Супрунов</a></li>
+                <li><a href="../../pages/sergey-piven/index.html">Сергій Півень</a></li>
+                <li><a href="../../pages/serhii-kravchenko/index.html">Сергій Кравченко</a></li>
             </ul>
         </li>
-        <li role="presentation"><a href="images.html">Pictures</a></li>
+        <li role="presentation"><a href="images.html" class="pictures_button_IN">Pictures</a></li>
     </ul>
         </div>
     </header>
@@ -80,20 +87,27 @@
 
 
 <!------------------------------------------------------------------------->
-    <div class="col-md-5 col-xs-5 pull-left">
-        <ul class="list-group submenu " id="toDoList">
+    <div class="col-md-5 col-xs-5 pull-left" >
+        <ul class="list-group submenu " id="toDoList" >
 
-            <li class="list-group-item active">
-                <div class="form-group">
-                <label for="toDo">To Do List</label>
-                <input type="text" class="form-control form-control_IN" id="toDo">
-                <input type="submit" class="btn btn-info btn_IN" value="Submit Button" id="button" onclick="addItem_IN()">
+            <li class="list-group-item active" >
+                <div class="form-group" >
+                <label for="toDo"> To Do List </label>
+                <input type="text" class= "form-control form-control_IN" id= "toDo" value= '' >
+                    <!--onKeyUp="javascript:document.getElementById('id_div').innerHTML = this.value;"-->
+                <input type="submit" class="btn btn-info btn_IN" value="Submit Button" id="button" onclick="addItem_IN(); reset()" >
                 </div>
+
            </li>
+            </ul>
+            <ul class="list-group submenu " id="toDoList_second" >
+
+
         </ul>
     </div>
 
-    <div class="col-md-4 col-xs-3 pull-left">
+
+<div class="col-md-4 col-xs-3 pull-left people_IN_main" >
 
         <div class="list-group submenu people_IN" >
             <ul class="list-group submenu" id="Men">

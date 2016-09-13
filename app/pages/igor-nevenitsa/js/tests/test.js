@@ -8,11 +8,7 @@ describe("Проверка Index", function () {
         it("Возвращает Undefinded  ", function (){
             expect(locStorStart_IN()).to.be.an('Undefined');
         });
-
     });
-
-
-
 
 
         describe( " Список Хобби ", function () {
@@ -23,7 +19,8 @@ describe("Проверка Index", function () {
             it("Массив не пустой", function (){
                 expect(divText_IN()).to.not.empty;
             });
-
         });
 
-    });
+
+});
+

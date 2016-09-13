@@ -7,32 +7,53 @@
 
 ;'use strict';
 
+/*
+
+
+
+
+
+function reset() {
+    $("#toDo").val("");
+}
+
+
+function addItem_IN() {
+    var text = document.getElementById("toDoList");
+    var form = document.getElementById("toDo").value;
+    var newLi = document.createElement("li");
+
+    newLi.innerHTML = form;
+
+    newLi.setAttribute("class", "list-group-item");
+    newLi.setAttribute("onclick",  "locStorDel_IN(this)" );
+
+    localStorage.setItem(form, form);
+
+    text.appendChild(newLi);
+
+    return form;
+
+}*/
+
 
 function locStorStart_IN() {
-    var text = document.getElementById("toDoList");
-    for ( var i = 0; i < localStorage.length; i++) {
+    var text = document.getElementById("toDoList_second");
 
+
+    for ( var i = 0; i < localStorage.length; i++) {
 
         var newLi;
         var locStor = localStorage.getItem(localStorage.key(i));  //Достаем из localStorage ключ по очереди, используя
         //текущее значение i
-
         newLi = document.createElement("li");
         newLi.setAttribute("class", "list-group-item ");
-
-        /* newLi.setAttribute("onclick",   "this.parentNode.removeChild(this);" );*/
-
         newLi.setAttribute("onclick", "locStorDel_IN(this)");
-
-        /*newLi.setAttribute("name",  "i");*/
-
         newLi.innerHTML = locStor;
         text.appendChild(newLi);
-
-
     }
 }
-locStorStart_IN();
+
 
 function locStorDel_IN(param) {
 
@@ -42,42 +63,92 @@ function locStorDel_IN(param) {
 
         localStorage.removeItem(a);
 
-
-
         param.parentNode.removeChild(param);    //удаляет ребенка ul => li со значением this из
     }                                       // newLi.setAttribute("onclick",  "locStorDel(this)" );
-
     return true;
-
 }
 
+$(document).ready(function() {
+    $('#toDoList_second').sortable();
+function appendText_IN(elem, event) {
+    var txt = elem.value;
+    if(txt.length > 0) {
+        $('#toDoList_second li:last-child').text(txt).attr("onclick", "locStorDel_IN(this)");
 
-function addItem_IN() {
-    var text = document.getElementById("toDoList");
+    }
+    if (event.which === 13){
+        localStorage.setItem(txt, txt);
+        $(elem).val('');
+
+    }
+}
+
+function buildLi_IN() {
+    if($('#toDo').val().length === 0) {
+        $('#toDoList_second').append('<li></li>').addClass("list-group-item");
+}}
+
+$('#toDo').on('keypress', function () {
+    buildLi_IN();
+    });
+
+    $('#toDo').on('keyup', function (ev) {
+        appendText_IN(this, ev);
+    });
 
 
-    var form = document.getElementById("toDo").value;
-    var newLi = document.createElement("li");
+
+});
+//--------------------- HMW 12 ----------
+/*
+
+function valueHandler (itsThis, elem) {
+    var message = itsThis.value;
+    var toDoList = document.getElementById("toDoList_second");
+
+    $('#toDoList li:last-child').text(message);
 
 
+    let text = document.getElementById("toDoList");
+    let form = document.getElementById("toDo").value;
+    let newLi = document.createElement("li");
 
-    newLi.innerHTML = form;
-
-
+    /!*newLi.innerHTML = form;*!/
 
     newLi.setAttribute("class", "list-group-item");
     newLi.setAttribute("onclick",  "locStorDel_IN(this)" );
 
-
     localStorage.setItem(form, form);
 
-
-
     text.appendChild(newLi);
+}
 
-    return form;
+function createList() {
+    if ($('#toDo').val().length === 0) {
+        $('#toDoList_second').append('<li class="list-group-item"></li>');
+    }
 
 }
+$('#toDo').on('keyup', function (elem) {
+    valueHandler(this, elem);
+});
+
+$('#toDo').on('keypress', function () {
+    createList();
+});
+
+
+/!*
+var text1 = document.getElementById("toDoList");
+var newLi1 = document.createElement("li");
+
+$('#toDo').keypress(function(){
+    var formVal = $('#toDo').val();
+    });*!/
+*/
+
+////------
+
 
 
 
@@ -310,6 +381,7 @@ UsersSecond_IN.prototype.display_IN = function () {
             ul.setAttribute("class", "list-group-item ");
             ul.appendChild(li);
             ul.appendChild(img);
+
             return ul;
         };
 
@@ -319,6 +391,7 @@ UsersSecond_IN.prototype.appendPeople_IN = function (ul, i) {
             var friendsUsers = document.getElementById("friendsUsers");
             if (this.findUsers_IN[i].gender == "male") {
                 men1.appendChild(ul);
+
             }
             else if (this.findUsers_IN[i].gender == "female") {
                 women1.appendChild(ul);
@@ -333,26 +406,45 @@ function startUsers_IN() {
 
     var UsersLink = "http://api.randomuser.me/?results=10";
     var start_IN = new UsersSecond_IN();
+
+    /*var friendsMy = {
+        gender: "female",
+        name: {
+            first: "Jina",
+            last: "Alanee",
+                },
+        picture: {
+            thumbnail: "http://xyya.net/uploads/posts/2013-05/thumbs/1368796510_09872_pic_038_122_522lo.jpg"
+        }
+    };
+
+    var str = JSON.stringify(friendsMy);
+    var str1 = JSON.parse(str);
+    console.log(str1);
+    start_IN.addUser_IN(str1);*/
+
     start_IN.response_IN(UsersLink);
     start_IN.display_IN();
 }
 
-startUsers_IN();
-Ajax_IN();
-hobbyAdd_IN();
+//------------------ IMAGES  HOMEWORK 10 ------------------------------------
 
-/*//--------------  10
+
+//--------------  10
+
 
 function  promiseAjax_IN (url) {
-    var resp = null;
+    var images;
     return new Promise (function(resolve, reject) {
         var xhr = new XMLHttpRequest();
         xhr.open("GET", url, true);
 
         xhr.onload = function () {
             if (this.status == 200) {
-                resp = JSON.parse(xhr_IN.responseText).results;
-                resolve(this.response);
+                images = JSON.parse(xhr.responseText);
+                console.log(images);
+
+                resolve(images);
             }
             else {
                 var error = new Error(this.statusText);
@@ -364,34 +456,319 @@ function  promiseAjax_IN (url) {
             reject(new error("Net Error, first Ajax"));
         };
         xhr.send();
+    });
+}
+
+
+promiseAjax_IN("https://pixabay.com/api/?key=2980920-46f1aa264b036ffc6e45ebad0&orientation=vertical&q=red+flowers&min_height=500")
+    .then(
+        images => {
+            console.log(`----  USER ------: ${images}`);
+            var images1 = images.hits;
+            console.log(`----  USER ------: ${images1}`);
+            for (let i=0; i < 10; i++) {
+                if (images1[i].webformatURL) {
+                    console.log(images1[4].webformatURL);
+                }
+            }
+            return images1;
+        })
+    .then(images1 => {
+        addPictures_IN(images1);
 
     })
-}*/
-/*
-function  promiseAjax1_IN (url) {
-    var resp1 = null;
+    .catch(error => {
+        console.log(error); // Error: Not Found
+    });
+//=== second ajax
+
+function promiseAjax_1_IN(url) {
+    var images;
     return new Promise (function(resolve, reject) {
         var xhr = new XMLHttpRequest();
-        xhr.open ("GET", url, true);
+        xhr.open("GET", url, true);
 
-        xhr.onload = function() {
-            if (this.status == 200);
+        xhr.onload = function () {
+            if (this.status == 200) {
+                images = JSON.parse(xhr.responseText);
+                console.log(images);
 
-            resolve(this.response);
+                resolve(images);
+            }
+            else {
+                var error = new Error(this.statusText);
+                error.code = this.status;
+                reject(error);
+            }
+        };
+        xhr.onerror - function () {
+            reject(new error("Net Error, first Ajax"));
+        };
+        xhr.send();
+    });
+}
+
+promiseAjax_1_IN("https://pixabay.com/api/?key=2980920-46f1aa264b036ffc6e45ebad0&orientation=vertical&q=yellow+flowers&min_height=500")
+    .then(
+        images => {
+            console.log(`----  USER ------: ${images}`);
+            var images2 = images.hits;
+            console.log(`----  USER ------: ${images2}`);
+            for (let i=0; i < 10; i++) {
+                if (images2[i].webformatURL) {
+                    console.log(images2[1].webformatURL);
+                }
+            }
+            return images2;
+        })
+    .then(images2 => {
+        addPictures_IN(images2);
+
+    })
+    .catch(error => {
+        console.log(error); // Error: Not Found
+    });
+
+//========
+
+
+function addPictures_IN (img) {
+
+    let slidesWrapper = document.getElementById("slidesWrapper_IN");
+    console.log(slidesWrapper);
+    var images = img;
+    /* var div = document.createElement('div');
+     slidesWrapper.appendChild(div);*/
+    for (let i = 0; i < 10; i++) {
+        if (images[i].webformatURL) {
+            img = document.createElement("img");
+            img.src = images[i].webformatURL;
+            slidesWrapper.appendChild(img);
+
+        }
+        //проверка загрузи всех картинок и запуск слайдера
+        if (document.querySelectorAll('img').length == 20) {
+            img.onload = function () {
+                main_IN();
+            };
+            img.onerror = function () {
+                alert("Ошибка " + this.src)
+            };
+        }
+        console.log("Картинки загружены   " + new Date());
+
+    }
+}
+
+
+//-----------------
+
+
+function main_IN() {
+
+    console.log("main Загружен   " + new Date());
+
+
+
+    var globals_in = {
+
+        slideDelay: 4000,
+        fadeDelay: 35,
+        wrapperID: "slidesWrapper_IN",
+        buttonID: "slideShowButton_IN",
+        buttonStartText: "Start Slides",
+        buttonStopText: "Stop Slides",
+        wrapperObject:  document.getElementById("slidesWrapper_IN"),
+        buttonObject: document.getElementById("slideShowButton_IN"),
+        slideImages: document.querySelectorAll('img'),
+        slideShowID: null,
+        slideShowRunning: true,
+        slideIndex: 0,
+    };
+    console.log(globals_in.slideImages + "  slideImages");
+
+
+
+    /*initializeGlobals_IN();*/
+    if (insufficientSlideShowMarkup_IN()) {
+        return alert("error");
+    } //проверка разметки
+
+
+    if (globals_in.slideImages.length == 1) {
+        return;
+    }
+
+
+    initializeSlideShowMarkup_IN(); //подготовка разметки
+
+    globals_in.wrapperObject.addEventListener('click', toggleSlideShow_IN, false); //Отключение слайдшоу
+
+    if (globals_in.buttonObject) {
+        globals_in.buttonObject.addEventListener('click', toggleSlideShow_IN, false);
+    }
+
+    startSlideShow_IN();
+
+
+//проверка разметки
+    function insufficientSlideShowMarkup_IN() {
+        if (!globals_in.wrapperObject) {
+            if (globals_in.buttonObject) {
+                globals_in.buttonObject.style.display = "none";
+            }
+            return true;
+        }
+
+        if (!globals_in.slideImages.length) {
+            if (globals_in.wrapperObject) {
+                globals_in.wrapperObject.style.display = "none";
+            }
+
+            if (globals_in.buttonObject) {
+                globals_in.buttonObject.style.display = "none";
+            }
+
+            return true;
+        }
+
+        return false;
+    }
+
+
+//подготовка разметки
+    function initializeSlideShowMarkup_IN() {
+        var slideWidthMax = maxSlideWidth_IN();
+        var slideHeightMax = maxSlideHeight_IN();
+
+        globals_in.wrapperObject.style.position = "relative";
+        globals_in.wrapperObject.style.overflow = "hidden";
+        globals_in.wrapperObject.style.width = slideWidthMax + "px";
+        globals_in.wrapperObject.style.height = slideHeightMax + "px";
+
+        var slideCount = globals_in.slideImages.length;
+        console.log(slideCount);
+        for (var i = 0; i < slideCount; i++) {
+            globals_in.slideImages[i].style.opacity = 0;
+            globals_in.slideImages[i].style.position = "absolute";
+            globals_in.slideImages[i].style.top = (slideHeightMax - globals_in.slideImages[i].getBoundingClientRect().height) / 2 + "px";
+            globals_in.slideImages[i].style.left = (slideWidthMax - globals_in.slideImages[i].getBoundingClientRect().width) / 2 + "px";
+            //выталкивание меньших изображений из угла
+        }
+
+        globals_in.slideImages[0].style.opacity = 1;
+
+        if (globals_in.buttonObject) {
+            globals_in.buttonObject.textContent = globals_in.buttonStopText;
+        }
+    }
+
+
+// вычисление наибольших размеров слайдов
+
+    function maxSlideWidth_IN() {
+        var maxWidth = 0;
+        let maxSlideIndex = 0;
+        let slideCount = globals_in.slideImages.length;
+
+        for (var i = 0; i < slideCount; i++) {
+            if (globals_in.slideImages[i].width > maxWidth) {
+                maxWidth = globals_in.slideImages[i].width;
+                maxSlideIndex = i;
+            }
+        }
+
+        return globals_in.slideImages[maxSlideIndex].getBoundingClientRect().width;
+    }
+
+    function maxSlideHeight_IN() {
+        var maxHeight = 0;
+        let maxSlideIndex = 0;
+        let slideCount = globals_in.slideImages.length;
+
+        for (var i = 0; i < slideCount; i++) {
+            if (globals_in.slideImages[i].width > maxHeight) {
+                maxHeight = globals_in.slideImages[i].height;
+                maxSlideIndex = i;
+            }
+        }
+
+        return globals_in.slideImages[maxSlideIndex].getBoundingClientRect().height;
+    }
+
+
+    function startSlideShow_IN() {
+        globals_in.slideShowID = setInterval(transitionSlides_IN, globals_in.slideDelay);
+    }
+
+    function haltSlideShow_IN() {
+        clearInterval(globals_in.slideShowID);
+    }
+
+    function toggleSlideShow_IN() {
+        if (globals_in.slideShowRunning) {
+            haltSlideShow_IN();
+            if (globals_in.buttonObject) {
+                globals_in.buttonObject.textContent = globals_in.buttonStartText;
+            }
         }
         else {
-            var error = new Error(this.statusText);
-            error.code = this.status;
-            reject(error);
+            startSlideShow_IN();
+            if (globals_in.buttonObject) {
+                globals_in.buttonObject.textContent = globals_in.buttonStopText;
+            }
         }
-    };
-    xhr.onerror - function () {
-        reject (new error("Net Error, second Ajax"));
-    };
-    xhr.send();
-}
-*/
+        globals_in.slideShowRunning = !(globals_in.slideShowRunning);
+    }
 
+
+    globals_in.wrapperObject.addEventListener('click', toggleSlideShow_IN, false);
+
+    if (globals_in.buttonObject) {
+        globals_in.buttonObject.addEventListener('click', toggleSlideShow_IN, false);
+    }
+
+    function transitionSlides_IN() {
+        var currentSlide = globals_in.slideImages[globals_in.slideIndex];
+
+        ++(globals_in.slideIndex);
+        if (globals_in.slideIndex >= globals_in.slideImages.length) {
+            globals_in.slideIndex = 0;
+        }
+
+        var nextSlide = globals_in.slideImages[globals_in.slideIndex];
+
+        var currentSlideOpacity = 1;
+        var nextSlideOpacity = 0;
+        var opacityLevelIncrement = 1 / globals_in.fadeDelay;
+        var fadeActiveSlidesID = setInterval(fadeActiveSlides, globals_in.fadeDelay);
+
+        function fadeActiveSlides() {
+            currentSlideOpacity -= opacityLevelIncrement;
+            nextSlideOpacity += opacityLevelIncrement;
+
+            console.log(currentSlideOpacity + nextSlideOpacity);
+
+            if (currentSlideOpacity >= 0 && nextSlideOpacity <= 1) {
+                currentSlide.style.opacity = currentSlideOpacity;
+                nextSlide.style.opacity = nextSlideOpacity;
+            }
+            else {
+                currentSlide.style.opacity = 0;
+                nextSlide.style.opacity = 1;
+                clearInterval(fadeActiveSlidesID);
+            }
+        }
+    }
+
+}
+
+
+
+locStorStart_IN();
+startUsers_IN();
+Ajax_IN();
+hobbyAdd_IN();
 
 
 
