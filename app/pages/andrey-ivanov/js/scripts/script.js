@@ -191,7 +191,7 @@ Users2_ai.prototype.responseRequest = function(responce) {
 
                 userImage = document.createElement('img');
                 userImage.src = people[i].picture.large;
-                userImage.className = "style_userImage";
+ userImage.className = "style_userImage";
                 divFemale.appendChild(userImage);
 
                 user = document.createElement('strong');

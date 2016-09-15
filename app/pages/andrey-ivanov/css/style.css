@@ -1,93 +1,115 @@
 
 .ai {
-     background: #edeef0;
+    background: #edeef0;
 
- }
- .row_ai {
-     width: 100%;
-     overflow: hidden;
- }
+}
+
+.row_ai {
+    width: 100%;
+    overflow: hidden;
+}
+
 .ai header {
-     height: 45px;
-     background-color: #507299;
-     border-bottom: 1px solid #466991;
-     position: relative;
-     margin-bottom: 10px;
+    height: 45px;
+    background-color: #507299;
+    border-bottom: 1px solid #466991;
+    position: relative;
+    margin-bottom: 10px;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
 }
 
- .ai article {
-     margin-left: 70px;
-     background-color: white;
-     border-radius: 10px;
-     float: left;
- }
- .ai aside {
-     margin-left: 10px;
-     background-color: white;
-     border-radius: 10px;
- }
- .ai footer {
-     height: 42px;
-     background-color: #507299;
-     border-top: 1px solid #466991;
-     position: relative ;
-     margin-top: 10px;
+.ai article {
+    margin-left: 70px;
+    background-color: white;
+    border-radius: 10px;
+    float: left;
+}
 
-     border-top-left-radius: 15px;
-     border-top-right-radius: 15px;
- }
+.ai aside {
+    margin-left: 10px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.ai footer {
+    height: 42px;
+    background-color: #507299;
+    border-top: 1px solid #466991;
+    position: relative;
+    margin-top: 10px;
+
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
 .ai .logo_ai {
     margin: 4px;
-    font-family: "Indie Flower",sans-serif; color: #edeef0;
+    font-family: "Indie Flower", sans-serif;
+    color: #edeef0;
     font-size: 30px;
     float: left;
     text-align: center;
 }
+
 .ai .img-thumbnail {
     margin-top: 10px;
     width: 302px;
     height: 188px;
 }
+
 .ai .container {
-     width: 100%;
-     min-height: 250px;
-     border: 1px solid #e7e8ec;
-     padding-bottom: 10px;
-     margin: 10px auto;
-     align-content: center;
-     position: relative;
- }
- .ai h2 {
-     font-size: 2em;
- }
- .ai .info {
-     margin-right: 10px;
-     position: relative;
-     float: left;
- }
- .ai .form-control , .btn  {
-     margin-top:10px;
-     margin-right: 10px;
- }
-.ai #news p{
+    width: 100%;
+    min-height: 250px;
+    border: 1px solid #e7e8ec;
+    padding-bottom: 10px;
+    margin: 10px auto;
+    align-content: center;
+    position: relative;
+}
+
+.ai h2 {
+    font-size: 2em;
+}
+
+.ai .info {
+    margin-right: 10px;
+    position: relative;
+    float: left;
+}
+
+.ai .form-control, .btn {
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+.ai #news p {
 
     font-size: 12px;
-    text-align: justify;
-;
+    text-align: justify;;
 }
- /*style my freands */
- .ai .style_userImage {
-     width: 50px;
-     height: 50px;
-     position: relative;
-     float: left;
-     margin-right: 5px;
 
- }
-/*style my images */
+/*style my freands */
+.ai .style_userImage {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    float: left;
+    margin-right: 5px;
+
+}
+
+/*style my images homework_10,11 */
 .myImages {
-    width: 213px;
-    height: 320px;
+    width: 60px;
+    height: 100px;
+    display: inline-block;
+    margin: 10px 2px;
+}
+
+#imgShow {
+    width: 500px;
+    height: 500px;
+    position: absolute;
+
 }
