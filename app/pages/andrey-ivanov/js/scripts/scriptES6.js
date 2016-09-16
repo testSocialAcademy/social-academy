@@ -148,5 +148,35 @@ $(function () {
 
     $('#imgShow').on('click', "img", function (e) {
         $('#imgShow img').hide()
-    })
+    });
+
+});
+///////////////////////////////////  Homework 12  /////////////////////////////////////////////////////////////////////
+
+$(function () {
+    function addText_ai(element, event) {
+        var text = element.value;
+        if (text.length > 0) {
+            $('#listToDo_12_ai li:last-child').text(text);
+        }
+        if (event.which === 13) {
+            $(element).val('');
+        }
+    }
+
+    function createList_ai() {
+        if ($('#todo12').val().length === 0) {
+            $('#listToDo_12_ai').append('<li></li>');
+        }
+    }
+
+    $('#todo12').on('keyup', function (e) {
+        addText_ai(this, e)
+    });
+
+    $('#todo12').on('keypress', function (e) {
+        createList_ai()
+    });
+
+    $("#listToDo_12_ai").sortable();
 });
