@@ -16,9 +16,9 @@
 
         if (personalInfo) {
             personalInfo.appendChild(list);
-        };
+        }
         return true;
-    };
+    }
     showHobby();
 
 
@@ -119,7 +119,7 @@
             }
         }
 
-    };
+    }
     loadItems();
 
 
@@ -159,7 +159,7 @@ Users.prototype.getUsers = function (link) {
     };
 
     xhr.send();
-};
+}
 
 
 function NewUsers() {
