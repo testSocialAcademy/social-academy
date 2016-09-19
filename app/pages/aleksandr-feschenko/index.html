@@ -3,46 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <title>Александр Фещенко</title>
-    <link rel="stylesheet" href="css/style.css">
+	<link href='https://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="../../css/style.css">
+	<script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
 </head>
-<body>
-	<div class="content">
-		<div class="header">
-			<h1>Aleksandr Feschenko</h1>
+
+<body class="body_af" id="afMainPage">
+	<header class="header_af">
+		<div class="wrapper_af">
+			<a class="header-title_af" href="/">Aleksandr Feschenko</a>
 		</div>
-		<div class="navigation_menu">
-			<ul>
-				<li><img class="avatar" src="../../img/aleksandr-feschenko/avatar.jpg" alt="This is avatar" ></li>
-				<li><a href="#">Home</a>
-				<li><a href="#">Friends</a>
-				<li><a href="#">Messages</a>
-				<li><a href="#">Settings</a>
-			</ul>
-		</div>
-	
-		<div class="user_information">
-		<!--<h2>User Information:</h2> -->
-			<table>
-				<tr>
-					<th>Date Of Birth:</th>
-					<th>02.04.1992</th>
-				</tr>
-				<tr>
-					<th>Hobbies:</th>
-					<th>
-						<ul id ="hobbiesList">
-						</ul>
-					</th>
-				</tr>
-			</table>
-			
-		</div>
-	
-		<div class="footer"> 
-			Personal page © 2016
+	</header>
+
+	<div class="content_af">
+		<div class="wrapper_af">
+			<div class="left_column_af">
+				<menu class="navigation_menu_af">
+					<li><img class="avatar_af" src="../../img/aleksandr-feschenko/avatar.jpg" alt="This is avatar" ></li>
+					<li><a class="navigation_menu-link_af" href="../../index.html">Friends</a>
+					<li><a class="navigation_menu-link_af" href="#" onclick="displayUsersOnPage_af();">Some Peoples</a>
+					<li><a class="navigation_menu-link_af" href="#" onclick="getNews_af('news/news.json');">News</a>
+					<li><a class="navigation_menu-link_af" href="images.html">Pictures</a>
+				</menu>
+			</div>
+		
+			<div class = "right_column_af">
+				<div class = "user_information_af">
+					<table>
+						<tr>
+							<th class="user_information-cells_af">Date Of Birth:</th>
+							<th class="user_information-cells_af">02.04.1992</th>
+						</tr>
+						<tr>
+							<th class="user_information-cells_af">Hobbies:</th>
+							<th class="user_information-cells_af">
+								<ul id = "hobbiesList_af" class = "hobbies_list">
+								</ul>
+							</th>
+						</tr>
+					</table>
+				</div>
+
+				<div class = "todo_af" id = "toDoList_af">
+					<h2 class = "todo-title_af">Current tasks: </h2>
+					<ul class = "todo-list_af" id = "itemsList_af">
+
+					</ul>
+					<div class="form_af" id = "form_af">
+						<input class = "text_form_af" id = "textForm_af" type = "text" placeholder = "Description...">
+						<input class = "button_af"  id = "button_af" type="submit" value="Add item">
+					</div>
+				</div>
+
+				<div class="display_section_af" id="cooperativeBlock_af">
+					<ul class="news_list_af" id="newsList_af">
+					</ul>
+
+					<ul class="some_peoples_af" id="males_af">
+					</ul>
+
+					<ul class="some_peoples_af" id="females_af">
+					</ul>
+				</div>
+			</div>
 		</div>
 	</div>
-	<script src="js/scripts.js" async></script>
+
+	<footer class="footer_af">
+		<div class="wrapper_af">
+			Personal page © 2016
+		</div>
+	</footer>
+
+
+	<script src="../../js/all.js" async></script>
+
 </body>
 </html>
 
