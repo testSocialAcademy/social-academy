@@ -1,5 +1,5 @@
 /*HEADER*/
-.header {
+.header_nv {
     font-family: 'Poiret One', cursive;
 }
 
@@ -15,7 +15,7 @@
 }
 
 /* Block with news */
-.newsBlock {
+.newsBlock_nv {
     background: #a4d3ee;
     padding: 5px 10px 10px;
     margin: 5px 0;
@@ -23,14 +23,14 @@
     border-radius: 3px;
 }
 
-.newsBlock h4 {
+.newsBlock_nv h4 {
     font-family: 'Poiret One', cursive;
     font-size: 21px;
 }
-.newsBlock p {
+.newsBlock_nv p {
     font-family: "Trebuchet MS", cursive;
 }
-.newsBlock a {
+.newsBlock_nv a {
     text-decoration: none;
     color: cadetblue;
 }
@@ -40,18 +40,18 @@
 
 
 /* Blocks with users */
-.userList {
+.userList_nv {
     font-family: "Trebuchet MS", cursive;
     margin-bottom: 15px;
 }
 
-.userList h3 {
+.userList_nv h3 {
     font-family: 'Poiret One', cursive;
     font-style: italic;
     font-size: 25px;
 }
 
-.maleList {
+.maleList_nv {
     border: 1px solid #0b97c4;
     overflow: hidden;
     margin-bottom: 10px;
@@ -60,9 +60,80 @@
     border-radius: 4px;
 }
 
-.femaleList {
+.femaleList_nv {
     border: 1px solid #0b97c4;
     padding: 5px;
     background-color: #f1dfd5;
     border-radius: 4px;
 }
+
+
+/* --- Slider page --- */
+
+#pictureBlock_nv {
+    overflow: hidden;
+    margin: 0 auto;
+    height: 640px;
+    width: 426px;
+    border-radius: 15px;
+}
+
+#pictureBlock_nv img {
+    float: left;
+}
+
+#pictureBlock_nv .slider_nv {
+    width: 100000px;
+}
+
+.slideShow_nv {
+    padding: 50px 20px 50px 20px;
+}
+
+#leftButton_nv {
+    width: 100px;
+    height: 100px;
+    float: left;
+    margin-top: 260px;
+}
+
+#rightButton_nv {
+    width: 100px;
+    height: 100px;
+    float: right;
+    margin-top: 250px;
+
+
+}
+
+body {
+    margin: 0 auto;
+    padding: 0;
+    width: 960px;
+    border-top: none;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#autoPlay_nv {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    display: block;
+}
+
+.home_nv {
+    margin: 0 auto;
+}
+
+.home_nv a {
+    margin: 0 auto;
+    display: block;
+}
+
+
+
