@@ -124,7 +124,7 @@ function Users() {
 
 imageUsers();
 
-/*homework9
+/*homework9*/
 
 String.prototype.createPhone = function () {
 
@@ -147,11 +147,6 @@ String.prototype.createPhone = function () {
     return result;
 };
 
-var result = "987321654911".createPhone();
+var result = "q8732165491".createPhone();
 
-console.log(result); //987-321-654-911
-------------------------------------------
-var result = "a87321654911".createPhone();
-
-console.log(result); // "Error"
-*/
+console.log(result);
