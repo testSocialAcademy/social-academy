@@ -4,7 +4,7 @@ body {
     font-family: "PT Sans", sans-serif;
     font-weight: 500;
     background: url('../../../img/Kirill-Shmetan/background.jpg');
-    width: 960px;
+    width: auto;
     height: auto;
     overflow-x: hidden;
 }
@@ -13,17 +13,17 @@ body {
     height: 50px;
     border-top: 50px #E5E4E2 solid ;
     display: block;
-    width: 960px;
-    border-radius: 10px;
-}
+    width: 100%;
+    }
 
- .header P{
-     color: #32dac7;
+.header P{
+     color: #0eda84;
      text-align: center;
      top:-60px;
 }
+
 p {
-    color: #ffa8c2;
+    color: #000000;
     font-size: 22px;
     position: relative;
     left: 20px;
@@ -47,10 +47,64 @@ p {
     padding: 0px 50px 0px 50px;
     }
 #hobbies {
-    color: #ffa8c2;
+    color: #000000;
     font-size:20px;
     display: block;
 }
+.showUsers{
+    position: relative;
+    display: block;
+    width: auto;
+    height: auto;
+}
+#female_gender{
+    display: block;
+    margin-top: 357px;
+    margin-left: 5%;
+    width: 130px;
+    border: 2px #8f00cc solid;
+    border-radius: 15px;
+    background-color: #d3dad7;
+    padding: 20px 50px 20px 50px;
+}
+#female_gender p{
+    font-weight: 600;
+    left: 0px;
+    text-align: center;
+    font-size: 22px;
+}
+
+#female_gender h1{
+    font-weight: 100;
+    text-align: center;
+    font-size: 20px;
+    text-: uppercase;
+}
+
+#male_gender{
+
+    margin-top: 5%;
+    margin-left: 5%;
+    width: 130px;
+    border: 2px #8f00cc solid;
+    border-radius: 15px;
+    background-color: #d3dad7;
+    padding: 20px 50px 20px 50px;
+}
+#male_gender p{
+    font-weight: 600;
+    left: 0px;
+    text-align: center;
+    font-size: 22px;
+}
+
+#male_gender h1{
+    font-weight: 100;
+    text-align: center;
+    font-size: 20px;
+    text-: uppercase;
+}
+
 .news {
     width: 650px;
     font-size:14px;
