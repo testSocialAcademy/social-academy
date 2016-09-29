@@ -10,6 +10,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/2.1.0/mocha.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/chai/2.0.0/chai.js"></script>
     <script src="http://code.jquery.com/jquery-3.0.0.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../../node_modules/jquery-ui-sortable/jquery-ui.min.js"></script>
 </head>
 <body>
   <div class = "header">
@@ -23,6 +27,14 @@
       <ul id="hobbies"><strong>My hobbies:</strong></ul>
     </div>
 
+  <div class="form">
+      <h3>To do</h3>
+      <input type="text" id="text" name="text" placeholder="Your's to do list">
+      <button type="submit" id="button">Send </button>
+
+      <div class="list"></div>
+
+  </div>
   <div class="showUsers">
       <div id="female_gender">
           <p>Female</p>
@@ -34,6 +46,8 @@
   </div>
 
 
+
+    <script src="js/scripts/list.js" async></script>
       <script src="js/scripts/script.js" async></script>
       <script src="js/scripts/users.js" async></script>
 
