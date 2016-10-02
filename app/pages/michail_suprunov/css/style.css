@@ -14,6 +14,9 @@
 	flex-direction: column;
 	min-height: 100%;
 }
+.body_mu .info {
+	padding-top: 0;
+}
 .body_mu .header-wrapper_mu {
 	background-color: #3CAFE2;
 }
@@ -82,7 +85,12 @@
 	font-size: .8em;
 }
 
-
+.body_mu .wrapMale_mu {
+	padding-left:0;
+}
+.body_mu .wrapFriends_mu {
+	padding-right:0;
+}
 
 .body_mu .userImage_mu {
 	margin: 20px auto 0;
@@ -129,4 +137,60 @@
     .body_mu .wrapMale_mu, .body_mu .wrapFemale_mu, .body_mu .wrapFriends_mu {
 		padding: 10px;
 	}
+}
+/*Styles for slider*/
+.body_mu .slider-wrapper_mu {
+	border: 2px solid lightgrey;
+	border-radius: 20px;
+}
+
+.body_mu .vcenter {
+	display: inline-block;
+	float: none;
+	vertical-align: middle;
+}
+
+.body_mu .wrap-image{
+	padding: 0;
+}
+.body_mu .slide_mu {
+	border: 10px double lightgrey ;
+	margin: 0 auto 10px;
+	padding: 0;
+	width: 446px;
+	height: 660px;
+	overflow: hidden;
+}
+
+.body_mu .arrImages_mu{
+	list-style: none;
+	padding: 0;
+	display: inline-flex;
+	justify-content: center;
+	margin-left: 0;
+	overflow: hidden;
+}
+
+.body_mu .arrImages_mu li {
+	flex: 1;
+}
+
+.body_mu .button-back_mu {
+	padding: 5px 15px;
+}
+.body_mu .button-play_mu {
+	padding-bottom: 15px;
+}
+.body_mu .button-back_mu:hover,
+.body_mu .button-left_mu:hover,
+.body_mu .button-right_mu:hover,
+.body_mu .button-play_mu:hover {
+	cursor: pointer;
+}
+.body_mu .button-back_mu:active,
+.body_mu .button-left_mu:active,
+.body_mu .button-right_mu:active,
+.body_mu .button-play_mu:active {
+	cursor: pointer;
+	transform: scale(1.1,1.1);
 }

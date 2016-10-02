@@ -1,6 +1,13 @@
 ;'use strict';
 (function(){
-//Display hobbies	
+//Display hobbies
+function slowScroll(){
+    $('a[href^="#"]').click(function(){
+        let elementClick = $(this).attr("href");
+        let destination = $(elementClick).offset().top;
+        $('body').animate({scrollTop: destination}, 1000);
+    });
+}
 function displayHobbies_mu() {
     var div = document.getElementById("personal-data_mu");
     var pText;
@@ -84,60 +91,65 @@ function putNewsOnPage_mu(responseText) {
     }
 }
 //Work with Local Storage
-function addElementLSList_mu() {
-    var keyLS = document.getElementById("keyLS_mu");
-    var value = keyLS.value;
-    var result = localStorage.getItem(value);
-    if ((localStorage.length == 0 || result == null) && (value != "")) {
-        addElementLS_mu();
-        addElementList_mu();
+    function addText(element, event) {
+        var text = element.value;
+        if (text.length > 0) {
+            $("#listLS_mu li:last-child").text(text);
+        }
+        if (event.which === 13){
+            addElementLS_mu();
+        }
     }
 
+    function createList() {
+        if($("#keyLS_mu").val().length == 0) {
+            $("#listLS_mu").append("<li></li>");
+        }
+    }
     function addElementLS_mu() {
-        localStorage.setItem(value, value);
+        let value = $("#keyLS_mu").val();
+        let result = localStorage.getItem(value);
+        if ((localStorage.length == 0 || result == null) && (value != "")) {
+            localStorage.setItem(value, value);
+            $("#listLS_mu li:last-child").on("click", function(){
+                removeLi_mu(this);
+            });
+            $("#keyLS_mu").val("");
+        }
+        $("#keyLS_mu").focus();
     }
 
-    function addElementList_mu() {
-        var li = document.createElement("li");
-        var listLS = document.getElementById("listLS_mu");
-        li.textContent = value;
-        li.onclick = removeLi_mu;
-        listLS.appendChild(li);
-        keyLS.value = "";
-        return "very nice";
-    }
-}
-
-
-function removeLi_mu() {
-    var _this = this;
-    removeLiLS_mu();
-    removeLiPage_mu();
-
-    function removeLiLS_mu() {
+    function removeLi_mu(_this) {
         localStorage.removeItem(_this.textContent);
+        $(_this).remove();
     }
 
-    function removeLiPage_mu() {
-        var listLS = document.getElementById("listLS_mu");
-        listLS.removeChild(_this);
-    }
-}
+    function initButtonsList() {
+        $("#keyLS_mu").on("keyup", function(event) {
+            addText(this,event);
+        });
 
-function displayLS_mu() {
-    var li = document.createElement("li");
-    var value;
-    if (value) {
-        value = document.getElementById("keyLS_mu").value;
+        $("#keyLS_mu").on("keypress", function() {
+            createList();
+        });
+
+        $("#submitInputLS_mu").on("click", function(){
+            addElementLS_mu();
+        });
+
+        $("#listLS_mu").sortable({axis: 'y'});
     }
-    var listLS = document.getElementById("listLS_mu");
-    for (var i = 0; i < localStorage.length; i++) {
-        li.textContent = localStorage.key(i);
-        li.onclick = removeLi_mu;
-        listLS.appendChild(li);
-        li = document.createElement("li");
+
+    function displayLS_mu() {
+        for (let i = 0; i < localStorage.length; i++) {
+            $("#listLS_mu").append("<li></li>");
+            $("#listLS_mu li:last-child").text(localStorage.key(i));
+            $("#listLS_mu li:last-child").on("click", function(){
+                removeLi_mu(this);
+            });
+        }
     }
-}
+
 // Work with Users
 function Users_mu() {
     this._users = null;
@@ -310,11 +322,9 @@ function workWithUsers_mu() {
 }
 
 function workWithLS_mu() {
-    var submitInputLS = document.getElementById("submitInputLS_mu");
-    if (submitInputLS) {
-        submitInputLS.addEventListener("click", addElementLSList_mu);
-    }
+    slowScroll();
     displayLS_mu();
+    initButtonsList();
 }
 
 workWithUsers_mu();

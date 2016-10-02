@@ -5,76 +5,79 @@
     <title>MyPage</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
-	<link rel="stylesheet" href="css/style.css">
+	 <link rel="stylesheet" href="../../css/style.css">
+   <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+   <script src="../../node_modules/jquery-ui-sortable/jquery-ui.min.js"></script>
 </head>
 <body class="body_mu" >
 <div class="page-wrapper_mu">
 <div class="header-wrapper_mu">
-	<div class="container">
-		<div class="row">
-			<header class="col-xs-12 main-header_mu "><img src="../../img/michail_suprunov/logo.png"></header>
-		</div>	
-	</div>	
+   <div class="container">
+       <div class="row">
+           <header class="col-xs-12 main-header_mu "><img src="../../img/michail_suprunov/logo.png"></header>
+       </div>
+   </div>
 </div>
 <div class="main-wrapper_mu">
-	<div class="container">
-		<div class="row">
-			<nav class="col-xs-12 col-sm-2 main-nav_mu">
-				<ul>
-					<li><a href="../../index.html">Главная</a></li>
-					<li><a href="../../index.html">Друзья</a></li>
-					<li><a href="../../slider.html">Слайдер</a></li>
-					<li><a href="../../index.html">To do list</a></li>
-				</ul>
-			</nav>
-			<div class="info col-xs-12 col-sm-10">
-				<div class="row">
-					<div class="col-xs-5 col-sm-4 avatar_mu">
-						<img class="img-responsive" alt="avatar" src="../../img/michail_suprunov/avatar.png">
-					</div>
-					<div class="col-xs-7 col-sm-8 personal-data_mu" id="personal-data_mu">
-						<p>Michail Suprunov</p>
-						<p>Date of birth: 26/08/1993</p>
-					</div>	
-				</div>
-				<div class=="wrapUsers_mu row>
-						<div class="wrapMale_mu col-xs-4">
-							<div class = "maleUsers_mu" id="maleUsers_mu">
-								<h3>Male users</h3>
-							</div>
-						</div>
-						<div class="wrapFemale_mu col-xs-4">
-							<div class = "femaleUsers_mu" id="femaleUsers_mu">
-								<h3>Female users</h3>
-							</div>
-						</div>
-						<div class="wrapFriends_mu col-xs-4">
-							<div class = "friendsUsers_mu" id="friendsUsers_mu">
-								<h3>My friends</h3>
-							</div>
-						</div>
-				</div>
-				<div class="wrapListLS_mu col-xs-12">
-					<div class="inputLS_mu col-xs-12">
-						<input id="keyLS_mu" type="text" name="keyLS" value="">
-						<input id="submitInputLS_mu" type="submit" value="Add into LS">
-					</div>
-					<div class="col-xs-4">
-						<ul id="listLS_mu">
-						</ul>
-					</div>
-				</div>
-				<div class="newsColumn_mu col-xs-12" id="newsColumn_mu">
-				</div>
-	
-			</div>
-		</div>
-	</div>
+   <div class="container">
+       <div class="row">
+           <nav class="col-xs-12 col-sm-2 main-nav_mu">
+               <ul>
+                   <li><a href="../../index.html">Friends</a></li>
+                   <li><a href="#users_mu">Users</a></li>
+                   <li><a href="slider.html">Slider</a></li>
+                   <li><a href="#listLS">To do list</a></li>
+               </ul>
+           </nav>
+           <div class="info col-xs-12 col-sm-10">
+               <div class="row">
+                   <div class="col-xs-5 col-sm-4 avatar_mu">
+                       <img class="img-responsive" alt="avatar" src="../../img/michail_suprunov/avatar.png">
+                   </div>
+                   <div class="col-xs-7 col-sm-8 personal-data_mu" id="personal-data_mu">
+                       <p>Michail Suprunov</p>
+                       <p>Date of birth: 26/08/1993</p>
+                   </div>
+               </div>
+               <div id="users_mu" class=="wrapUsers_mu row>
+                       <div class="wrapMale_mu col-xs-4">
+                           <div class = "maleUsers_mu" id="maleUsers_mu">
+                               <h3>Male users</h3>
+                           </div>
+                       </div>
+                       <div class="wrapFemale_mu col-xs-4">
+                           <div class = "femaleUsers_mu" id="femaleUsers_mu">
+                               <h3>Female users</h3>
+                           </div>
+                       </div>
+                       <div class="wrapFriends_mu col-xs-4">
+                           <div class = "friendsUsers_mu" id="friendsUsers_mu">
+                               <h3>My friends</h3>
+                           </div>
+                       </div>
+               </div>
+               <div id="listLS" class="wrapListLS_mu col-xs-12">
+                   <div  class="inputLS_mu col-xs-12">
+                       <input id="keyLS_mu" type="text" name="keyLS" value="">
+                       <input id="submitInputLS_mu" type="submit" value="Add into LS">
+                   </div>
+                   <div class="col-xs-4">
+                       <ul id="listLS_mu">
+                       </ul>
+                   </div>
+               </div>
+               <div class="newsColumn_mu col-xs-12" id="newsColumn_mu">
+               </div>
+
+           </div>
+       </div>
+   </div>
 </div>
 <div class="footer-wrapper_mu">
-	<footer class="main-footer_mu">© 2016 Michail Suprunov</footer>
+   <footer class="main-footer_mu">© 2016 Michail Suprunov</footer>
 </div>
 </div>
-<script src="js/scripts/script.js"></script>
+<!--<script src="js/scripts/script.js"></script>-->
+<script src="../../js/all.js"></script>
 </body>
 </html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" class="html_mu">
+<head>
+    <meta charset="UTF-8">
+    <title>Slider</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <script src="../../node_modules/handlebars/dist/handlebars.min.js"></script>
+    <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+</head>
+<body class="body_mu">
+<div class="page-wrapper_mu">
+    <div class="header-wrapper_mu">
+        <div class="container">
+            <div class="row">
+                <header class="col-xs-12 main-header_mu "><img src="../../img/michail_suprunov/logo.png"></header>
+            </div>
+        </div>
+    </div>
+    <div class="main-wrapper_mu">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 button-back_mu">
+                    <img src="../../img/michail_suprunov/back.png">
+                </div>
+                <div class="col-xs-12 slider-wrapper_mu">
+                    <div class="row">
+                        <div class="col-xs-2 button-left_mu vcenter">
+                            <img src="../../img/michail_suprunov/left.png">
+                        </div>
+                        <div class="col-xs-7 wrap-image vcenter">
+                            <div class="slide_mu">
+                                <ul class="arrImages_mu" id="arrImages_mu">
+                                    <script id="actualSlide_mu" type="text/x-handlebars-template">
+                                       {{#each arrImages}}
+                                            <li>
+                                                <img src="{{webformatURL}}">
+                                            </li>
+                                        {{/each}}
+                                    </script>
+                                </ul>
+                            </div>
+                        </div>
+                      <div class="col-xs-2 button-right_mu vcenter">
+                            <img src="../../img/michail_suprunov/right.png">
+                      </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 button-play_mu">
+                <img src="../../img/michail_suprunov/play.png">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-wrapper_mu">
+        <footer class="main-footer_mu">© 2016 Michail Suprunov</footer>
+    </div>
+</div>
+<!--  <script src="../../js/all.js"></script>-->
+<script src="js/scripts/ES6.js"></script>
+</body>
+</html>
