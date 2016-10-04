@@ -1,12 +1,18 @@
-body {
+body{
+    width: 1180px;
     margin: 0 auto;
     padding: 0;
     font-family: "PT Sans", sans-serif;
     font-weight: 500;
     background: url('../../../img/Kirill-Shmetan/background.jpg');
-    width: auto;
     height: auto;
     overflow-x: hidden;
+}
+
+.body_ks ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
 
 .header {
@@ -144,4 +150,61 @@ h3 {
 }
 #mocha{
    bottom-top:50px;
+}
+
+#pictures_ks {
+    display: block;
+    position: relative;
+    margin: 67px 156px;
+    width: 426px;
+    height: 640px;
+    overflow: hidden;
+    border: 3px solid #002979;
+}
+
+#pictures_ks .slides_ks {
+    width: auto;
+}
+
+#pictures_ks img {
+    float: left;
+}
+
+#upButton_ks {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    margin: -779px 353px;
+}
+
+#downButton_ks {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    margin: -65px 353px;
+}
+
+.slider_ks {
+    border: 4px #002979 solid;
+    border-radius: 15px;
+    background-color: white;
+    padding: 0 20px 0 20px;
+}
+
+#playButton_ks {
+    position: absolute;
+    display: block;
+    margin: -450px 700px;
+    width: 83px;
+    height: 88px;
+    border-radius: 50px;
+}
+
+#homepageLink_ks {
+    display: block;
+    margin: 15px 900px;
+    width: 150px;
+    color: orangered;
+    text-decoration: underline;
+    position: absolute;
 }
