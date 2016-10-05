@@ -112,7 +112,7 @@ getImgSecondLink("https://pixabay.com/api/?key=2980920-46f1aa264b036ffc6e45ebad0
         error => alert(`Rejected: ${error}`)
     );
 
-$("#downButton_ks").on('click', function () {
+$("#downButton_ks").on('mouseup', function () {
     if (autoPlay == true) {
         autoPlay = false;
         clearInterval(interval);
@@ -126,7 +126,7 @@ $("#downButton_ks").on('click', function () {
     });
 });
 
-$("#upButton_ks").on('click', ()=> {
+$("#upButton_ks").on('mouseup', function () {
     if (autoPlay == true) {
         autoPlay = false;
         clearInterval(interval);
@@ -141,7 +141,7 @@ $("#upButton_ks").on('click', ()=> {
     picUl.animate({'margin-top': '+=' + height[counter]}, 500);
 });
 
-$("#playButton_ks").on('click', ()=> {
+$("#playButton_ks").on('mouseup', function () {
     if (autoPlay == false) {
         autoPlay = true;
         interval = setInterval(()=> {
