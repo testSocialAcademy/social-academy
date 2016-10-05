@@ -121,8 +121,7 @@ $("#downButton_ks").on('click', function () {
     picUl.animate({'margin-top': '-=' + height[counter]}, 500, ()=> {
         if (++counter == height.length) {
             counter = 0;
-            picUl.css('margin-top', 0);
-        }
+            }
     });
 });
 
@@ -149,8 +148,7 @@ $("#playButton_ks").on('click', ()=> {
             picUl.animate({'margin-top': '-=' + height[counter]}, 1000, ()=> {
                 if (++counter == height.length) {
                     counter = 0;
-                    picUl.css('margin-top', 0);
-                }
+                    }
             });
         }, 3000);
     } else {
