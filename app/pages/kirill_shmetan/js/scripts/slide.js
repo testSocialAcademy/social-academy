@@ -24,7 +24,7 @@ function getImgFirstLink(url) {
             }
         };
         xhr.onerror = function() {
-            reject(new Error("Network Error"));
+            reject(new Error("Error"));
         };
         xhr.send();
     });
@@ -44,13 +44,13 @@ function getImgSecondLink(url) {
             }
         };
         xhr.onerror = function() {
-            reject(new Error("Network Error"));
+            reject(new Error("Error"));
         };
         xhr.send();
     });
 }
 
-function callbackFirst_sp() {
+function callbackFirst_ks() {
     for (let i = 0; i < 10; i++) {
         height.push(firstRes.hits[i].webformatHeight);
 
@@ -62,7 +62,7 @@ function callbackFirst_sp() {
     }
 }
 
-function callbackSecond_sp() {
+function callbackSecond_ks() {
     for (let i = 0; i < 10; i++) {
         height.push(secondRes.hits[i].webformatHeight);
 
@@ -98,7 +98,7 @@ getImgFirstLink("https://pixabay.com/api/?key=2980920-46f1aa264b036ffc6e45ebad0&
     .then(
         response => {
             firstRes = JSON.parse(response);
-            callbackFirst_sp();
+            callbackFirst_ks();
         },
         error => alert(`Rejected: ${error}`)
     );
@@ -107,7 +107,7 @@ getImgSecondLink("https://pixabay.com/api/?key=2980920-46f1aa264b036ffc6e45ebad0
     .then(
         response => {
             secondRes = JSON.parse(response);
-            callbackSecond_sp();
+            callbackSecond_ks();
         },
         error => alert(`Rejected: ${error}`)
     );
